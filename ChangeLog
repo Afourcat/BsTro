@@ -1,0 +1,28 @@
+/*
+** EPITECH PROJECT, 2017
+** ChangeLog
+** File description:
+** Bistro ChangeLog
+*/
+
+//  Autor
+//    vinchenzo.guibert@epitech.eu
+//    thomas.nicollet@epitech.eu
+//    alexandre.fourcat@epitech.eu
+
+//___________________________________________________________________________//
+
+Name         : first error gestion
+Date         : October 23 2017
+Changelog by : afourcat
+Description  :
+I make two first error functions that display errors.
+
+//___________________________________________________________________________//
+
+Name         : Beginning
+Date         : October 18 2017
+Changelog by : afourcat
+Description  :
+I Create the repository and I write 2 files ChangeLog and Project that will be
+used by us during the bistro project.

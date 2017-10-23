@@ -1,0 +1,47 @@
+/*
+** EPITECH PROJECT, 2017
+** Projet
+** File description:
+** Plan project bistro-matic
+*/
+
+//----------------------------------TODO-------------------------------------//
+
+//-----VINZ-----/
+
+//-----THOMAS---/
+
+//-----ALEX-----/
+  Write error function think about error system
+
+
+CONCEPT : Calcul en chaine de charactère.
+
+Utilisitaion de pointeurs de functions.
+
+code full norme une fonction par concept.
+      exemple:
+        My_mul = multiplie
+        My_print_res = print le resultat
+
+Fichier source et header clairement séparer !
+header et source pour chaque styles de functions.
+      exemple :
+        computing.h   computing.src
+        printing.h    printing.src
+        priority.h    priority.src  etc...
+
+TRAVAUX
+
+1- Prioritée de calculs
+    -système de gestion des parenthèse etc, calcule dans le bon sens
+
+2- Gestion des calculs en chaine de caractère
+
+3- Recuperation des Arguments et repartition dans le calcul
+
+4- Imprévues ...
+
+4- Interface graphique ?
+
+//----------------------------------DONE-------------------------------------//
