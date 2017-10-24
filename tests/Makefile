@@ -9,7 +9,7 @@ SRC_DIR		=	$(realpath ..)
 
 SRC_UT_DIR	=	$(realpath .)
 
-SRC		=	$(SRC_DIR)/my_strcpy.c #\
+SRC		=	$(SRC_DIR)/add.c #\
 
 SRC_UT		=	$(SRC_UT_DIR)/tests_my_strcpy2.c #\
 
