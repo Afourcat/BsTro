@@ -10,7 +10,7 @@
 #include <string.h>
 #include <utils.h>
 
-static void check_base(char **av);
+static void check_base(char *av);
 static void check_ops(char *ops);
 static char *get_expr(unsigned size);
 

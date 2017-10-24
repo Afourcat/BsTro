@@ -15,7 +15,7 @@ FLAGS		=	-I./include
 
 NAME		=	calc
 
-all:
+all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) $(FLAGS)
