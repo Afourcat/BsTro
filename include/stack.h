@@ -1,12 +1,12 @@
 /*
 ** EPITECH PROJECT, 2017
-** pile.h
+** stack.h
 ** File description:
 ** filo
 */
 
-#ifndef PILE_H_
-#define PILE_H_
+#ifndef STACK_H_
+#define STACK_H_
 
 typedef struct stack
 {
@@ -19,4 +19,4 @@ stack_t *add_stack(stack_t **pile, char data);
 char out_stack(stack_t **pile);
 int size_stack(stack_t *pile);
 
-#endif /* PILE_H_ */
+#endif /* STACK_H_ */

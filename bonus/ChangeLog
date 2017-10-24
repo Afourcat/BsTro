@@ -21,9 +21,11 @@ Description  :
 
 Name         : Unit tests and structuratio of the project
 Date         : October 24 2017
-Changelog by : afourcat vinchenzo
+Changelog by : alexandre vinchenzo thomas
 Description  :
-we write add and sub unit tests then we tought about systems of the project
+we made stack system and think how to make a evalexpr, thomas made the
+begining of the function that put string into postfix.
+vinchenzo made the binarie tree system that put the postfix expression.	
 
 //___________________________________________________________________________//
 

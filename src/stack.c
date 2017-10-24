@@ -5,7 +5,7 @@
 ** stack first in first out 
 */
 
-#include <stack.h>
+#include "stack.h"
 #include <stdlib.h>
 
 stack_t *create_stack(char data)
