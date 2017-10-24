@@ -36,3 +36,15 @@ char out_stack(stack_t **stack)
 	free(temp);
 	return (data);
 }
+
+int size_stack(stack_t *stack)
+{
+	stack_t *temp = stack;
+	int i = 0;
+	
+	while (temp != NULL) {
+		i++;
+		temp = temp->ptr;
+	}
+	return (i);
+}

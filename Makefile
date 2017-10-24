@@ -7,7 +7,7 @@
 
 SRC_DIR		=	$(realpath ./src)
 
-SRC		=	$(SRC_DIR)/pile.c
+SRC		=	$(SRC_DIR)/stack.c
 
 OBJ		=	$(SRC:.c=.o)
 
