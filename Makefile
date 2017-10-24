@@ -9,12 +9,17 @@ SRC	=	error_utlis.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
-NAME	=	bistro-matic
+FLAGS	=	-I./include
+
+NAME	=	calc
 
 all:
 
 $(NAME):	$(OBJ)
-	gcc -o $(NAME) $(OBJ)
+	gcc -o $(NAME) $(OBJ) $(FLAGS)
+
+$(OBJ):
+	gcc -c $(SRC) $(FLAGS)
 
 clean:
 	rm -f *.o
