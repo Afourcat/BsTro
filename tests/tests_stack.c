@@ -1,0 +1,39 @@
+/*
+** EPITECH PROJECT, 2017
+** stack test
+** File description:
+** stack test
+*/
+
+#include <../include/stack.h>
+#include <criterion/criterion.h>
+
+Test(create_stack, basic)
+{
+	stack_t *stack = create_stack('(');
+
+	cr_assert_eq(stack->data, '(', "Should be '('.\n");
+	cr_assert_eq(stack->ptr, NULL, "Should be NULL.\n");
+}
+
+Test(add_stack, basic)
+{
+	stack_t *stack = create_stack('(');
+	stack_t *temp = stack;
+	
+	add_stack(&stack, 'a');
+	cr_assert_eq(stack->data, 'a', "Should be 'a'.\n");
+	cr_assert_eq(stack->ptr, temp, "Should be temp.\n");
+}
+
+Test(out_stack, basic)
+{
+	stack_t *stack = create_stack('(');
+	char data;
+	
+	add_stack(&stack, 'o');
+	data = out_stack(&stack);
+	cr_assert_eq(stack->data, '(', "Should be '('.\n");
+	cr_assert_eq(data, 'o', "Should be o.\n");
+}
+

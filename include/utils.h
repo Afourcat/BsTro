@@ -10,6 +10,8 @@
 
 void my_putchar(char c);
 void my_putstr(char *str);
+int my_strlen(char const ùstr);
+char *my_strcat(char *dest, char *src);
 int my_atoi(char const *str);
 
 #endif /* UTILS_H_ */
