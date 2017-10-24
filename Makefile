@@ -5,13 +5,15 @@
 ## makefile for bistro
 ##
 
-SRC	=	error_utlis.c	\
+SRC_DIR		=	$(realpath ./src)
 
-OBJ	=	$(SRC:.c=.o)
+SRC		=	$(SRC_DIR)/error_display.c	\
 
-FLAGS	=	-I./include
+OBJ		=	$(SRC:.c=.o)
 
-NAME	=	calc
+FLAGS		=	-I./include
+
+NAME		=	calc
 
 all:
 

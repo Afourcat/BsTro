@@ -1,8 +1,12 @@
-# Must list all project files without the main() function
-# Criterion uses its own main() ;
-# having a main() in any .c file will have the build fail
+##
+## EPITECH PROJECT, 2017
+## Makefile
+## File description:
+## Makefile used for unit tests
+##
 
 SRC_DIR		=	$(realpath ..)
+
 SRC_UT_DIR	=	$(realpath .)
 
 SRC		=	$(SRC_DIR)/my_strcpy.c #\
