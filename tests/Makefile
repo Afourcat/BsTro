@@ -5,19 +5,19 @@
 ## Makefile used for unit tests
 ##
 
-SRC_DIR		=	$(realpath ..)
+SRC_DIR		=	$(realpath ../src/)
 
 SRC_UT_DIR	=	$(realpath .)
 
-SRC		=	$(SRC_DIR)/add.c #\
+SRC		=	$(SRC_DIR)/pile.c #\
 
-SRC_UT		=	$(SRC_UT_DIR)/tests_my_strcpy2.c #\
+SRC_UT		=	$(SRC_UT_DIR)/tests_pile.c #\
 
 OBJ		=	$(SRC:.c=.o) $(SRC_UT:.c=.o)
 
 CFLAGS		=	-Wall -Wextra --coverage
 
-LDFLAGS		=	-L/usr/local/lib -lcriterion -lgcov
+LDFLAGS		=	-I../include -L/usr/local/lib -lcriterion -lgcov
 
 NAME		=	units
 
@@ -27,8 +27,8 @@ all:		$(NAME)
 $(NAME):	$(OBJ)
 		gcc -o $(NAME) $(OBJ) $(CFLAGS) $(LDFLAGS)
 
-$(OBJ):
-		gcc -c $(SRC) $(SRC_UT) $(CDFLAGS) $(LDFLAGS)
+##$(OBJ):
+##	gcc -c $(SRC) $(SRC_UT) $(CDFLAGS) $(LDFLAGS)
 
 clean:
 		rm -f $(OBJ)

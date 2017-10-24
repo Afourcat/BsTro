@@ -7,7 +7,7 @@
 
 SRC_DIR		=	$(realpath ./src)
 
-SRC		=	$(SRC_DIR)/error_display.c	\
+SRC		=	$(SRC_DIR)/pile.c
 
 OBJ		=	$(SRC:.c=.o)
 
