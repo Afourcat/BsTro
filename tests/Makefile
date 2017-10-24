@@ -9,9 +9,9 @@ SRC_DIR		=	$(realpath ../src/)
 
 SRC_UT_DIR	=	$(realpath .)
 
-SRC		=	$(SRC_DIR)/pile.c #\
+SRC		=	$(SRC_DIR)/stack.c #\
 
-SRC_UT		=	$(SRC_UT_DIR)/tests_pile.c #\
+SRC_UT		=	$(SRC_UT_DIR)/tests_stack.c #\
 
 OBJ		=	$(SRC:.c=.o) $(SRC_UT:.c=.o)
 
