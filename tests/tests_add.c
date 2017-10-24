@@ -14,7 +14,9 @@ Test(add, basic)
 
 Test(add, bigger_than_int)
 {
-	cr_assert_str_eq(add("5000000000000000", "2000000000000000"), "7000000000000000" , "It must return 7000000000000000.\n" );
+	cr_assert_str_eq(add("5000000000000000", "2000000000000000"),
+			 "7000000000000000" ,
+			 "It must return 7000000000000000.\n" );
 }
 
 Test(add, double_zero)
@@ -29,7 +31,9 @@ Test(add, minus_zero)
 
 Test(add, bigger_double_minus)
 {
-	cr_asser_str_eq(add("-5000000000000000", "-3000000000000000"), "-8000000000000000", "It must return -8000000000000000.\n");
+	cr_asser_str_eq(add("-5000000000000000", "-3000000000000000"),
+			"-8000000000000000",
+			"It must return -8000000000000000.\n");
 }
 
 
