@@ -10,5 +10,6 @@
 
 Test(pf_tree, create_simple_pf_tree)
 {
-	
+	char expr = "1 2 +";
+	char operators = "";
 }
