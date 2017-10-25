@@ -10,7 +10,7 @@
 
 Test(inf_add, basic)
 {
-	cr_assert_str_eq(inf_add("4", "2"), "6", "It must return 6.\n");
+	cr_assert_str_eq(inf_add("2", "4"), "6", "It must return 6.\n");
 }
 
 Test(inf_add, bigger_than_int)
