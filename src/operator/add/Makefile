@@ -5,33 +5,39 @@
 ## Makefile that compile the add system
 ##
 
-SRC	=	add.c		\
-		error.c		\
-		my_strcmp.c	\
-		utils.c		\
-		utils2.c	\
-		str_utils.c
+SRC		=	add.c		\
+			error.c		\
+			my_strcmp.c	\
+			utils.c		\
+			utils2.c	\
+			str_utils.c
 
-OBJ	=	$(SRC:.c=.o)
+OBJ		=	$(SRC:.c=.o)
 
-FLAGS	=	-I../../../include
+FLAGS		=	-I../../../include
 
-LINKLIB	=	../../../lib/
+LINKLIB		=	../../../lib/
 
-NAMELIB	=	libadd.a
+NAMELIB		=	libadd.a
 
-all:	compile	lib
+all:		compile	lib
 
 compile:
-	gcc -c $(SRC) $(FLAGS)
+		gcc -c $(SRC) $(FLAGS)
 
 lib:
-	ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
+		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+		rm -f $(OBJ)
 
-fclean:	clean
-	rm -f $(LINKLIB)$(NAMELIB)
+fclean:		clean
+		rm -f $(LINKLIB)$(NAMELIB)
 
-re:	clean all
+re:		clean all
+
+debug:
+		gcc -c $(SRC) $(FLAGS) -g
+		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
+
+
