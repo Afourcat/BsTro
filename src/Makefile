@@ -17,10 +17,10 @@ all:
 		make -C parser/
 		gcc -o $(NAME) $(FLAGS) $(LIBS)
 
-lib:
-	make -C operator/
-	make -C utils/
-	make -C parser/
+buildlib:
+		make -C operator/
+		make -C utils/
+		make -C parser/
 
 clean:
 		make -C operator/ clean

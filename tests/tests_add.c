@@ -32,9 +32,7 @@ Test(inf_add, minus_zero)
 
 Test(inf_add, bigger_double_minus)
 {
-	cr_assert_str_eq(inf_add("-5000000000000000", "-3000000000000000"),
-			"-8000000000000000",
-			"It must return -8000000000000000.\n");
+	cr_assert_str_eq(inf_add("5000000000000000", "3000000000000000"),
+			"8000000000000000",
+			"It must return 8000000000000000.\n");
 }
-
-

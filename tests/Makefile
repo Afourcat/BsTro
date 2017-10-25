@@ -22,7 +22,7 @@ all:		buildlib
 
 
 buildlib:
-		make -C ../ lib
+		make -C ../ buildlib
 
 add:
 		gcc -o $(NAME) tests_add.c $(CFLAGS) $(LDFLAGS) -lutils -ladd
@@ -50,5 +50,7 @@ clean:
 
 fclean: 	clean
 		rm -f $(NAME)
+		rm -f *.gcno
+		rm -f *.gcda
 
 re:		fclean all

@@ -5,12 +5,11 @@
 ## Makefile that compile the add system
 ##
 
-SRC		=	add.c		\
-			error.c		\
-			my_strcmp.c	\
-			utils.c		\
-			utils2.c	\
-			str_utils.c
+SRC		=	add_it.c	\
+			infinadd.c	\
+			sub_it.c	\
+			test_add.c	\
+			utils.c
 
 OBJ		=	$(SRC:.c=.o)
 
