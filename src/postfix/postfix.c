@@ -27,8 +27,11 @@ char *manage_ope(char c, stack_t **stack, char *operands)
 	
 	if (*stack == 0)
 		*stack = create_stack(c);
-	else if (is_in(c, operands) <= is_in((*stack)->data, operands)) {
-	        temp[0] = out_stack(stack);
+	else {
+		if (is_in(c, operands) <= is_in((*stack)->data, operands))
+			temp[0] = out_stack(stack);
+		else
+			temp[0] = 0;
 		if (*stack == 0)
 			*stack = create_stack(c);
 		else
@@ -48,11 +51,13 @@ char *manage_parent(char c, stack_t **stack, char *parent)
 		else
 			add_stack(stack, c);
 	} else if (is_in(c, parent) == 2) {
-		while ((*stack)->data != parent[0]) {
+		while (*stack && (*stack)->data != parent[0]) {
 			str[counter] = out_stack(stack);
-			counter++;
+			counter = counter + 2;
+			str[counter - 1] = ' ';
 		}
-		out_stack(stack);
+		if (*stack)
+			out_stack(stack);
 	}
 	return (str);
 }
@@ -65,7 +70,8 @@ char *get_str_nbr(char *str)
 
 	while (str[counter + 1] > '9' || str[counter + 1] < '0')
 		counter++;
-	if (str[counter] == '-') {
+	if (str[counter] == '-' &&
+	    (str[counter - 1] < '0' || str[counter - 1] > '9')) {
 		nb[counter2] = str[counter];
 		counter2++;
 	}
@@ -80,7 +86,7 @@ char *get_str_nbr(char *str)
 
 char *postfix(char *str, char *operands, char *base, char *parent)
 {
-	char *to_return = malloc(sizeof(char) * my_strlen(str));
+	char *to_return = malloc(sizeof(char) * my_strlen(str) * 2);
 	stack_t *stack = 0;
 	int counter = 0;
 
@@ -92,8 +98,10 @@ char *postfix(char *str, char *operands, char *base, char *parent)
 			my_strcat(to_return, manage_parent(str[counter], &stack, parent));
 		else
 			my_strcat(to_return, get_str_nbr(str + counter));
-		my_strcat(to_return, " ");
+		if (to_return[my_strlen(to_return) - 1] != ' ')
+			my_strcat(to_return, " ");
 		counter++;
 	}
+	my_strcat(to_return, manage_parent(parent[1], &stack, parent));
 	return (to_return);
 }
