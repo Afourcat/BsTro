@@ -87,24 +87,28 @@ char *get_str_nbr(char *str)
 char *postfix(char *str, char *operands, char *base, char *parent)
 {
 	char *to_return = malloc(sizeof(char) * my_strlen(str) * 2);
+	char *temp;
 	stack_t *stack = 0;
 	int counter = 0;
 
 	while (str[counter]) {
 		if (is_in(str[counter], operands)
 		    && (is_in(str[counter - 1], base)
-			|| is_in(str[counter - 1], &(parent[1]))))
-			my_strcat(to_return, manage_ope(str[counter], &stack, operands));
-		else if (is_in(str[counter], parent))
-			my_strcat(to_return, manage_parent(str[counter], &stack, parent));
-		else {
-			my_strcat(to_return, get_str_nbr(str + counter));
-			if (is_in(str[counter], operands))
-				counter++;
+			|| is_in(str[counter - 1], &(parent[1])))) {
+			temp = manage_ope(str[counter], &stack, operands);
+			counter++;
 		}
+		else if (is_in(str[counter], parent)) {
+			temp = manage_parent(str[counter], &stack, parent);
+			counter++;
+		}
+		else {
+			temp = get_str_nbr(str + counter);
+			counter = counter + my_strlen(temp);
+		}
+		my_strcat(to_return, temp);
 		if (to_return[my_strlen(to_return) - 1] != ' ')
 			my_strcat(to_return, " ");
-		counter++;
 	}
 	my_strcat(to_return, manage_parent(parent[1], &stack, parent));
 	return (to_return);
