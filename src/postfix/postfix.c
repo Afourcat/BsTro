@@ -66,16 +66,16 @@ char *get_str_nbr(char *str)
 {
 	char *nb = malloc(sizeof(char) * my_strlen(str));
 	int counter2 = 0;
-	int counter = -1;
+	int counter = 0;
 
-	while (str[counter + 1] > '9' || str[counter + 1] < '0')
+	while ((str[counter] > '9' || str[counter] < '0') && str[counter] != '-')
 		counter++;
 	if (str[counter] == '-' &&
 	    (str[counter - 1] < '0' || str[counter - 1] > '9')) {
 		nb[counter2] = str[counter];
 		counter2++;
+		counter++;
 	}
-	counter++;
 	while (str[counter] <= '9' && str[counter] >= '0') {
 		nb[counter2] = str[counter];
 		counter++;
@@ -92,12 +92,16 @@ char *postfix(char *str, char *operands, char *base, char *parent)
 
 	while (str[counter]) {
 		if (is_in(str[counter], operands)
-		    && !is_in(str[counter], base))
+		    && (is_in(str[counter - 1], base)
+			|| is_in(str[counter - 1], &(parent[1]))))
 			my_strcat(to_return, manage_ope(str[counter], &stack, operands));
 		else if (is_in(str[counter], parent))
 			my_strcat(to_return, manage_parent(str[counter], &stack, parent));
-		else
+		else {
 			my_strcat(to_return, get_str_nbr(str + counter));
+			if (is_in(str[counter], operands))
+				counter++;
+		}
 		if (to_return[my_strlen(to_return) - 1] != ' ')
 			my_strcat(to_return, " ");
 		counter++;
