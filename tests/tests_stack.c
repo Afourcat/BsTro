@@ -5,7 +5,7 @@
 ** stack test
 */
 
-#include <../include/stack.h>
+#include <stack.h>
 #include <criterion/criterion.h>
 
 Test(create_stack, basic)

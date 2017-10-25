@@ -21,7 +21,7 @@ CFLAGS		=	-Wall -Wextra --coverage
 
 LDFLAGS		=	-L/usr/local/lib -lcriterion -lgcov
 
-INCL		=	-I../include
+INCL		=	-I $(realpath ../include)
 
 NAME		=	units
 
