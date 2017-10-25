@@ -1,0 +1,69 @@
+pf_tree.c:105:23: error: expected identifier or ‘(’ before ‘%’ token
+  char base[] = "()+-*/%";
+                       ^
+pf_tree.c:105:24: warning: missing terminating " character
+  char base[] = "()+-*/%";
+                        ^
+pf_tree.c:105:24: error: missing terminating " character
+  char base[] = "()+-*/%";
+                        ^~
+pf_tree.c:107:2: warning: data definition has no type or storage class
+  display_ope(ope, base);
+  ^~~~~~~~~~~
+pf_tree.c:107:2: warning: type defaults to ‘int’ in declaration of ‘display_ope’ [-Wimplicit-int]
+pf_tree.c:107:2: warning: parameter names (without types) in function declaration
+pf_tree.c:108:2: error: expected identifier or ‘(’ before ‘return’
+  return (0);
+  ^~~~~~
+pf_tree.c:109:1: error: expected identifier or ‘(’ before ‘}’ token
+ }
+ ^
+pf_tree.c:110:2: error: expected identifier or ‘(’ before ‘/’ token
+ */
+  ^
+In file included from postfix.c:9:0:
+../../include/postfix.h:12:26: error: unknown type name ‘stack_t’; did you mean ‘clock_t’?
+ char *manage_ope(char c, stack_t **stack, char *operands)
+                          ^~~~~~~
+                          clock_t
+In file included from postfix.c:10:0:
+../../include/stack.h:15:3: warning: data definition has no type or storage class
+ } stack_t;
+   ^~~~~~~
+../../include/stack.h:15:3: warning: type defaults to ‘int’ in declaration of ‘stack_t’ [-Wimplicit-int]
+../../include/stack.h:17:1: error: unknown type name ‘stack_t’; did you mean ‘clock_t’?
+ stack_t *create_stack(char data);
+ ^~~~~~~
+ clock_t
+../../include/stack.h:18:1: error: unknown type name ‘stack_t’; did you mean ‘clock_t’?
+ stack_t *add_stack(stack_t **pile, char data);
+ ^~~~~~~
+ clock_t
+../../include/stack.h:18:20: error: expected declaration specifiers or ‘...’ before ‘stack_t’
+ stack_t *add_stack(stack_t **pile, char data);
+                    ^~~~~~~
+../../include/stack.h:19:16: error: expected declaration specifiers or ‘...’ before ‘stack_t’
+ char out_stack(stack_t **pile);
+                ^~~~~~~
+../../include/stack.h:20:16: error: expected declaration specifiers or ‘...’ before ‘stack_t’
+ int size_stack(stack_t *pile);
+                ^~~~~~~
+postfix.c:13:26: error: expected declaration specifiers or ‘...’ before ‘stack_t’
+ char *manage_ope(char c, stack_t **stack, char *operands)
+                          ^~~~~~~
+postfix.c:32:29: error: expected declaration specifiers or ‘...’ before ‘stack_t’
+ char *manage_parent(char c, stack_t **stack, char *parent)
+                             ^~~~~~~
+postfix.c: In function ‘postfix’:
+postfix.c:80:11: error: ‘stack’ undeclared (first use in this function); did you mean ‘stack_t’?
+  stack_t *stack = 0;
+           ^~~~~
+           stack_t
+postfix.c:80:11: note: each undeclared identifier is reported only once for each function it appears in
+postfix.c:87:11: warning: implicit declaration of function ‘manage_ope’ [-Wimplicit-function-declaration]
+    temp = manage_ope(str[ctr], &stack, operands);
+           ^~~~~~~~~~
+postfix.c:89:11: warning: implicit declaration of function ‘manage_parent’ [-Wimplicit-function-declaration]
+    temp = manage_parent(str[ctr], &stack, parent);
+           ^~~~~~~~~~~~~
+make: *** [Makefile:22: compile] Error 1
