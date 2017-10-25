@@ -6,9 +6,8 @@
 */
 
 #include <stdlib.h>
-#include <postfix.h>
-#include <stack.h>
-#include <utils.h>
+#include "../../include/stack.h"
+#include "../../include/utils.h"
 
 char *manage_ope(char c, stack_t **stack, char *operands)
 {

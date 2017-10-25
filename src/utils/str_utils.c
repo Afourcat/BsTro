@@ -40,3 +40,21 @@ int is_in(char c, char *str)
 	}
 	return (0);
 }
+
+int remove_whitespace(char *str)
+{
+	int counter = 0;
+	int offset = 0;
+
+	while (str[counter + offset]) {
+		if (str[counter + offset] == ' ')
+			offset++;
+		str[counter] = str[counter + offset];
+		counter++;
+	}
+	while (str[counter]) {
+		str[counter] = 0;
+		counter++;
+	}
+	return (0);
+}
