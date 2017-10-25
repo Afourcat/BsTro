@@ -16,3 +16,6 @@ fclean:
 
 re:
 	make -C src/ re
+
+debug:	fclean
+	make -C src/ debug

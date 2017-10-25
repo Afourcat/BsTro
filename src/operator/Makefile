@@ -24,3 +24,8 @@ re:
 	make -C add/ re
 	make -C sub/ re
 	make -C mul/ re
+
+debug:
+	make -C add/ debug
+	make -C sub/ debug
+	make -C mul/ debug

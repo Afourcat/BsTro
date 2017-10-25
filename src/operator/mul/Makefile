@@ -2,33 +2,37 @@
 ## EPITECH PROJECT, 2017
 ## Makefile
 ## File description:
-## Makefile that compile the add system
+## Makefile that compile the mul system
 ##
 
-SRC	=	#mul.c		\
-		mul_alloc.c	\
-		mul_conv.c
+SRC		=	#mul.c		\
+			mul_alloc.c	\
+			mul_conv.c
 
-OBJ	=	$(SRC:.c=.o)
+OBJ		=	$(SRC:.c=.o)
 
-FLAGS	=	-I../../../include
+FLAGS		=	-I../../../include
 
-LINKLIB	=	../../../lib/
+LINKLIB		=	../../../lib/
 
-NAMELIB	=	libmul.a
+NAMELIB		=	libmul.a
 
-all:	compile	lib
+all:		compile	lib
 
 compile:
-#	gcc -c $(SRC) $(FLAGS)
+#		gcc -c $(SRC) $(FLAGS)
 
 lib:
-	ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
+#		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+		rm -f $(OBJ)
 
-fclean:	clean
-	rm -f $(LINKLIB)$(NAMELIB)
+fclean:		clean
+		rm -f $(LINKLIB)$(NAMELIB)
 
-re:	clean all
+re:		clean all
+
+debug:
+		gcc -c $(SRC) $(FLAGS) -g
+		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
