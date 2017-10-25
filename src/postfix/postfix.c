@@ -31,7 +31,7 @@ char *manage_ope(char c, stack_t **stack, char *operands)
 char *manage_parent(char c, stack_t **stack, char *parent)
 {
 	char *str = malloc(sizeof(char) * size_stack(*stack));
-	int counter = 0;
+	int ctr = 0;
 
 	if (is_in(c, parent) == 1) {
 		if (*stack == 0)
@@ -40,9 +40,9 @@ char *manage_parent(char c, stack_t **stack, char *parent)
 			add_stack(stack, c);
 	} else if (is_in(c, parent) == 2) {
 		while (*stack && (*stack)->data != parent[0]) {
-			str[counter] = out_stack(stack);
-			counter = counter + 2;
-			str[counter - 1] = ' ';
+			str[ctr] = out_stack(stack);
+			ctr = ctr + 2;
+			str[ctr - 1] = ' ';
 		}
 		if (*stack)
 			out_stack(stack);
@@ -53,21 +53,21 @@ char *manage_parent(char c, stack_t **stack, char *parent)
 char *get_str_nbr(char *str)
 {
 	char *nb = malloc(sizeof(char) * my_strlen(str));
-	int counter2 = 0;
-	int counter = 0;
+	int ctr2 = 0;
+	int ctr = 0;
 
-	while ((str[counter] > '9' || str[counter] < '0') && str[counter] != '-')
-		counter++;
-	if (str[counter] == '-' &&
-	    (str[counter - 1] < '0' || str[counter - 1] > '9')) {
-		nb[counter2] = str[counter];
-		counter2++;
-		counter++;
+	while ((str[ctr] > '9' || str[ctr] < '0') && str[ctr] != '-')
+		ctr++;
+	if (str[ctr] == '-' &&
+	    (str[ctr - 1] < '0' || str[ctr - 1] > '9')) {
+		nb[ctr2] = str[ctr];
+		ctr2++;
+		ctr++;
 	}
-	while (str[counter] <= '9' && str[counter] >= '0') {
-		nb[counter2] = str[counter];
-		counter++;
-		counter2++;
+	while (str[ctr] <= '9' && str[ctr] >= '0') {
+		nb[ctr2] = str[ctr];
+		ctr++;
+		ctr2++;
 	}
 	return (nb);
 }
@@ -77,23 +77,18 @@ char *postfix(char *str, char *operands, char *base, char *parent)
 	char *to_return = malloc(sizeof(char) * my_strlen(str) * 2);
 	char *temp;
 	stack_t *stack = 0;
-	int counter = 0;
+	int ctr = 0;
 
-	while (str[counter]) {
-		if (is_in(str[counter], operands)
-			&& (is_in(str[counter - 1], base)
-			|| is_in(str[counter - 1], &(parent[1])))) {
-			temp = manage_ope(str[counter], &stack, operands);
-			counter++;
-		}
-		else if (is_in(str[counter], parent)) {
-			temp = manage_parent(str[counter], &stack, parent);
-			counter++;
-		}
-		else {
-			temp = get_str_nbr(str + counter);
-			counter = counter + my_strlen(temp);
-		}
+	while (str[ctr]) {
+		if (is_in(str[ctr], operands)
+			&& (is_in(str[ctr - 1], base)
+			|| is_in(str[ctr - 1], &(parent[1]))))
+			temp = manage_ope(str[ctr], &stack, operands);
+		else if (is_in(str[ctr], parent))
+			temp = manage_parent(str[ctr], &stack, parent);
+		else
+			temp = get_str_nbr(str + ctr);
+		ctr = my_strlen(temp) == 0 ? ctr + 1 : ctr + my_strlen(temp);
 		my_strcat(to_return, temp);
 		if (to_return[my_strlen(to_return) - 1] != ' ')
 			my_strcat(to_return, " ");
