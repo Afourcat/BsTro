@@ -1,9 +1,9 @@
- /*
- ** EPITECH PROJECT, 2017
- ** error_display.c
- ** File description:
- ** Functions to display errors
- */
+/*
+** EPITECH PROJECT, 2017
+** error_display.c
+** File description:
+** Functions to display errors
+*/
 
 #include <unistd.h>
 

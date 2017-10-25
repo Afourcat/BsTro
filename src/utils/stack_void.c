@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** stack.c
 ** File description:
-** stack first in first out 
+** stack first in first out
 */
 
 #include <stack_void.h>
