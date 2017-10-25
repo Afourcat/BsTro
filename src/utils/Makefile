@@ -5,6 +5,8 @@
 ## Makefile that compile utils functions
 ##
 
+ROOT	=	$(realpath ../..)
+
 SRC	=	display.c	\
 		my_atoi.c	\
 		stack.c		\
@@ -13,11 +15,11 @@ SRC	=	display.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
-LINKLIB	=	../../lib/
+LINKLIB	=	$(ROOT)/lib/
 
 NAMELIB	=	libutils.a
 
-FLAGS	=	-I../../include
+FLAGS	=	-I$(ROOT)/include
 
 all:	compile	lib
 

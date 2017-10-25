@@ -8,6 +8,8 @@
 #ifndef POSTFIX_H_
 #define POSTFIX_H_
 
+#include <stack.h>
+
 char *postfix(char *str, char *operands, char *base, char *parent);
 char *manage_ope(char c, stack_t **stack, char *operands);
 char *manage_parent(char c, stack_t **stack, char *parent);

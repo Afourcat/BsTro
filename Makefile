@@ -8,6 +8,9 @@
 all:
 	make -C src/
 
+lib:
+	make -C src/ lib
+
 clean:
 	make -C src/ clean
 

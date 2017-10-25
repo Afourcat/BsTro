@@ -19,7 +19,7 @@ NAMELIB	=	libparser.a
 all:	compile	lib
 
 compile:
-	gcc -c $(SRC) $(FLAGS) -lutils
+	gcc -c $(SRC) $(FLAGS)
 
 lib:
 	ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
