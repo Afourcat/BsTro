@@ -9,22 +9,10 @@
 #include "../../include/stack.h"
 #include "../../include/utils.h"
 
-int is_in(char c, char *str)
-{
-	int counter = 0;
-
-	while (str[counter]) {
-		if (c == str[counter])
-			return (counter + 1);
-		counter++;
-	}
-	return (0);
-}
-
 char *manage_ope(char c, stack_t **stack, char *operands)
 {
 	char *temp = malloc(sizeof(char));
-	
+
 	if (*stack == 0)
 		*stack = create_stack(c);
 	else {
@@ -44,7 +32,7 @@ char *manage_parent(char c, stack_t **stack, char *parent)
 {
 	char *str = malloc(sizeof(char) * size_stack(*stack));
 	int counter = 0;
-	
+
 	if (is_in(c, parent) == 1) {
 		if (*stack == 0)
 			*stack = create_stack(c);
@@ -93,7 +81,7 @@ char *postfix(char *str, char *operands, char *base, char *parent)
 
 	while (str[counter]) {
 		if (is_in(str[counter], operands)
-		    && (is_in(str[counter - 1], base)
+			&& (is_in(str[counter - 1], base)
 			|| is_in(str[counter - 1], &(parent[1])))) {
 			temp = manage_ope(str[counter], &stack, operands);
 			counter++;

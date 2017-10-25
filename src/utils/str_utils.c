@@ -26,5 +26,17 @@ char *my_strcat(char *dest, char const *src)
 		dest[dest_counter + counter] = src[counter];
 		counter++;
 	}
-	return (dest);	
+	return (dest);
+}
+
+int is_in(char c, char *str)
+{
+	int counter = 0;
+
+	while (str[counter]) {
+		if (c == str[counter])
+			return (counter + 1);
+		counter++;
+	}
+	return (0);
 }
