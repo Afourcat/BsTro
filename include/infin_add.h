@@ -8,7 +8,7 @@
 #ifndef INFIN_ADD_H_
 #define INFIN_ADD_H_
 
-char *inf_add(char *first_number, char *second_number);
+char *inf_add(char *first, char *second);
 char *get_buffer(int size);
 int calc(int nb1, int nb2, int *retain);
 int calc_neg(int nb1, int nb2, int *retain);

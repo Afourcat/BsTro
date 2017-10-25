@@ -29,10 +29,13 @@ char *add_zeros(char *str, int size)
 	if (size_str >= size) {
 		return (str);
 	}
-	while (i < size - size_str)
-		res[i++] = '0';
+	while (i < size - size_str) {
+		res[i] = '0';
+		i++;
+	}
 	while (i < size) {
-		res[i++] = str[i - (size - size_str)];
+		res[i] = str[i - (size - size_str)];
+		i++;
 	}
 	return (res);
 }
