@@ -15,8 +15,19 @@ char *mul(char *str1, char *str2)
 	char **buffer = allocate_buffer(str1, str2, size);
 	char *greatest = get_greatest(str1, str2);
 	char *lowest = get_lowest(str1, str2);
+	int bool_s = get_signe(str1, str2);
 	
 	return(infin_mul(greatest, lowest, buffer, res));
+}
+
+static int get_signe(char *str1, char *str2)
+{
+	if (str1[0] == '-' && str2[0] == '-')
+		return (0);
+	else if (str1[0] != '-' && str2[0] != '-')
+		return (0);
+	else
+		return (1);
 }
 
 static void multiply(int a, int b, int *current, int *retain)

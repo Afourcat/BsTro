@@ -5,34 +5,34 @@
 ** test for add and substract system
 */
 
-#include <infin_add.h>
+#include <infinadd.h>
 #include <criterion/criterion.h>
 
-Test(inf_add, basic)
+Test(infin_add, basic)
 {
-	cr_assert_str_eq(inf_add("2", "4"), "6", "It must return 6.\n");
+	cr_assert_str_eq(infin_add("2", "4"), "6", "It must return 6.\n");
 }
 
-Test(inf_add, bigger_than_int)
+Test(infin_add, bigger_than_int)
 {
-	cr_assert_str_eq(inf_add("5000000000000000", "2000000000000000"),
+	cr_assert_str_eq(infin_add("5000000000000000", "2000000000000000"),
 			 "7000000000000000" ,
 			 "It must return 7000000000000000.\n" );
 }
 
-Test(inf_add, double_zero)
+Test(infin_add, double_zero)
 {
-	cr_assert_str_eq(inf_add("0" , "0"), "0", "It must return 0.\n");
+	cr_assert_str_eq(infin_add("0" , "0"), "0", "It must return 0.\n");
 }
 
-Test(inf_add, minus_zero)
+Test(infin_add, minus_zero)
 {
-	cr_assert_str_eq(inf_add("-0" , "-0"), "0", "It must return 0.\n");
+	cr_assert_str_eq(infin_add("-0" , "-0"), "0", "It must return 0.\n");
 }
 
-Test(inf_add, bigger_double_minus)
+Test(infin_add, bigger_double_minus)
 {
-	cr_assert_str_eq(inf_add("5000000000000000", "3000000000000000"),
+	cr_assert_str_eq(infin_add("5000000000000000", "3000000000000000"),
 			"8000000000000000",
 			"It must return 8000000000000000.\n");
 }

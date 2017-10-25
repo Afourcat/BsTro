@@ -19,13 +19,25 @@ Description  :
 
 //___________________________________________________________________________//
 
+Name         : Makefile struct and evalexpr
+Date         : October 25 2017
+Changelog by : alexandre vinchenzo thomas
+Description  :
+we end the postfix, some bug stay but there will be fix soon, make unit test
+for it, do wrapper of add for sub function. We also made makefile, link them
+together, e end pftree system and we are making unit test of that. And we
+made stack_void system for btree, unit test for them , add system and mul
+system is pretty close to be done.
+
+//___________________________________________________________________________//
+
 Name         : Unit tests and structuratio of the project
 Date         : October 24 2017
 Changelog by : alexandre vinchenzo thomas
 Description  :
 we made stack system and think how to make a evalexpr, thomas made the
 begining of the function that put string into postfix.
-vinchenzo made the binarie tree system that put the postfix expression.	
+vinchenzo made the binarie tree system that put the postfix expression.
 
 //___________________________________________________________________________//
 
