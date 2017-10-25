@@ -48,16 +48,17 @@ void my_swap_char(char **c1, char **c2)
 	*c2 = tmp;
 }
 
-void print_signe(char **first_nb, char **second_nb, int *signe_f, int *signe_s)
+int bool_signe(char **first_nb, char **second_nb, int *signe_f, int *signe_s)
 {
 	if (*signe_f == *signe_s && *signe_f == -1)
-		my_putchar('-');
+		return(1);
 	else {
 		if (my_strcmp(*first_nb, *second_nb) < 0) {
 			my_swap_char(first_nb, second_nb);
 			my_swap_int(signe_f, signe_s);
 		}
 		if (*signe_f == -1 && my_strcmp(*first_nb, *second_nb) > 0)
-			my_putchar('-');
+			return (1);
 	}
+	return (0);
 }
