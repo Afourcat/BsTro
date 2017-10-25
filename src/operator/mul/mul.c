@@ -34,23 +34,50 @@ static void multiply(int a, int b, int *current, int *retain)
 	}
 }
 
+void add_zeros(char **buffer)
+{
+	int nb_zeros = 0;
+	int counter = 0;
+	int counter2 = 0;
+
+	while (buffer[counter][0] != 0)
+		counter++;
+	nb_zeros = my_strlen(buffer[counter - 2]) - my_strlen(buffer[counter - 1]);
+	counter2 = my_strlen(buffer[counter - 1]) - 1;
+	while (nb_zeros > 0) {
+		buffer[counter - 1][counter2] = '0';
+		nb_zeros--;
+		counter2++;
+	}
+}
+
+char *add_all(char *res, char **buffer, int size_l, int size_g)
+{
+	int counter = 0;
+
+	for (int l = size_l; l > 0; --l) {
+		res = infin_add(res, buffer[l]);
+	}
+	return (res);
+}
+
 static char *infin_mul(char *greatest, char *lowest, char **buffer, char *res)
 {
 	int size_g = my_strlen(greatest);
 	int size_l = my_strlen(lowest);
 	int retain = 0;
 	int current_nbr = 0;
-	int iter= 0;
+	int iter = 0;
 	
 	for (int l = size_l - 1; l > 0 ; l--) {
 		iter = 0;
 		for (int g = size_g - 1; g > 0; g--) {
 			multiply(lowest[l], greatest[g], &current_nbr, &retain);
 			buffer[l][iter] = int_to_char(current_nbr);
-                        //need_addition
 			iter++;
 		}
 	}
+	res = add_all(buffer, lowest, greatest);
 	free_all(buffer, greatest, lowest);
 	return (res);
 }

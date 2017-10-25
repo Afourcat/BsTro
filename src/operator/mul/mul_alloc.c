@@ -27,7 +27,7 @@ char **allocate_buffer(char *s1, char *s2, int size)
 
 	buffer[size_buffer - 1] = NULL;
 	while (i < size_buffer) {
-		buffer[i] = malloc(sizeof(char) * size);
+		buffer[i] = malloc(sizeof(char) * size + i);
 		i++;
 	}
 	return (buffer);
