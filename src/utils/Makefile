@@ -5,34 +5,39 @@
 ## Makefile that compile utils functions
 ##
 
-ROOT	=	$(realpath ../..)
+ROOT		=	$(realpath ../..)
 
-SRC	=	display.c	\
-		my_atoi.c	\
-		stack.c		\
-		stack_void.c	\
-		str_utils.c
+SRC		=	display.c	\
+			my_atoi.c	\
+			stack.c		\
+			stack_void.c	\
+			str_utils.c
 
-OBJ	=	$(SRC:.c=.o)
+OBJ		=	$(SRC:.c=.o)
 
-LINKLIB	=	$(ROOT)/lib/
+LINKLIB		=	$(ROOT)/lib/
 
-NAMELIB	=	libutils.a
+NAMELIB		=	libutils.a
 
-FLAGS	=	-I$(ROOT)/include
+FLAGS		=	-I$(ROOT)/include
 
-all:	compile	lib
+
+all:		compile	lib
 
 compile:
-	gcc -c $(SRC) $(FLAGS)
+		gcc -c $(SRC) $(FLAGS)
 
 lib:
-	ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
+		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+		rm -f $(OBJ)
 
-fclean:	clean
-	rm -f $(LINKLIB)$(NAMELIB)
+fclean:		clean
+		rm -f $(LINKLIB)$(NAMELIB)
 
-re:	fclean	all
+re:		fclean	all
+
+debug:
+		gcc -c $(SRC) $(FLAGS) -g
+		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)

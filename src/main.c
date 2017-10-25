@@ -1,13 +1,14 @@
- /*
- ** EPITECH PROJECT, 2017
- ** main.c
- ** File description:
- ** main file of the project
- */
+/*
+** EPITECH PROJECT, 2017
+** main.c
+** File description:
+** main file of the project
+*/
 
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <bristo_matic.h>
 #include <utils.h>
 
 static void check_base(char *av);
@@ -63,8 +64,8 @@ static char *get_expr(unsigned int size)
 }
 
 static void check_ops(char *ops) {
-    if (my_strlen(ops) != 7) {
-        my_putstr(SYNTAX_ERROR_MSG);
-        exit(EXIT_OPS);
-    }
+	if (my_strlen(ops) != 7) {
+		my_putstr(SYNTAX_ERROR_MSG);
+		exit(EXIT_OPS);
+	}
 }
