@@ -5,28 +5,14 @@
 ## makefile for bistro
 ##
 
-SRC_DIR		=	$(realpath ./src)
-
-SRC		=	$(SRC_DIR)/stack.c 
-
-OBJ		=	$(SRC:.c=.o)
-
-FLAGS		=	-I./include
-
-NAME		=	calc
-
-all:	$(NAME)
-
-$(NAME):	$(OBJ)
-	gcc -o $(NAME) $(OBJ) $(FLAGS)
-
-$(OBJ):
-	gcc -c $(SRC) $(FLAGS)
+all:
+	make -C src/
 
 clean:
-	rm -f *.o
+	make -C src/ clean
 
-fclean:	clean
-	rm -f $(NAME)
+fclean:
+	make -C src/ fclean
 
-re:	fclean all
+re:
+	make -C src/ re
