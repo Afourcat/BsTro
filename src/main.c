@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <bristo_matic.h>
 #include <utils.h>
 
 static void check_base(char *av);
