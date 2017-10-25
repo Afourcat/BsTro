@@ -8,20 +8,17 @@
 //----------------------------------TODO-------------------------------------//
 
 //-----VINZ-----/
-end the binary tree
-make the division
+unit test for btree
 
 //-----THOMAS---/
-end the postix function
-make the modulo
+make the div
 
 //-----ALEX-----/
-end the multiplication
-faire les Makefile
+end multiplication
 
-1- Prioritée de calculs                                             70%
+1- Prioritée de calculs                                             100%
 
-2- Gestion des calculs en chaine de caractère                       40%
+2- Gestion des calculs en chaine de caractère                       50%
 
 3- Gerer les bases                                                  0%
 
@@ -29,4 +26,7 @@ faire les Makefile
 
 //----------------------------------DONE-------------------------------------//
 
-Nothing..
+-Binary tree
+-postix function parser
+-add and sub
+-Makefile system
