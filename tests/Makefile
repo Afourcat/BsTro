@@ -30,8 +30,9 @@ $(NAME):	$(OBJ)
 #$(OBJ):
 #		gcc -c $(SRC) $(SRC_UT) $(CFLAGS) $(LDFLAGS) $(INCL)
 
-add:
-		gcc -o add $(SRC_UT_DIR)/tests_add.c $(wildcard $(SRC_DIR)/operator/add/*.c) $(CFLAGS) $(LDFLAGS)
+#add:
+#		gcc -o add $(SRC_UT_DIR)/tests_add.c $(wildcard $(SRC_DIR)/operator/add/*.c) $(CFLAGS) $(LDFLAGS)
+
 
 clean:
 		rm -f $(OBJ)

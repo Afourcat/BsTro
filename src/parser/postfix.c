@@ -6,8 +6,8 @@
 */
 
 #include <stdlib.h>
-#include <postfix.h>
 #include <stack.h>
+#include <postfix.h>
 #include <utils.h>
 
 char *manage_ope(char c, stack_t **stack, char *operands)
