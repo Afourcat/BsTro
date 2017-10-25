@@ -10,4 +10,4 @@
 
 char *convert_base(char *src, char *base_fr, char *base_to);
 
-#endif
+#endif /* CONVERT_BASE_H */
