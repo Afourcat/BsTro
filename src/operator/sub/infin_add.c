@@ -56,8 +56,7 @@ char *inf_add(char *first_nbr, char *second_nbr)
 	int i = 0;
 	int signe_f = get_signe(first_nbr);
 	int signe_s = get_signe(second_nbr);
-	char *res;
-	
+
 	init(&first_nbr, &second_nbr, &signe_f, &signe_s);
 	size = my_strlen(first_nbr) - 1;
 	buffer_res = get_buffer(size);
@@ -74,7 +73,5 @@ char *inf_add(char *first_nbr, char *second_nbr)
 		buffer_res[i++] = intToChar(current_nbr);
 		size--;
 	}
-	my_revstr(buffer_res);
-	res = my_dup_without_zero(buffer_res);
-	return (res);
+	return (my_revstr(buffer_res));
 }

@@ -6,7 +6,6 @@
 */
 
 #include <unistd.h>
-#include <stdlib.h>
 
 int charToInt(char c)
 {
@@ -23,35 +22,13 @@ void my_putchar(char c)
 	write(1, &c, 1);
 }
 
-char *my_allocate(char *str)
+void my_putstr(char *str)
 {
-	int size = 1;
-	char *new_str;
-	
 	while (*str == '0' && *(str + 1) != '\0')
 		str++;
 	while (*str)
-		size++;
-	new_str = malloc(sizeof(char) * size);
-	return (new_str);
-}
-
-char *my_dup_without_zero(char *str)
-{
-	char *new_str = my_allocate(str);
-	int i = 0;
-	
-	while (*str == '0' && *(str + 1) != '\0') {
-		str++;
-		i++;
-	}
-	while (*str) {
-		new_str[i] = *str;
-		i++;
-		str++;
-	}
-	free(str);
-	return (new_str);
+		my_putchar(*str++);
+	my_putchar('\n');
 }
 
 int my_strlen(char *str)
