@@ -45,7 +45,6 @@ char *get_number(char *str)
 pf_tree_t *create_ope(char *str, char *base)
 {
 	pf_tree_t *ope = malloc(sizeof(pf_tree_t));
-	int size = my_strlen(str);
 	int operator = get_operator(str, base);
 
 	if (ope == NULL)
@@ -68,8 +67,9 @@ pf_tree_t *char_to_ope(char *str, char *base)
 	int i = 0;
 	int operator;
 	pf_tree_t *tmp;
-
-	while (str[i] != '\0') {
+	int size = my_strlen(str);
+	
+	while (str[i] != '\0' && i < size) {
 		tmp = create_ope(str + i, base);
 		if (tmp->operator != -1) {
 			tmp->right = out_stack_v(&stack);

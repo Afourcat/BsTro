@@ -41,4 +41,4 @@ debug:
 		make -C operator/ debug
 		make -C utils/ debug
 		make -C parser/ debug
-		gcc -o $(NAME) $(FLAGS) $(LIBS) -g
+#		gcc -o $(NAME) $(FLAGS) $(LIBS) -g

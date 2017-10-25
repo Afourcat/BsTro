@@ -5,6 +5,8 @@
 ## Makefile that compile the add system
 ##
 
+ROOT		=	$(realpath ../../..)
+
 SRC		=	add_it.c	\
 			infinadd.c	\
 			sub_it.c	\
@@ -13,9 +15,9 @@ SRC		=	add_it.c	\
 
 OBJ		=	$(SRC:.c=.o)
 
-FLAGS		=	-I../../../include
+FLAGS		=	-I$(ROOT)/include
 
-LINKLIB		=	../../../lib/
+LINKLIB		=	$(ROOT)/lib/
 
 NAMELIB		=	libadd.a
 
@@ -35,7 +37,7 @@ fclean:		clean
 
 re:		clean all
 
-debug:
+debug:		fclean
 		gcc -c $(SRC) $(FLAGS) -g
 		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 

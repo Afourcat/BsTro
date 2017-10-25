@@ -21,5 +21,5 @@ fclean:
 re:
 	make -C src/ re
 
-debug:	fclean
+debug:
 	make -C src/ debug

@@ -11,7 +11,7 @@ LIB		=	-lutils -ladd -lsub -lmul -lparser
 
 OBJ		=	$(SRC_UT:.c=.o)
 
-CFLAGS		=	-I$(ROOT)/include -Wall -Wextra --coverage
+CFLAGS		=	-I$(ROOT)/include -Wall -Wextra --coverage -g
 
 LDFLAGS		=	-L$(ROOT)/lib -L/usr/local/lib -lcriterion -lgcov
 
