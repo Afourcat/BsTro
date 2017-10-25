@@ -43,7 +43,7 @@ stack_void:
 		gcc -o $(NAME) tests_stack_void.c $(CFLAGS) $(LDFLAGS) -lutils
 
 pf_tree:
-		gcc -o $(NAME) tests_pf_tree.c $(CFLAGS) $(LDFLAGS) -lutils
+		gcc -o $(NAME) tests_pf_tree.c $(CFLAGS) $(LDFLAGS) -lparser -lutils
 
 clean:
 		rm -f $(OBJ)

@@ -62,7 +62,7 @@ pf_tree_t *create_ope(char *str, char *base)
 	return (ope);
 }
 
-pf_tree_t *char_to_ope3(char *str, char *base)
+pf_tree_t *char_to_ope(char *str, char *base)
 {
 	stack_v_t *stack = create_stack_v();
 	int i = 0;
