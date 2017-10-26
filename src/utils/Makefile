@@ -11,6 +11,7 @@ SRC		=	display.c	\
 			my_atoi.c	\
 			stack.c		\
 			stack_void.c	\
+			memory.c 	\
 			str_utils.c
 
 OBJ		=	$(SRC:.c=.o)
