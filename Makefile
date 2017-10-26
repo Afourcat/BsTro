@@ -23,3 +23,6 @@ re:
 
 debug:
 	make -C src/ debug
+
+push:	fclean
+	git push origin master

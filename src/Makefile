@@ -5,17 +5,16 @@
 ## Makefile which compile everything
 ##
 
+ROOT		=	$(realpath ..)
+
 NAME		=	calc
 
 FLAGS		=	-L../lib
 
 LIBS		=	-lutils -lparser -ladd -lsub -lmul
 
-all:
-		make -C operator/
-		make -C utils/
-		make -C parser/
-		gcc -o $(NAME) $(FLAGS) $(LIBS)
+all:		buildlib
+		gcc -o $(ROOT)/$(NAME) $(FLAGS) $(LIBS)
 
 buildlib:
 		make -C operator/

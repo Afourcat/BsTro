@@ -16,13 +16,13 @@ LINKLIB		=	../../lib/
 
 NAMELIB		=	libparser.a
 
-all:		compile	lib
+all:		lib
+
+lib:		compile
+		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 
 compile:
 		gcc -c $(SRC) $(FLAGS)
-
-lib:
-		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 
 clean:
 		rm -f $(OBJ)

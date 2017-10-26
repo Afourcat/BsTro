@@ -8,6 +8,7 @@
 #ifndef UTILS_H_
 #define UTILS_H_
 
+char *my_revstr(char *str);
 void my_putchar(char c);
 void my_putstr(char *str);
 int my_strlen(char const *str);

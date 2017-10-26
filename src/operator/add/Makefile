@@ -10,8 +10,7 @@ ROOT		=	$(realpath ../../..)
 SRC		=	add_it.c	\
 			infinadd.c	\
 			sub_it.c	\
-			test_add.c	\
-			utils.c
+			test_add.c	
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -21,13 +20,13 @@ LINKLIB		=	$(ROOT)/lib/
 
 NAMELIB		=	libadd.a
 
-all:		compile	lib
+all:		lib
+
+lib:		compile
+		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 
 compile:
 		gcc -c $(SRC) $(FLAGS)
-
-lib:
-		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 
 clean:
 		rm -f $(OBJ)

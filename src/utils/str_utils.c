@@ -58,14 +58,15 @@ int remove_whitespace(char *str)
 	return (0);
 }
 
-void *my_calloc(int size)
+char *my_revstr(char *str)
 {
-	void *temp = malloc(size);
-	int counter = 0;
+       	char buffer = 0;
+	int size = my_strlen(str) - 1;
 
-	while (counter < size) {
-		temp[counter] = 0;
-		counter++;
+	for (int i = 0; i  <= size / 2; i++){
+		buffer = str[i];
+		str[i] = str[size - i];
+		str[size - i] = buffer;
 	}
-	return (temp);
+	return (str);
 }
