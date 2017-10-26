@@ -11,7 +11,7 @@ LIB		=	-lutils -ladd -lsub -lmul -lparser
 
 OBJ		=	$(SRC_UT:.c=.o)
 
-CFLAGS		=	-I$(ROOT)/include -Wall -Wextra --coverage
+CFLAGS		=	-I$(ROOT)/include -Wall -Wextra --coverage -g
 
 LDFLAGS		=	-L$(ROOT)/lib -L/usr/local/lib -lcriterion -lgcov
 
@@ -43,7 +43,7 @@ stack_void:
 		gcc -o $(NAME) tests_stack_void.c $(CFLAGS) $(LDFLAGS) -lutils
 
 pf_tree:
-		gcc -o $(NAME) tests_pf_tree.c $(CFLAGS) $(LDFLAGS) -lutils
+		gcc -o $(NAME) tests_pf_tree.c $(CFLAGS) $(LDFLAGS) -lparser -lutils
 
 clean:
 		rm -f $(OBJ)

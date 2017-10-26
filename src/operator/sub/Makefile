@@ -5,13 +5,15 @@
 ## Makefile that compile the sub system
 ##
 
+ROOT		=	$(realpath ../../..)
+
 SRC		=	
 
 OBJ		=	$(SRC:.c=.o)
 
-FLAGS		=	-I../../../include
+FLAGS		=	-I$(ROOT)/include
 
-LINKLIB		=	../../../lib/
+LINKLIB		=	$(ROOT)/lib/
 
 NAMELIB		=	libsub.a
 
@@ -31,6 +33,6 @@ fclean:		clean
 
 re:		clean all
 
-debug:
-		gcc -c $(SRC) $(FLAGS) -g
+debug:		fclean
+#		gcc -c $(SRC) $(FLAGS) -g
 		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)

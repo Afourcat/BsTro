@@ -5,3 +5,7 @@
 *.out
 *~
 *.gch
+*.a
+*#*#
+units
+calc

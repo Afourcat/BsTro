@@ -5,15 +5,17 @@
 ## Makefile that compile the mul system
 ##
 
+ROOT		=	$(realpath ../../..)
+
 SRC		=	#mul.c		\
 			mul_alloc.c	\
 			mul_conv.c
 
 OBJ		=	$(SRC:.c=.o)
 
-FLAGS		=	-I../../../include
+FLAGS		=	-I$(ROOT)/include
 
-LINKLIB		=	../../../lib/
+LINKLIB		=	$(ROOT)/lib/
 
 NAMELIB		=	libmul.a
 
@@ -33,6 +35,6 @@ fclean:		clean
 
 re:		clean all
 
-debug:
-		gcc -c $(SRC) $(FLAGS) -g
+debug:		fclean
+#		gcc -c $(SRC) $(FLAGS) -g
 		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)

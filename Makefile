@@ -13,12 +13,13 @@ buildlib:
 
 clean:
 	make -C src/ clean
+	make -C tests/ clean
 
 fclean:
 	make -C src/ fclean
-
+	make -C tests/ fclean
 re:
 	make -C src/ re
 
-debug:	fclean
+debug:
 	make -C src/ debug

@@ -38,6 +38,6 @@ fclean:		clean
 
 re:		fclean	all
 
-debug:
+debug:		fclean
 		gcc -c $(SRC) $(FLAGS) -g
 		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)

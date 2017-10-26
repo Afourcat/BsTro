@@ -8,19 +8,17 @@
 #ifndef PF_TREE_H_
 #define PF_TREE_H_
 
-const int OP_PLUS_IDX = 2;
-const int OP_SUB_IDX = 3;
-const int OP_NEG_IDX = 3;
-const int OP_MUL_IDX = 4;
-const int OP_DIV_IDX = 5;
-const int OP_MOD_IDX = 6;
-
 typedef struct pf_tree {
 	int operator;
 	char *number;
-	struct ope *left;
-	struct ope *right;
+	struct pf_tree *left;
+	struct pf_tree *right;
 } pf_tree_t;
+
+int get_operator(char *str, char *base);
+char *get_number(char *str);
+pf_tree_t *create_ope(char *str, char *base);
+pf_tree_t *char_to_ope(char *str, char *base);
 
 #endif /* PF_TREE_H_ */
 
