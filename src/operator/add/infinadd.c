@@ -12,7 +12,7 @@ char *infin_add(char *nb1, char *nb2)
 {
 	int size = (my_strlen(nb1) > my_strlen(nb2) ?
 		    my_strlen(nb1) : my_strlen(nb2));
-	char *result_string = malloc(sizeof(char) * (size + 2));
+	char *result_string = malloc(sizeof(char) * size + 2);
 	int bool = 0;
 	
 	bool = inf_add(nb1, nb2, size, result_string);
@@ -64,13 +64,15 @@ char *remove_minus(char *str)
 char *my_allocate(char *str, int bool)
 {
 	int size = 1;
+	int j = 0;
 	char *new_str;
 	
-	while (*str == '0' && *(str + 1) != '\0')
-		str++;
-	while (*str)
-		str++;
+	while (str[j] == '0' && str[j + 1] != '\0')
+		j++;
+	while (str[j]) {
+		j++;
 		size++;
+	}
 	if (bool == 1)
 		size++;
 	new_str = malloc(sizeof(char) * size);
@@ -81,18 +83,19 @@ char *my_dup_without_zero(char *str, int bool)
 {
 	char *new_str = my_allocate(str, bool);
 	int i = 0;
+	int j = 0;
 
 	if (bool == 1) {
 		new_str[0] = '-';
 		i = 1;
 	}
-	while (*str == '0' && *(str + 1) != '\0') {
-		str++;
+	while (str[j] == '0' && str[j + 1] != '\0') {
+		j++;
 	}
-	while (*str) {
-		new_str[i] = *str;
+	while (str[j]) {
+		new_str[i] = str[j];
 		i++;
-		str++;
+		j++;
 	}
 	return (new_str);
 }
