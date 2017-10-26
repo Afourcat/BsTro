@@ -16,5 +16,6 @@ char *my_strcat(char *dest, char *src);
 int my_atoi(char const *str);
 int is_in(char c, char *str);
 int remove_whitespace(char *str);
+void *my_calloc(int size);
 
 #endif /* UTILS_H_ */

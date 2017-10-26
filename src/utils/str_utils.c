@@ -7,12 +7,11 @@
 
 int my_strlen(char const *str)
 {
-	int counter = 0;
+	int i = 0;
 
-	while(str[counter]) {
-		counter++;
-	}
-	return (counter);
+	while (str[i])
+		i++;
+	return (i);
 }
 
 char *my_strcat(char *dest, char const *src)

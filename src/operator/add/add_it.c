@@ -43,8 +43,8 @@ static void size_post(int *nbr1, int *nbr2)
 
 static void modul_div(int *curr, int *retain)
 {
+	*retain = *curr / 10;
 	*curr %= 10;
-	*retain /= 10;
 }
 
 char int_to_char(int i)
