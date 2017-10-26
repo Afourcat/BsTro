@@ -10,6 +10,24 @@
 #include <postfix.h>
 #include <utils.h>
 
+int has_priority(char *ope, char c1, char c2)
+{
+	if (!is_in(c2, ope))
+		return (0);
+	if (c1 == ope[0] || c1 == ope[1]) {
+		if (c2 == ope[2] || c2 == ope[3] || c2 == ope[4])
+			return (0);
+		else
+			return (1);
+	}
+	else {
+		if (c2 == ope[0] || c2 == ope[1])
+			return (0);
+		else
+			return (1);
+	}
+}
+
 char *manage_ope(char c, stack_t **stack, char *operands)
 {
 	char *temp = malloc(sizeof(char));
@@ -17,7 +35,7 @@ char *manage_ope(char c, stack_t **stack, char *operands)
 	if (*stack == 0)
 		*stack = create_stack(c);
 	else {
-		if (is_in(c, operands) <= is_in((*stack)->data, operands))
+		if (has_priority(operands, c, (*stack)->data))
 			temp[0] = out_stack(stack);
 		else
 			temp[0] = 0;
@@ -31,7 +49,7 @@ char *manage_ope(char c, stack_t **stack, char *operands)
 
 char *manage_parent(char c, stack_t **stack, char *parent)
 {
-	char *str = malloc(sizeof(char) * size_stack(*stack));
+	char *str = malloc(sizeof(char) * (size_stack(*stack)) * 2);
 	int ctr = 0;
 
 	if (is_in(c, parent) == 1) {
@@ -48,6 +66,7 @@ char *manage_parent(char c, stack_t **stack, char *parent)
 		if (*stack)
 			out_stack(stack);
 	}
+	str[my_strlen(str) - 1] = str[my_strlen(str) - 1] == ' ' ? 0 : str[my_strlen(str) - 1]; 
 	return (str);
 }
 
@@ -81,8 +100,7 @@ char *postfix(char *str, char *operands, char *base, char *parent)
 	int ctr = 0;
 
 	while (str[ctr]) {
-		if (is_in(str[ctr], operands)
-			&& (is_in(str[ctr - 1], base)
+		if (is_in(str[ctr], operands) && (is_in(str[ctr - 1], base)
 			|| is_in(str[ctr - 1], &(parent[1]))))
 			temp = manage_ope(str[ctr], &stack, operands);
 		else if (is_in(str[ctr], parent))
@@ -93,7 +111,9 @@ char *postfix(char *str, char *operands, char *base, char *parent)
 		my_strcat(to_return, temp);
 		if (to_return[my_strlen(to_return) - 1] != ' ')
 			my_strcat(to_return, " ");
+		free(temp);
 	}
 	my_strcat(to_return, manage_parent(parent[1], &stack, parent));
+	to_return[my_strlen(to_return) - 1] = 0;
 	return (to_return);
 }
