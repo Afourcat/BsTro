@@ -9,8 +9,6 @@ int my_strlen(char const *str)
 {
 	int i = 0;
 
-	if (str == 0)
-		return (0);
 	while (str[i])
 		i++;
 	return (i);
@@ -58,4 +56,16 @@ int remove_whitespace(char *str)
 		counter++;
 	}
 	return (0);
+}
+
+void *my_calloc(int size)
+{
+	void *temp = malloc(size);
+	int counter = 0;
+
+	while (counter < size) {
+		temp[counter] = 0;
+		counter++;
+	}
+	return (temp);
 }

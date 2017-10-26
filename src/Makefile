@@ -19,7 +19,7 @@ all:
 
 buildlib:
 		make -C operator/
-		make -C utils/ debug
+		make -C utils/
 		make -C parser/
 
 clean:

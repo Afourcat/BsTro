@@ -57,6 +57,7 @@ char *manage_parent(char c, stack_t **stack, char *parent)
 			*stack = create_stack(c);
 		else
 			add_stack(stack, c);
+		str[0] = 0;
 	} else if (is_in(c, parent) == 2) {
 		while (*stack && (*stack)->data != parent[0]) {
 			str[ctr] = out_stack(stack);
@@ -108,9 +109,9 @@ char *postfix(char *str, char *operands, char *base, char *parent)
 		else
 			temp = get_str_nbr(str + ctr);
 		ctr = my_strlen(temp) == 0 ? ctr + 1 : ctr + my_strlen(temp);
-		my_strcat(to_return, temp);
+		to_return = my_strcat(to_return, temp);
 		if (to_return[my_strlen(to_return) - 1] != ' ')
-			my_strcat(to_return, " ");
+			to_return = my_strcat(to_return, " ");
 		free(temp);
 	}
 	my_strcat(to_return, manage_parent(parent[1], &stack, parent));
