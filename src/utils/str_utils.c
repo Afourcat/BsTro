@@ -58,3 +58,16 @@ int remove_whitespace(char *str)
 	}
 	return (0);
 }
+
+char *my_revstr(char *str)
+{
+       	char buffer = 0;
+	int size = my_strlen(str) - 1;
+
+	for (int i = 0; i  <= size / 2; i++){
+		buffer = str[i];
+		str[i] = str[size - i];
+		str[size - i] = buffer;
+	}
+	return (str);
+}

@@ -25,10 +25,10 @@ buildlib:
 		make -C ../ buildlib
 
 add:
-		gcc -o $(NAME) tests_add.c $(CFLAGS) $(LDFLAGS) -lutils -ladd
+		gcc -o $(NAME) tests_add.c $(CFLAGS) $(LDFLAGS) -ladd -lutils
 
 sub:
-		gcc -o $(NAME) tests_sub.c $(CFLAGS) $(LDFLAGS) -lutils -lsub -ladd
+		gcc -o $(NAME) tests_sub.c $(CFLAGS) $(LDFLAGS) -lsub -ladd -lutils
 
 parser:
 		gcc -o $(NAME) tests_parser.c $(CFLAGS) $(LDFLAGS) -lparser -lutils

@@ -5,7 +5,8 @@
 ** add two numbers together
 */
 
-#include "infinadd.h"
+#include <infinadd.h>
+#include <utils.h>
 
 static void modul_div(int *curr, int *retain);
 static void size_post(int *nbr1, int *nbr2);

@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <infinadd.h>
+#include <utils.h>
 
 char *infin_add(char *nb1, char *nb2)
 {
