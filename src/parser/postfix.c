@@ -49,7 +49,7 @@ char *manage_ope(char c, stack_t **stack, char *operands)
 
 char *manage_parent(char c, stack_t **stack, char *parent)
 {
-	char *str = malloc(sizeof(char) * (size_stack(*stack)) * 2);
+	char *str = my_calloc(sizeof(char) * (size_stack(*stack)) * 2);
 	int ctr = 0;
 
 	if (is_in(c, parent) == 1) {
@@ -73,7 +73,7 @@ char *manage_parent(char c, stack_t **stack, char *parent)
 
 char *get_str_nbr(char *str)
 {
-	char *nb = malloc(sizeof(char) * my_strlen(str));
+	char *nb = my_calloc(sizeof(char) * my_strlen(str));
 	int ctr2 = 0;
 	int ctr = 0;
 
@@ -95,7 +95,7 @@ char *get_str_nbr(char *str)
 
 char *postfix(char *str, char *operands, char *base, char *parent)
 {
-	char *to_return = malloc(sizeof(char) * my_strlen(str) * 2);
+	char *to_return = my_calloc(sizeof(char) * my_strlen(str) * 2);
 	char *temp;
 	stack_t *stack = 0;
 	int ctr = 0;
@@ -115,6 +115,5 @@ char *postfix(char *str, char *operands, char *base, char *parent)
 		free(temp);
 	}
 	my_strcat(to_return, manage_parent(parent[1], &stack, parent));
-	to_return[my_strlen(to_return) - 1] = 0;
 	return (to_return);
 }
