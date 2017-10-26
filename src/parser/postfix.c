@@ -30,7 +30,7 @@ int has_priority(char *ope, char c1, char c2)
 
 char *manage_ope(char c, stack_t **stack, char *operands)
 {
-	char *temp = malloc(sizeof(char));
+	char *temp = my_calloc(sizeof(char));
 
 	if (*stack == 0)
 		*stack = create_stack(c);
