@@ -7,7 +7,7 @@
 
 ROOT		=	$(realpath ..)
 
-LIB		=	-lutils -ladd -lsub -lmul -lparser
+LIB		=	-ladd -lparser -lutils
 
 OBJ		=	$(SRC_UT:.c=.o)
 
@@ -18,8 +18,8 @@ LDFLAGS		=	-L$(ROOT)/lib -L/usr/local/lib -lcriterion -lgcov
 NAME		=	units
 
 
-all:		buildlib
-
+all:		
+		gcc -o $(NAME) tests_pf_tree.c tests_stack.c tests_stack_void.c tests_postfix.c $(CFLAGS) $(LDFLAGS) $(LIB)
 
 buildlib:
 		make -C ../ buildlib
