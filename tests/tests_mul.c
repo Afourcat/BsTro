@@ -10,7 +10,8 @@
 
 Test(infin_mul, basic)
 {
-	cr_assert_str_eq(infin_mul("100", "10"), "1000", "Should return 1000.\n");
+	cr_assert_str_eq(infin_mul("100", "10"), "1000",
+			 "Should return 1000.\n");
 }
 
 Test(infin_mul, bigger_than_int)
@@ -32,3 +33,20 @@ Test(infin_mul, basic_minus)
 			 "Should return -44.\n");
 }
 
+Test(infin_mul, double_zero)
+{
+	cr_assert_str_eq(infin_mul("0", "0"), "0",
+			 "Should return -44.\n");
+}
+
+Test(infin_mul, zero)
+{
+	cr_asser_str_eq(infin_mul("0", "400"), "0",
+			"Should return 0.\n");
+}
+
+Test(infin_mul, bigger_right)
+{
+	cr_asser_str_eq(infin_mul("2", "123"), "246",
+			"Should return 246.\n");
+}

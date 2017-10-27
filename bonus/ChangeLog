@@ -19,25 +19,51 @@ Description  :
 
 //___________________________________________________________________________//
 
+Name         : mul div mod et postfix !
+Date         : October 27 2017
+Changelog by : alexandre
+Description  :
+	Even if the new mario is out i have to focus, today thomas and
+	vichenzo end the postfix notation for all the case, it's a little bit
+	tricky but it works cleanly. i made the multiplication function it
+	work great. But we have to resolve memory errors. we clean the
+	repository and update the makfile, and i'm writting the test for mul
+	div and modulo.
+
+//___________________________________________________________________________//
+
+Name         : postfix calc & eval expr
+Date         : October 26 2017
+Changelog by : alexandre
+Description  :
+	we are going on the postfix function and the parsing system of eval
+	expr most of time the function is working but sometimes there is a
+	unexptected problem that put a lot of time to resolve, we made 80%
+	of the postfix but the eval_expr take lot's of time, time that we
+	are losing for the bistro.
+
+//___________________________________________________________________________//
+
 Name         : Makefile struct and evalexpr
 Date         : October 25 2017
 Changelog by : alexandre vinchenzo thomas
 Description  :
-we end the postfix, some bug stay but there will be fix soon, make unit test
-for it, do wrapper of add for sub function. We also made makefile, link them
-together, e end pftree system and we are making unit test of that. And we
-made stack_void system for btree, unit test for them , add system and mul
-system is pretty close to be done.
+	we end the postfix, some bug stay but there will be fix soon, make
+	unit test for it, do wrapper of add for sub function. We also made
+	makefile, link them together, we end pftree system and we are making
+	unit test of that. And we made stack_void system for btree, unit
+	test for them , add system and mul system is pretty close to be done.
 
 //___________________________________________________________________________//
 
 Name         : Unit tests and structuratio of the project
 Date         : October 24 2017
-Changelog by : alexandre vinchenzo thomas
+Changelog by : alexandre vinchenzo
 Description  :
-we made stack system and think how to make a evalexpr, thomas made the
-begining of the function that put string into postfix.
-vinchenzo made the binarie tree system that put the postfix expression.
+	we made stack system and think how to make a evalexpr, thomas
+	made the begining of the function that put string into postfix.
+	vinchenzo made the binarie tree system that put the postfix
+	expression.
 
 //___________________________________________________________________________//
 
@@ -45,7 +71,7 @@ Name         : first error gestion
 Date         : October 23 2017
 Changelog by : afourcat
 Description  :
-I make two first error functions that display errors.
+	I make two first error functions that display errors.
 
 //___________________________________________________________________________//
 
@@ -53,5 +79,5 @@ Name         : Beginning
 Date         : October 18 2017
 Changelog by : afourcat
 Description  :
-I Create the repository and I write 2 files ChangeLog and Project that will be
-used by us during the bistro project.
+	I Create the repository and I write 2 files ChangeLog and Project that
+	will be used by us during the bistro project.

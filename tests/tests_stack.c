@@ -10,7 +10,7 @@
 
 Test(create_stack, basic)
 {
-	stack_t *stack = create_stack('(');
+	stack_t *stack = create_stack();
 
 	cr_assert_eq(stack->data, '(', "Should be '('.\n");
 	cr_assert_eq(stack->ptr, NULL, "Should be NULL.\n");
@@ -18,7 +18,7 @@ Test(create_stack, basic)
 
 Test(add_stack, basic)
 {
-	stack_t *stack = create_stack('(');
+	stack_t *stack = create_stack();
 	stack_t *temp = stack;
 	
 	add_stack(&stack, 'a');
@@ -28,7 +28,7 @@ Test(add_stack, basic)
 
 Test(out_stack, basic)
 {
-	stack_t *stack = create_stack('(');
+	stack_t *stack = create_stack();
 	char data;
 	
 	add_stack(&stack, 'o');
@@ -39,7 +39,7 @@ Test(out_stack, basic)
 
 Test(size_stack, basic)
 {
-	stack_t *stack = create_stack('(');
+	stack_t *stack = create_stack();
 	
 	add_stack(&stack, 'o');
 	cr_assert_eq(size_stack(stack), 2, "Should be 2.\n");
@@ -47,7 +47,7 @@ Test(size_stack, basic)
 
 Test(size_stack, longer)
 {
-	stack_t *stack = create_stack('(');
+	stack_t *stack = create_stack();
 	
 	add_stack(&stack, 'o');
 	add_stack(&stack, '6');
