@@ -41,12 +41,12 @@ Test(infin_mul, double_zero)
 
 Test(infin_mul, zero)
 {
-	cr_asser_str_eq(infin_mul("0", "400"), "0",
+	cr_assert_str_eq(infin_mul("0", "400"), "0",
 			"Should return 0.\n");
 }
 
 Test(infin_mul, bigger_right)
 {
-	cr_asser_str_eq(infin_mul("2", "123"), "246",
+	cr_assert_str_eq(infin_mul("2", "123"), "246",
 			"Should return 246.\n");
 }

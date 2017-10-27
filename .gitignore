@@ -2,11 +2,10 @@
 *.gcda
 *.gcno
 *.o
-*.out
 *~
 *.gch
 *.a
 *#*#
-main.c
+*.out
 tests/units
 calc
