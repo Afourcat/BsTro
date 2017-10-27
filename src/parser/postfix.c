@@ -1,119 +1,117 @@
 /*
 ** EPITECH PROJECT, 2017
-** postfix
+** postfix_new.c
 ** File description:
-** Main functions for the postfix converter
+** New iteration of postfix
 */
 
 #include <stdlib.h>
-#include <stack.h>
-#include <postfix.h>
 #include <utils.h>
+#include <stack.h>
 
-int has_priority(char *ope, char c1, char c2)
+static int has_priority(char c1, char c2, char *ope)
 {
-	if (!is_in(c2, ope))
+	if (c2 == ope[0] || c2 == 0)
 		return (0);
-	if (c1 == ope[0] || c1 == ope[1]) {
-		if (c2 == ope[2] || c2 == ope[3] || c2 == ope[4])
-			return (0);
-		else
-			return (1);
-	}
-	else {
-		if (c2 == ope[0] || c2 == ope[1])
-			return (0);
-		else
-			return (1);
-	}
+	if (c1 == ope[2] || c1 == ope[3])
+		return (1);
+	if (c2 == ope[4] || c2 == ope[5] || c2 == ope[6])
+		return (1);
+	return (0);
 }
 
-char *manage_ope(char c, stack_t **stack, char *operands)
+static char *my_alo(char *str, char *operands)
 {
-	char *temp = my_calloc(sizeof(char));
+	char *to_return;
+	int counter = 0;
+	int size_counter = 0;
 
-	if (*stack == 0)
-		*stack = create_stack(c);
-	else {
-		if (has_priority(operands, c, (*stack)->data))
-			temp[0] = out_stack(stack);
-		else
-			temp[0] = 0;
-		if (*stack == 0)
-			*stack = create_stack(c);
-		else
-			add_stack(stack, c);
+	while (str[counter]) {
+		if (!(str[counter] == operands[0] ||
+		      str[counter] == operands[1]))
+			size_counter++;
+		counter++;
 	}
-	return (temp);
+	to_return = my_calloc(size_counter * 2);
+	return (to_return);
 }
 
-char *manage_parent(char c, stack_t **stack, char *parent)
+int put_in_str(char c, char *str)
 {
-	char *str = my_calloc(sizeof(char) * (size_stack(*stack)) * 2);
-	int ctr = 0;
+	int size = my_strlen(str);
 
-	if (is_in(c, parent) == 1) {
-		if (*stack == 0)
-			*stack = create_stack(c);
-		else
-			add_stack(stack, c);
-		str[0] = 0;
-	} else if (is_in(c, parent) == 2) {
-		while (*stack && (*stack)->data != parent[0]) {
-			str[ctr] = out_stack(stack);
-			ctr = ctr + 2;
-			str[ctr - 1] = ' ';
+	str[size] = c;
+	str[size + 1] = ' ';
+	return (0);
+}
+
+int priority(char c, char *str, stack_t **stack, char *operands)
+{
+	if (c == operands[0])
+		add_stack(stack, c);
+	else {
+		if (has_priority(c, (*stack)->data, operands)) {
+			put_in_str(out_stack(stack), str);
+			priority(c, str, stack, operands);
+			return (0);
 		}
-		if (*stack)
-			out_stack(stack);
+		else {
+			add_stack(stack, c);
+			return (0);
+		}
 	}
-	str[my_strlen(str) - 1] = str[my_strlen(str) - 1] == ' ' ? 0 : str[my_strlen(str) - 1]; 
-	return (str);
+	return (0);
 }
 
-char *get_str_nbr(char *str)
+int unstack(char *str, stack_t **stack, char *operands)
 {
-	char *nb = my_calloc(sizeof(char) * my_strlen(str));
-	int ctr2 = 0;
-	int ctr = 0;
-
-	while ((str[ctr] > '9' || str[ctr] < '0') && str[ctr] != '-')
-		ctr++;
-	if (str[ctr] == '-' &&
-	    (str[ctr - 1] < '0' || str[ctr - 1] > '9')) {
-		nb[ctr2] = str[ctr];
-		ctr2++;
-		ctr++;
-	}
-	while (str[ctr] <= '9' && str[ctr] >= '0') {
-		nb[ctr2] = str[ctr];
-		ctr++;
-		ctr2++;
-	}
-	return (nb);
+	while ((*stack)->data && (*stack)->data != operands[0])
+		put_in_str(out_stack(stack), str);
+	out_stack(stack);
+	return (0);
 }
 
-char *postfix(char *str, char *operands, char *base, char *parent)
+static int get_str_nb(char *str, char *to_return, int *i, char *neg)
 {
-	char *to_return = my_calloc(sizeof(char) * my_strlen(str) * 2);
-	char *temp;
-	stack_t *stack = 0;
-	int ctr = 0;
+	int size = my_strlen(to_return);
+	int bool_s = (str[*i] == neg[1] ? 1 : 0);
 
-	while (str[ctr]) {
-		if (is_in(str[ctr], operands) && (is_in(str[ctr - 1], base)
-			|| is_in(str[ctr - 1], &(parent[1]))))
-			temp = manage_ope(str[ctr], &stack, operands);
-		else if (is_in(str[ctr], parent))
-			temp = manage_parent(str[ctr], &stack, parent);
+	if (bool_s) {
+		to_return[size++] = neg[0];
+		(*i)++;
+	}
+	while (str[*i] <= '9' && str[*i] >= '0')
+		to_return[size++] = str[(*i)++];
+	(*i)--;
+	to_return[size] = ' ';
+	return (0);
+}
+
+int unstack_all(char *str, stack_t **stack)
+{
+	while ((*stack)->data)
+		put_in_str(out_stack(stack), str);
+	str[my_strlen(str) - 1] = 0;
+	return (0);
+}
+
+char *postfix(char *str, char *operands, char *base, char *neg)
+{
+	char *to_return = my_alo(str, operands);
+	int counter = 0;
+	stack_t *stack = create_stack();
+
+	while (str[counter]) {
+		if (is_in(str[counter], operands) &&
+		    str[counter] != operands[1])
+			priority(str[counter], to_return, &stack, operands);
+		else if (is_in(str[counter], base) || str[counter] == neg[1])
+			get_str_nb(str, to_return, &counter, neg);
 		else
-			temp = get_str_nbr(str + ctr);
-		ctr = my_strlen(temp) == 0 ? ctr + 1 : ctr + my_strlen(temp);
-		to_return = my_strcat(to_return, temp);
-		if (to_return[my_strlen(to_return) - 1] != ' ')
-			to_return = my_strcat(to_return, " ");
-		free(temp);
+			unstack(to_return, &stack, operands);
+		counter++;
 	}
-	my_strcat(to_return, manage_parent(parent[1], &stack, parent));
+	unstack_all(to_return, &stack);
+	free(stack);
 	return (to_return);
 }

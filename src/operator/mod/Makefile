@@ -2,12 +2,12 @@
 ## EPITECH PROJECT, 2017
 ## Makefile
 ## File description:
-## Makefile that compile the sub system
+## Makefile that compile the mul system
 ##
 
 ROOT		=	$(realpath ../../..)
 
-SRC		=	
+SRC		=	infin_mod.c
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -15,7 +15,7 @@ FLAGS		=	-I$(ROOT)/include
 
 LINKLIB		=	$(ROOT)/lib/
 
-NAMELIB		=	libsub.a
+NAMELIB		=	libmod.a
 
 all:		compile	lib
 

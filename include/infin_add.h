@@ -5,8 +5,8 @@
 ** header for infinadd function
 */
 
-#ifndef INFINADD_H_
-#define INFINADD_H_
+#ifndef INFIN_ADD_H_
+#define INFIN_ADD_H_
 
 int test_signe(char *str);
 int error_test(char *str1, char *str2, int ac);
@@ -21,4 +21,4 @@ char *my_dup_without_zero(char *str, int bool);
 int inf_add(char *nb1, char *nb2, int size, char *result_string);
 char *infin_add(char *nb1, char *nb2);
 
-#endif /* INFINADD_H_ */
+#endif /* INFIN_ADD_H_ */

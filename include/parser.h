@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** parser.h
 ** File description:
-** parser functions header
+** Header for parser functions
 */
 
 #ifndef PARSER_H_
