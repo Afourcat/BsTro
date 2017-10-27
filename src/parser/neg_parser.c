@@ -10,11 +10,10 @@
 
 int find_neg(char *neg, char *operands, char *base)
 {
-	char c = 33;
+	char c = '!';
 	
-	while (is_in(c, operands) || is_in(c, base)) {
+	while (is_in(c, operands) || is_in(c, base))
 		c++;
-	}
 	neg[0] = operands[3];
 	neg[1] = c;
 	return (0);
