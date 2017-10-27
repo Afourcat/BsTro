@@ -14,7 +14,7 @@ Test(pf_tree, create_simple_pf_tree)
 	char operators[] = "()+-*/%";
 	pf_tree_t *tree;
 
-	tree = char_to_ope(expr, operators);
+	tree = char_to_pf_tree(expr, operators);
 	cr_assert_eq(tree->operator, 2, "It must return 2.\n");
 	cr_assert_str_eq(tree->right->number, "3", "It must return 3.\n");
 	cr_assert_str_eq(tree->left->number, "1", "It must return 1.\n");
@@ -26,7 +26,7 @@ Test(pf_tree, create_hard_pf_tree)
 	char operators[] = "()+-*/%";
 	pf_tree_t *tree;
 
-	tree = char_to_ope(expr, operators);
+	tree = char_to_pf_tree(expr, operators);
 	cr_assert_eq(tree->operator, 3, "It must return 3.\n");
 
 	cr_assert_eq(tree->right->operator, 5, "It must return 5.\n");
@@ -55,9 +55,22 @@ Test(pf_tree, zero_plus_zero)
 	char operators[] = "()+-*/%";
 	pf_tree_t *tree;
 
-	tree = char_to_ope(expr, operators);
+	tree = char_to_pf_tree(expr, operators);
 	cr_assert_eq(tree->operator, 2, "It must return 2.\n");
 
 	cr_assert_str_eq(tree->right->number, "0", "It must return 0.\n");
 	cr_assert_str_eq(tree->left->number, "0", "It must return 0.\n");
+}
+
+Test(pf_tree, other_base)
+{
+	char expr[] = "1 2 e";
+	char operators[] = "{}evxyz";
+	pf_tree_t *tree;
+
+	tree = char_to_pf_tree(expr, operators);
+	cr_assert_eq(tree->operator, 2, "It must return 2.\n");
+
+	cr_assert_str_eq(tree->right->number, "2", "It must return 2.\n");
+	cr_assert_str_eq(tree->left->number, "1", "It must return 1.\n");
 }

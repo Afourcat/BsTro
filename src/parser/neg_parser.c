@@ -32,8 +32,9 @@ int get_nb_neg(char *str, char *neg)
 
 void manage_neg_brackets(char *str, char *res, int *ctrs, char *neg)
 {
-	my_strcat(res + ctrs[1], "(0-");
-	ctrs[1] += 3;
+	my_strcat(res + ctrs[1], "(0");
+	ctrs[1] += 2;
+	my_strcat(res + ctrs[1]++, neg[0]);
 	ctrs[0]++;
 	while (str[ctrs[0]] != ')') {
 		if (str[ctrs[0]] == neg[1]) 
@@ -46,10 +47,11 @@ void manage_neg_brackets(char *str, char *res, int *ctrs, char *neg)
 	my_strcat(res + ctrs[1]++, ")");
 }
 
-void manage_neg_number(char *str, char *res, int *ctrs)
+void manage_neg_number(char *str, char *res, int *ctrs, char *neg)
 {
-	my_strcat(res + ctrs[1], "(0-");
-	ctrs[1] += 3;
+	my_strcat(res + ctrs[1], "(0");
+	ctrs[1] += 2;
+	my_strcat(res + ctrs[1]++, neg[0]);
 	ctrs[0]++;
 	while (str[ctrs[0]] >= '0' && str[ctrs[0]] <= '9') {
 		my_strcat(res + ctrs[1]++, str + ctrs[0]++);
@@ -67,7 +69,7 @@ char *parse_neg(char *str, char *neg)
 		if (str[ctrs[0]] == neg[1] && str[ctrs[0] + 1] == '(') {
 			manage_neg_brackets(str, res, ctrs, neg);
 		} else {
-			manage_neg_number(str, res, ctrs);
+			manage_neg_number(str, res, ctrs, neg);
 		}
 		ctrs[0]++;
 	}

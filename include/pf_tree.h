@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** pf_tree.h
 ** File description:
-** Header for the binary tree structure
+** Structure for the binary tree
 */
 
 #ifndef PF_TREE_H_
@@ -17,7 +17,9 @@ typedef struct pf_tree {
 
 int get_operator(char *str, char *base);
 char *get_number(char *str);
-pf_tree_t *create_ope(char *str, char *base);
-pf_tree_t *char_to_ope(char *str, char *base);
+pf_tree_t *create_pf_tree(char *str, char *base);
+pf_tree_t *char_to_pf_tree(char *str, char *base);
 
 #endif /* PF_TREE_H_ */
+
+
