@@ -6,7 +6,6 @@
 */
 
 #include <stdlib.h>
-#include <my.h>
 #include <utils.h>
 #include <stack.h>
 
@@ -15,8 +14,7 @@ static int has_priority(char c1, char c2, char *ope)
 	if (c2 == ope[0] || c2 == 0)
 		return (0);
 	if (c1 == ope[2] || c1 == ope[3]) {
-		if (!(c2 == ope[2] || c2 == ope[3]))
-			return (1);
+		return (1);
 	}
 	else {
 		if (c2 == ope[4] || c2 == ope[5] || c2 == ope[6])

@@ -11,9 +11,9 @@
 Test(postfix, basic)
 {
 	char *infix = "1";
-	char *operands = "+-*/%";
+	char *operands = "()+-*/%";
 	char *base = "0123456789";
-	char *parent = "()";
+	char *parent = "-_";
 	
 	cr_assert_str_eq(postfix(infix, operands, base, parent),
 			"1",
@@ -23,9 +23,9 @@ Test(postfix, basic)
 Test(postfix, one_ope)
 {
 	char *infix = "1+2";
-	char *operands = "+-*/%";
+	char *operands = "()+-*/%";
 	char *base = "0123456789";
-	char *parent = "()";
+	char *parent = "-_";
 
 	cr_assert_str_eq(postfix(infix, operands, base, parent),
 			"1 2 +",
@@ -35,9 +35,9 @@ Test(postfix, one_ope)
 Test(postfix, multiple_digits)
 {
 	char *infix = "10+20";
-	char *operands = "+-*/%";
+	char *operands = "()+-*/%";
 	char *base = "0123456789";
-	char *parent = "()";
+	char *parent = "-_";
 
 	cr_assert_str_eq(postfix(infix, operands, base, parent),
 			"10 20 +",
@@ -47,9 +47,9 @@ Test(postfix, multiple_digits)
 Test(postfix, priority)
 {
 	char *infix = "1+2*3";
-	char *operands = "+-*/%";
+	char *operands = "()+-*/%";
 	char *base = "0123456789";
-	char *parent = "()";
+	char *parent = "-_";
 
 	cr_assert_str_eq(postfix(infix, operands, base, parent),
 			"1 2 3 * +",
@@ -59,9 +59,9 @@ Test(postfix, priority)
 Test(postfix, parenthesis)
 {
 	char *infix = "(1+2)*3";
-	char *operands = "+-*/%";
+	char *operands = "()+-*/%";
 	char *base = "0123456789";
-	char *parent = "()";
+	char *parent = "-_";
 
 	cr_assert_str_eq(postfix(infix, operands, base, parent),
 			"1 2 + 3 *",
@@ -70,10 +70,10 @@ Test(postfix, parenthesis)
 
 Test(postfix, relatives)
 {
-	char *infix = "-1+(-2*3)";
-	char *operands = "+-*/%";
+	char *infix = "_1+(_2*3)";
+	char *operands = "()+-*/%";
 	char *base = "0123456789";
-	char *parent = "()";
+	char *parent = "-_";
 
 	cr_assert_str_eq(postfix(infix, operands, base, parent),
 			"-1 -2 3 * +",
@@ -83,9 +83,9 @@ Test(postfix, relatives)
 Test(postfix, overcomplicated)
 {
 	char *infix = "6*8/5+(4/2)";
-	char *operands = "+-*/%";
+	char *operands = "()+-*/%";
 	char *base = "0123456789";
-	char *parent = "()";
+	char *parent = "-_";
 
 	cr_assert_str_eq(postfix(infix, operands, base, parent),
 			"6 8 * 5 / 4 2 / +",

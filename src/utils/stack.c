@@ -8,11 +8,11 @@
 #include <stack.h>
 #include <stdlib.h>
 
-stack_t *create_stack(char data)
+stack_t *create_stack(void)
 {
 	stack_t *new_stack = malloc(sizeof(stack_t));
 
-	new_stack->data = data;
+	new_stack->data = 0;
 	new_stack->ptr = NULL;
 	return (new_stack);
 }
@@ -31,7 +31,9 @@ char out_stack(stack_t **stack)
 {
 	stack_t *temp = *stack;
 	char data = temp->data;
-	
+
+	if ((*stack)->ptr == NULL)
+		return (0);
 	*stack = temp->ptr;
 	free(temp);
 	return (data);
