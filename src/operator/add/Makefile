@@ -8,7 +8,7 @@
 ROOT		=	$(realpath ../../..)
 
 SRC		=	add_it.c	\
-			infinadd.c	\
+			infin_add.c	\
 			sub_it.c	\
 			test_add.c	
 

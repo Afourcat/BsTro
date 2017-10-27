@@ -5,7 +5,7 @@
 ** sub two numbers together
 */
 
-#include <infinadd.h>
+#include <infin_add.h>
 #include <utils.h>
 
 static int parse_current(int *current_nbr,char *bigger, char *lower, int *bigger_size, int *lower_size, int retain);
