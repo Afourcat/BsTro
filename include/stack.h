@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** stack.h
 ** File description:
-** filo
+** Header for the char stack structure
 */
 
 #ifndef STACK_H_

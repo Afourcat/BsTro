@@ -7,7 +7,7 @@
 
 ROOT		=	$(realpath ../../..)
 
-SRC		=	div.c
+SRC		=	infin_div.c
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -20,10 +20,10 @@ NAMELIB		=	libdiv.a
 all:		compile	lib
 
 compile:
-#		gcc -c $(SRC) $(FLAGS)
+		gcc -c $(SRC) $(FLAGS)
 
 lib:
-#		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
+		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 
 clean:
 		rm -f $(OBJ)
@@ -34,5 +34,5 @@ fclean:		clean
 re:		clean all
 
 debug:		fclean
-#		gcc -c $(SRC) $(FLAGS) -g
+		gcc -c $(SRC) $(FLAGS) -g
 		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)

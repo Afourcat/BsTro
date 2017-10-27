@@ -16,4 +16,6 @@ int my_putstr_error(char *str)
 {
 	while (*str) {
 		my_putchar_error((*str)++);
+	}
+	return (0);
 }

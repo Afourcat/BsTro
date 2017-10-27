@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include <infinadd.h>
+#include <infin_add.h>
 #include <utils.h>
 
 char *infin_add(char *nb1, char *nb2)
@@ -58,7 +58,7 @@ char *remove_minus(char *str)
 		}
 		i++;
 	}
-	new_str[j + 1] == '\0';
+	new_str[j + 1] = '\0';
 	return (new_str);
 }
 
@@ -98,5 +98,6 @@ char *my_dup_without_zero(char *str, int bool)
 		i++;
 		j++;
 	}
+	free(str);
 	return (new_str);
 }

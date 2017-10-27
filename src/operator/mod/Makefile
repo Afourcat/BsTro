@@ -2,15 +2,12 @@
 ## EPITECH PROJECT, 2017
 ## Makefile
 ## File description:
-## Makefile that compile the add system
+## Makefile that compile the mul system
 ##
 
 ROOT		=	$(realpath ../../..)
 
-SRC		=	add_it.c	\
-			infin_add.c	\
-			sub_it.c	\
-			test_add.c	
+SRC		=	infin_mod.c
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -18,15 +15,15 @@ FLAGS		=	-I$(ROOT)/include
 
 LINKLIB		=	$(ROOT)/lib/
 
-NAMELIB		=	libadd.a
+NAMELIB		=	libmod.a
 
-all:		lib
-
-lib:		compile
-		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
+all:		compile	lib
 
 compile:
 		gcc -c $(SRC) $(FLAGS)
+
+lib:
+		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 
 clean:
 		rm -f $(OBJ)
@@ -39,5 +36,3 @@ re:		clean all
 debug:		fclean
 		gcc -c $(SRC) $(FLAGS) -g
 		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
-
-
