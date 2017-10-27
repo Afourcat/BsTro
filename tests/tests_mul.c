@@ -36,7 +36,13 @@ Test(infin_mul, basic_minus)
 Test(infin_mul, double_zero)
 {
 	cr_assert_str_eq(infin_mul("0", "0"), "0",
-			 "Should return -44.\n");
+			 "Should return 0.\n");
+}
+
+Test(infin_mul, double_zero_neg)
+{
+	cr_assert_str_eq(infin_mul("0", "-0"), "0",
+			 "Should return 0.\n");
 }
 
 Test(infin_mul, zero)
@@ -45,8 +51,21 @@ Test(infin_mul, zero)
 			"Should return 0.\n");
 }
 
+Test(infin_mul, bigger_neg_right)
+{
+	cr_assert_str_eq(infin_mul("2", "-123"), "-246",
+			"Should return -246.\n");
+}
+
 Test(infin_mul, bigger_right)
 {
 	cr_assert_str_eq(infin_mul("2", "123"), "246",
 			"Should return 246.\n");
+}
+
+Test(infin_mul, really_big)
+{
+	cr_assert_str_eq(infin_mul("20000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002"
+				   , "2"), "40000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004",
+			"Should return 400*004.\n");
 }
