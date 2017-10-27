@@ -7,7 +7,8 @@
 
 #include <stdlib.h>
 #include <utils.h>
-#include <infinadd.h>
+#include <infin_add.h>
+#include <infin_sub.h>
 
 char *get_oposed_number(char *nb)
 {
