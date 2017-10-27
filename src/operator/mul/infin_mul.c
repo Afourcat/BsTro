@@ -7,36 +7,8 @@
 
 #include <stdlib.h>
 #include <utils.h>
+#include <infin_add.h>
 #include <infin_mul.h>
-
-char *infin_mul(char *str1, char *str2)
-{
-	int bool_s = 0;
-	
-	if (test_signe(str1) == -1 && test_signe(str2) == -1)
-		bool_s = 0;
-	else if (test_signe(str1) == -1 || test_signe(str2) == -1)
-		bool_s = 1;
-	str1 = remove_minus(str1);
-	str2 = remove_minus(str2);
-	return (post_infin_mul(str1, str2, bool_s));
-}
-
-static char  *post_infin_mul(char *str1, char *str2, int bool_s)
-{
-	int size = my_strlen(str1) + my_strlen(str2);
-	char *res = malloc(sizeof(char) * size + 1 + bool_s);
-	char **buffer = allocate_buffer(str1, str2, size);
-	int greatest = get_greatest(str1, str2);
-	
-	if (greatest == 1)
-		res = mul(str1, str2, buffer, res);
-	else
-		res = mul(str2, str1, buffer, res);
-	if (bool_s == 1)
-		res = add_signe(res);
-	return (res);
-}
 
 char *add_signe(char *str)
 {
@@ -125,4 +97,33 @@ static char *mul(char *greatest, char *lowest, char **buffer, char *res)
 	res = add_all(res, buffer, size_l, size_g);
 	free_all(buffer, greatest, lowest);
 	return (res);
+}
+
+static char  *post_infin_mul(char *str1, char *str2, int bool_s)
+{
+	int size = my_strlen(str1) + my_strlen(str2);
+	char *res = malloc(sizeof(char) * size + 1 + bool_s);
+	char **buffer = allocate_buffer(str1, str2, size);
+	int greatest = get_greatest(str1, str2);
+	
+	if (greatest == 1)
+		res = mul(str1, str2, buffer, res);
+	else
+		res = mul(str2, str1, buffer, res);
+	if (bool_s == 1)
+		res = add_signe(res);
+	return (res);
+}
+
+char *infin_mul(char *str1, char *str2)
+{
+	int bool_s = 0;
+	
+	if (test_signe(str1) == -1 && test_signe(str2) == -1)
+		bool_s = 0;
+	else if (test_signe(str1) == -1 || test_signe(str2) == -1)
+		bool_s = 1;
+	str1 = remove_minus(str1);
+	str2 = remove_minus(str2);
+	return (post_infin_mul(str1, str2, bool_s));
 }

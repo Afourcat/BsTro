@@ -5,7 +5,7 @@
 ** test for add and substract system
 */
 
-#include <infinadd.h>
+#include <infin_add.h>
 #include <criterion/criterion.h>
 
 Test(infin_add, basic)

@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <utils.h>
+#include <infin_add.h>
 #include <infin_mul.h>
 
 static int get_signe(char *str1, char *str2);

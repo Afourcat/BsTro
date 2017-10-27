@@ -5,6 +5,9 @@
 ** mul function test
 */
 
+#include <criterion/criterion.h>
+#include <infin_mul.h>
+
 Test(infin_mul, basic)
 {
 	cr_assert_str_eq(infin_mul("100", "10"), "1000", "Should return 1000.\n");
@@ -23,7 +26,7 @@ Test(infin_mul, inferior_to_zero)
 			 "Should return 2829.\n");
 }
 
-Test(infin_mul, basic)
+Test(infin_mul, basic_minus)
 {
 	cr_assert_str_eq(infin_mul("-11", "4"), "-44",
 			 "Should return -44.\n");

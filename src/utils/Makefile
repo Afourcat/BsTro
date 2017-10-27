@@ -12,7 +12,9 @@ SRC		=	display.c	\
 			stack.c		\
 			stack_void.c	\
 			memory.c 	\
-			str_utils.c
+			str_utils.c	\
+			char_int_conv.c	\
+			str_nb_utils.c
 
 OBJ		=	$(SRC:.c=.o)
 

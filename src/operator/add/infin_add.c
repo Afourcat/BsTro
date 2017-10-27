@@ -6,22 +6,13 @@
 */
 
 #include <stdlib.h>
-#include <infin_add.h>
 #include <utils.h>
 
-char *infin_add(char *nb1, char *nb2)
-{
-	int size = (my_strlen(nb1) > my_strlen(nb2) ?
-		    my_strlen(nb1) : my_strlen(nb2));
-	char *result_string = malloc(sizeof(char) * size + 2);
-	int bool = 0;
-	
-	bool = inf_add(nb1, nb2, size, result_string);
-	my_revstr(result_string);
-	return (my_dup_without_zero(result_string, bool));
-}
+void add_it(char *number1, char *number2, char *result_string);
+int sub_it(char *bigger, char *lower, char *result_string, int signe);
+int test_signe(char *str);
 
-int inf_add(char *nb1, char *nb2, int size, char *result_string)
+int infin_add_wrapped(char *nb1, char *nb2, int size, char *result_string)
 {
         int signe_1 = test_signe(nb1);
 	int signe_2 = test_signe(nb2);
@@ -45,59 +36,14 @@ int inf_add(char *nb1, char *nb2, int size, char *result_string)
 	return (bool_s);
 }
 
-char *remove_minus(char *str)
+char *infin_add(char *nb1, char *nb2)
 {
-	char *new_str = malloc(sizeof(char) * my_strlen(str));
-	int j = 0;
-	int i = 0;
-
-	while (str[i] != '\0') {
-		if (str[i] != '-') {
-			new_str[j] = str[i];
-			j++;
-		}
-		i++;
-	}
-	new_str[j + 1] = '\0';
-	return (new_str);
-}
-
-char *my_allocate(char *str, int bool)
-{
-	int size = 1;
-	int j = 0;
-	char *new_str;
+	int size = (my_strlen(nb1) > my_strlen(nb2) ?
+		    my_strlen(nb1) : my_strlen(nb2));
+	char *result_string = malloc(sizeof(char) * size + 2);
+	int bool = 0;
 	
-	while (str[j] == '0' && str[j + 1] != '\0')
-		j++;
-	while (str[j]) {
-		j++;
-		size++;
-	}
-	if (bool == 1)
-		size++;
-	new_str = malloc(sizeof(char) * size);
-	return (new_str);
-}
-
-char *my_dup_without_zero(char *str, int bool)
-{
-	char *new_str = my_allocate(str, bool);
-	int i = 0;
-	int j = 0;
-
-	if (bool == 1) {
-		new_str[0] = '-';
-		i = 1;
-	}
-	while (str[j] == '0' && str[j + 1] != '\0') {
-		j++;
-	}
-	while (str[j]) {
-		new_str[i] = str[j];
-		i++;
-		j++;
-	}
-	free(str);
-	return (new_str);
+	bool = infin_add_wrapped(nb1, nb2, size, result_string);
+	my_revstr(result_string);
+	return (my_dup_without_zero(result_string, bool));
 }

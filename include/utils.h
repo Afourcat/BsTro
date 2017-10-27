@@ -17,5 +17,11 @@ int my_atoi(char const *str);
 int is_in(char c, char *str);
 int remove_whitespace(char *str);
 void *my_calloc(int size);
+char *my_dup_without_zero(char *str, int bool);
+char *my_allocate(char *str, int bool);
+char *remove_minus(char *str);
+int compare(char *bigger, char *lower);
+int char_to_int(char c);
+char int_to_char(int i);
 
 #endif /* UTILS_H_ */

@@ -30,6 +30,9 @@ add:
 sub:
 		gcc -o $(NAME) tests_sub.c $(CFLAGS) $(LDFLAGS) -lsub -ladd -lutils
 
+mul:
+		gcc -o $(NAME) tests_mul.c $(CFLAGS) $(LDFLAGS) -lmul -ladd -lutils
+
 parser:
 		gcc -o $(NAME) tests_parser.c $(CFLAGS) $(LDFLAGS) -lparser -lutils
 

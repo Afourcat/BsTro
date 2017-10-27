@@ -9,7 +9,7 @@
 #include <utils.h>
 #include <infin_mul.h>
 
-char *get_greatest(char *s1, char *s2)
+int get_greatest(char *s1, char *s2)
 {
 	return (my_strlen(s1) >= my_strlen(s2) ? 1 : 2);	
 }

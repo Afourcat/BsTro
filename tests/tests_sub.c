@@ -5,50 +5,52 @@
 ** Tests for substraction functions
 */
 
-#include <sub.h>
+#include <criterion/criterion.h>
+#include <infin_add.h>
+#include <infin_sub.h>
 
-Test(sub, basic)
+Test(infin_sub, basic)
 {
-	cr_assert_str_eq(sub("10", "5"), "5", "It must return 5.\n");
+	cr_assert_str_eq(infin_sub("10", "5"), "5", "It must return 5.\n");
 }
 
-Test(sub, same_number)
+Test(infin_sub, same_number)
 {
-	cr_assert_str_eq(sub("1000", "1000"), "0", "It must return 0.\n");
+	cr_assert_str_eq(infin_sub("1000", "1000"), "0", "It must return 0.\n");
 }
 
-Test(sub, second_number_bigger)
+Test(infin_sub, second_number_bigger)
 {
-	cr_assert_str_eq(sub("5", "10"), "-5", "It must return -5.\n");
+	cr_assert_str_eq(infin_sub("5", "10"), "-5", "It must return -5.\n");
 }
 
-Test(sub, two_zero)
+Test(infin_sub, two_zero)
 {
-	cr_assert_str_eq(sub("0", "0"), "0", "It must return 0.\n");
+	cr_assert_str_eq(infin_sub("0", "0"), "0", "It must return 0.\n");
 }
 
-Test(sub, bigger_than_int)
+Test(infin_sub, bigger_than_int)
 {
-	cr_assert_str_eq(sub("2147483649", "1"), "2147483648",
+	cr_assert_str_eq(infin_sub("2147483649", "1"), "2147483648",
 			 "It must return 2147483648.\n");
 }
 
-Test(sub, bigger_than_int2)
+Test(infin_sub, bigger_than_int2)
 {
-	cr_assert_str_eq(sub("5000000000000000000000000",
+	cr_assert_str_eq(infin_sub("5000000000000000000000000",
 			     "1000000000000000000000000"),
 			 "4000000000000000000000000",
 			 "It must return 4000000000000000000000000.\n");
 }
 
-Test(inf_add, minus_zero)
+Test(infin_add, minus_zero)
 {
-	cr_assert_str_eq(inf_add("-0" , "-0"), "0", "It must return 0.\n");
+	cr_assert_str_eq(infin_add("-0" , "-0"), "0", "It must return 0.\n");
 }
 
-Test(inf_add, bigger_double_minus)
+Test(infin_add, bigger_double_minus)
 {
-	cr_assert_str_eq(inf_add("5000000000000000", "3000000000000000"),
+	cr_assert_str_eq(infin_add("5000000000000000", "3000000000000000"),
 			"8000000000000000",
 			"It must return 8000000000000000.\n");
 }
