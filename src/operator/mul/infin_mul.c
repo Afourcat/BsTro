@@ -10,19 +10,22 @@
 #include <infin_add.h>
 #include <infin_mul.h>
 
-char *add_signe(char *str)
+char *add_signe(char *positive)
 {
-	char *new_string = malloc(my_strlen(str));
+	int size = my_strlen(positive);
+	char *new_re = my_calloc(size + 2);
 	int i = 1;
 	int j = 0;
 	
-	new_string[0] = '-';
-	while (str[j] != '\0') {
-		new_string[i++] = str[j++];
+	new_re[0] = '-';
+	while (positive[j] != '\0') {
+		new_re[i] = positive[j];
+		i++;
+		j++;
 	}
-	new_string[i + 1] = '\0';
-	free(str);
-	return (new_string);
+	new_re[i + 1] = '\0';
+	free(positive);
+	return (new_re);
 }
 
 static int get_signe(char *str1, char *str2)
@@ -102,7 +105,7 @@ static char *mul(char *greatest, char *lowest, char **buffer, char *res)
 static char  *post_infin_mul(char *str1, char *str2, int bool_s)
 {
 	int size = my_strlen(str1) + my_strlen(str2);
-	char *res = malloc(sizeof(char) * size + 1 + bool_s);
+	char *res = malloc(sizeof(char) * size + 1);
 	char **buffer = allocate_buffer(str1, str2, size);
 	int greatest = get_greatest(str1, str2);
 	
