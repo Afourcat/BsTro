@@ -8,17 +8,17 @@
 //----------------------------------TODO-------------------------------------//
 
 //-----VINZ-----/
-unit test for btree
+calc engine
 
 //-----THOMAS---/
-make the div
+cleanning 
 
 //-----ALEX-----/
-end multiplication
+uni-test
 
 1- Prioritée de calculs                                             100%
 
-2- Gestion des calculs en chaine de caractère                       50%
+2- Gestion des calculs en chaine de caractère                       70%
 
 3- Gerer les bases                                                  0%
 
@@ -30,3 +30,4 @@ end multiplication
 -postix function parser
 -add and sub
 -Makefile system
+-mul
