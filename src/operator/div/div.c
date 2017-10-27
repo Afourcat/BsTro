@@ -1,94 +1,52 @@
 /*
 ** EPITECH PROJECT, 2017
-** mul.c
+** infin_div.c
 ** File description:
 ** infinite multiplication functions
 */
 
 #include <stdlib.h>
 #include <utils.h>
+#include <infin_sub.h>
+#include <infin_add.h>
+#include <infin_mul.h>
+#include <infin_pow.h>
 
-char *mul(char *str1, char *str2)
+static char *infin_div_wrapped(char *str1, char *str2)
 {
-	int size = my_strlen(str1) + my_strlen(str2);
-	char *res = malloc(sizeof(char) * size);
-	char **buffer = allocate_buffer(str1, str2, size);
-	char *greatest = get_greatest(str1, str2);
-	char *lowest = get_lowest(str1, str2);
-	int bool_s = get_signe(str1, str2);
+	char *quot = "0";
+	char *n = "0";
+	char *empowered = infin_pow("2", n);
+	char *to_sub = infin_mul(empowered, str2);
 	
-	return(infin_mul(greatest, lowest, buffer, res));
-}
-
-static int get_signe(char *str1, char *str2)
-{
-	if (str1[0] == '-' && str2[0] == '-')
-		return (0);
-	else if (str1[0] != '-' && str2[0] != '-')
-		return (0);
-	else
-		return (1);
-}
-
-static void multiply(int a, int b, int *current, int *retain)
-{
-	int temp_retain = *retain;
-	
-	*current = a * b;
-	if (*current > 9) {
-		*retain = *current / 10;		
-		*current = ((*current) % 10) + temp_retain;
+	while (compare(to_sub, str1) != 1) {
+		to_sub = infin_mul(to_sub, 2);
+		n = infin_add(n, "1");
 	}
-	else {
-		*current += *retain;
-		*retain = 0;
-	}
-}
-
-void add_zeros(char **buffer)
-{
-	int nb_zeros = 0;
-	int counter = 0;
-	int counter2 = 0;
-
-	while (buffer[counter][0] != 0)
-		counter++;
-	nb_zeros = my_strlen(buffer[counter - 2]) - my_strlen(buffer[counter - 1]);
-	counter2 = my_strlen(buffer[counter - 1]) - 1;
-	while (nb_zeros > 0) {
-		buffer[counter - 1][counter2] = '0';
-		nb_zeros--;
-		counter2++;
-	}
-}
-
-char *add_all(char *res, char **buffer, int size_l, int size_g)
-{
-	int counter = 0;
-
-	for (int l = size_l; l > 0; --l) {
-		res = infin_add(res, buffer[l]);
-	}
-	return (res);
-}
-
-static char *infin_mul(char *greatest, char *lowest, char **buffer, char *res)
-{
-	int size_g = my_strlen(greatest);
-	int size_l = my_strlen(lowest);
-	int retain = 0;
-	int current_nbr = 0;
-	int iter = 0;
-	
-	for (int l = size_l - 1; l > 0 ; l--) {
-		iter = 0;
-		for (int g = size_g - 1; g > 0; g--) {
-			multiply(lowest[l], greatest[g], &current_nbr, &retain);
-			buffer[l][iter] = int_to_char(current_nbr);
-			iter++;
+	infin_sub(n, "1");
+	while (compare(n, 0) == 1){
+		empowered = infin_pow("2", n);
+		to_sub = infin_mul(empowered, str2);
+		if (compare(to_sub, str1) != 1) {
+			quot = infin_add(quot, empowered);
+			str1 = infin_sub(str1, to_sub);
 		}
+		infin_sub(n, "1");
 	}
-	res = add_all(buffer, lowest, greatest);
-	free_all(buffer, greatest, lowest);
-	return (res);
+	return(quot);
+}
+
+char *infin_div(char *str1, char *str2)
+{
+	char *quot;
+	int sign = get_sign(str1, str2);
+
+	if (str1[0] == '-')
+		str1 = get_oposed_number(str1);
+	if (str2[0] == '-')
+		str2 = get_oposed_number(str2);
+	quot = infin_div_wrapped(str1, str2);
+	if (sign == 1)
+		quot = get_oposed_number(quot);
+	return (quot);
 }
