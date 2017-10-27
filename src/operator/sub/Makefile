@@ -7,7 +7,7 @@
 
 ROOT		=	$(realpath ../../..)
 
-SRC		=	
+SRC		=	infin_sub.c
 
 OBJ		=	$(SRC:.c=.o)
 

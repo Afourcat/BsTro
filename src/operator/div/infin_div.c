@@ -7,8 +7,8 @@
 
 #include <stdlib.h>
 #include <utils.h>
-#include <infin_sub.h>
 #include <infin_add.h>
+#include <infin_sub.h>
 #include <infin_mul.h>
 #include <infin_pow.h>
 
@@ -16,19 +16,17 @@ static char *infin_div_wrapped(char *str1, char *str2)
 {
 	char *quot = "0";
 	char *n = "0";
-	char *empowered = infin_pow("2", n);
-	char *to_sub = infin_mul(empowered, str2);
-	
+	char *to_sub = infin_mul("2", str2);
+
 	while (compare(to_sub, str1) != 1) {
 		to_sub = infin_mul(to_sub, 2);
 		n = infin_add(n, "1");
 	}
 	infin_sub(n, "1");
-	while (compare(n, 0) == 1){
-		empowered = infin_pow("2", n);
-		to_sub = infin_mul(empowered, str2);
+	while (compare(n, 0) == 1) {
+		to_sub = infin_mul(infin_pow("2", n), str2);
 		if (compare(to_sub, str1) != 1) {
-			quot = infin_add(quot, empowered);
+			quot = infin_add(quot, infin_pow("2", n));
 			str1 = infin_sub(str1, to_sub);
 		}
 		infin_sub(n, "1");

@@ -21,5 +21,3 @@ pf_tree_t *create_ope(char *str, char *base);
 pf_tree_t *char_to_ope(char *str, char *base);
 
 #endif /* PF_TREE_H_ */
-
-
