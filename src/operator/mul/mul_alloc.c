@@ -7,27 +7,27 @@
 
 #include <stdlib.h>
 #include <utils.h>
-
+#include <infin_mul.h>
 
 char *get_greatest(char *s1, char *s2)
 {
-	return (my_strlen(s1) >= my_strlen(s2) ? s1 : s2);	
-}
-
-char *get_lowest(char *s1, char *s2)
-{
-	return (my_strlen(s1) <= my_strlen(s2) ? s1 : s2);	
+	return (my_strlen(s1) >= my_strlen(s2) ? 1 : 2);	
 }
 
 char **allocate_buffer(char *s1, char *s2, int size)
 {
-	int size_buffer = my_strlen(get_lowest(s1, s2)) + 1;
-	char **buffer = malloc(sizeof(char*) * size_buffer);
+	int size_buffer;
+	char **buffer;
 	int i = 0;
 
-	buffer[size_buffer - 1] = NULL;
+	if (get_greatest(s1, s2) == 1)
+		size_buffer = my_strlen(s2);
+	else
+		size_buffer = my_strlen(s1);
+	buffer = malloc(sizeof(char*) * (size_buffer + 1));
+	buffer[size_buffer] = NULL;
 	while (i < size_buffer) {
-		buffer[i] = malloc(sizeof(char) * size + i);
+		buffer[i] = malloc(sizeof(char) * (size + i + 1));
 		i++;
 	}
 	return (buffer);
@@ -35,9 +35,14 @@ char **allocate_buffer(char *s1, char *s2, int size)
 
 void free_all(char **buffer, char *s1, char *s2)
 {
-	int size_buffer = my_strlen(get_lowest(s1, s2)) + 1;
+	int size_buffer;
 	int i = 0;
-
+	
+	
+	if (get_greatest(s1, s2) == 1)
+		size_buffer = my_strlen(s2) + 1;
+	else
+		size_buffer = my_strlen(s1) + 1;
 	while (i < size_buffer) {
 		free(buffer[i]);
 		i++;
