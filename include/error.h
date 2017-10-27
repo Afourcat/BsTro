@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** error_utils.h
 ** File description:
-**
+** Header file for error displaying functions
 */
 
 #ifndef ERROR_UTILS_H_

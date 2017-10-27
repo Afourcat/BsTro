@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** pf_tree.h
 ** File description:
-** Structure for the binary tree
+** Header for the binary tree structure
 */
 
 #ifndef PF_TREE_H_

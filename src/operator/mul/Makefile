@@ -7,9 +7,7 @@
 
 ROOT		=	$(realpath ../../..)
 
-SRC		=	#mul.c		\
-			mul_alloc.c	\
-			mul_conv.c
+SRC		=	infin_mul.c
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -22,10 +20,10 @@ NAMELIB		=	libmul.a
 all:		compile	lib
 
 compile:
-#		gcc -c $(SRC) $(FLAGS)
+		gcc -c $(SRC) $(FLAGS)
 
 lib:
-#		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
+		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 
 clean:
 		rm -f $(OBJ)
@@ -36,5 +34,5 @@ fclean:		clean
 re:		clean all
 
 debug:		fclean
-#		gcc -c $(SRC) $(FLAGS) -g
+		gcc -c $(SRC) $(FLAGS) -g
 		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)

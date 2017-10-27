@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2017
-** infin_mod.h
+** infin_pow.h
 ** File description:
-** Header file of infin_mod functions
+** Header file of infin_pow functions
 */
 
-#ifndef INFIN_MOD_H_
-#define INFINE_MOD_H
+#ifndef INFIN_POW_H_
+#define INFIN_POW_H_
 
-char *infin_mod(char *str1, char *str2);
+char *infin_pow(char *str1, char *str2);
 
-#endif /* INFIN_MOD_H */
+#endif /* INFIN_POW_H_ */
