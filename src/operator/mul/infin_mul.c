@@ -7,15 +7,7 @@
 
 #include <stdlib.h>
 #include <utils.h>
-
-static int get_signe(char *str1, char *str2);
-static int multiply(int a, int b, int *current, int *retain);
-char *infin_mul(char *str1, char *str2);
-void add_zeros(char *buffer, int nb_zeros, int *iter);
-char *add_all(char *res, char **buffer, int size_l, int size_g);
-static char *mul(char *greatest, char *lowest, char **buffer, char *res);
-static char  *post_infin_mul(char *str1, char *str2, int bool_s);
-char *add_signe(char *str);
+#include <infin_mul.h>
 
 char *infin_mul(char *str1, char *str2)
 {
