@@ -28,16 +28,6 @@ char *add_signe(char *positive)
 	return (new_re);
 }
 
-static int get_signe(char *str1, char *str2)
-{
-	if (str1[0] == '-' && str2[0] == '-')
-		return (0);
-	else if (str1[0] != '-' && str2[0] != '-')
-		return (0);
-	else
-		return (1);
-}
-
 static int multiply(int a, int b, int *current, int *retain)
 {
 	int temp_retain = *retain;

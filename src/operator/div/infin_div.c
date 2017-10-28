@@ -40,11 +40,11 @@ char *infin_div(char *str1, char *str2)
 	int sign = get_sign(str1, str2);
 
 	if (str1[0] == '-')
-		str1 = get_oposed_number(str1);
+		str1 = get_opposed_number(str1);
 	if (str2[0] == '-')
-		str2 = get_oposed_number(str2);
+		str2 = get_opposed_number(str2);
 	quot = infin_div_wrapped(str1, str2);
 	if (sign == 1)
-		quot = get_oposed_number(quot);
+		quot = get_opposed_number(quot);
 	return (quot);
 }

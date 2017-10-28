@@ -9,8 +9,6 @@ ROOT		=	$(realpath ..)
 
 LIB		=	-ladd -lparser -lutils
 
-OBJ		=	$(SRC_UT:.c=.o)
-
 CFLAGS		=	-I$(ROOT)/include -Wall -Wextra --coverage -g
 
 LDFLAGS		=	-L$(ROOT)/lib -L/usr/local/lib -lcriterion -lgcov
@@ -49,11 +47,10 @@ pf_tree:
 		gcc -o $(NAME) tests_pf_tree.c $(CFLAGS) $(LDFLAGS) -lparser -lutils
 
 clean:
-		rm -f $(OBJ)
+		rm -f *.gcno
+		rm -f *.gcda
 
 fclean: 	clean
 		rm -f $(NAME)
-		rm -f *.gcno
-		rm -f *.gcda
 
 re:		fclean all

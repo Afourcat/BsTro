@@ -23,5 +23,7 @@ char *remove_minus(char *str);
 int compare(char *bigger, char *lower);
 int char_to_int(char c);
 char int_to_char(int i);
+char *get_opposed_number(char *nb);
+int get_sign(char *nb1, char *nb2);
 
 #endif /* UTILS_H_ */

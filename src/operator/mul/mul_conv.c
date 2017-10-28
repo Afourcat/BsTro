@@ -10,19 +10,8 @@
 #include <infin_add.h>
 #include <infin_mul.h>
 
-static int get_signe(char *str1, char *str2);
 void add_zeros(char *buffer, int nb_zeros, int *iter);
 char *add_all(char *res, char **buffer, int size_l, int size_g);
-
-static int get_signe(char *str1, char *str2)
-{
-	if (str1[0] == '-' && str2[0] == '-')
-		return (0);
-	else if (str1[0] != '-' && str2[0] != '-')
-		return (0);
-	else
-		return (1);
-}
 
 void add_zeros(char *buffer, int nb_zeros, int *iter)
 {

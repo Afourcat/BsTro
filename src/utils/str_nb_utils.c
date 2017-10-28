@@ -8,6 +8,15 @@
 #include <stdlib.h>
 #include <utils.h>
 
+char *get_opposed_number(char *nb)
+{
+	if (nb[0] == '-')
+		nb = my_dup_without_zero(nb, 0);
+	else
+		nb = my_dup_without_zero(nb, 1);
+	return (nb);
+}
+
 char *my_allocate(char *str, int bool)
 {
 	int size = 1;
@@ -78,3 +87,5 @@ int compare(char *bigger, char *lower) {
 	}
 	return (my_strlen(bigger) > my_strlen(lower) ? 1 : 2);
 }
+
+

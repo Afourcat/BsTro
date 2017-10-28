@@ -9,6 +9,5 @@
 #define INFIN_SUB_H_
 
 char *infin_sub(char *nb1, char *nb2);
-char *get_opposed_number(char *nb);
 
 #endif /* INFIN_SUB_H_ */
