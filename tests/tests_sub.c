@@ -48,6 +48,21 @@ Test(infin_add, minus_zero)
 	cr_assert_str_eq(infin_add("-0" , "-0"), "0", "It must return 0.\n");
 }
 
+Test(infin_add, zero)
+{
+	cr_assert_str_eq(infin_add("-0" , "-0"), "0", "It must return 0.\n");
+}
+
+Test(infin_add, zero_1)
+{
+	cr_assert_str_eq(infin_add("-0" , "-0"), "0", "It must return 0.\n");
+}
+
+Test(infin_add, zero_2)
+{
+	cr_assert_str_eq(infin_add("-0" , "-0"), "0", "It must return 0.\n");
+}
+
 Test(infin_add, bigger_double_minus)
 {
 	cr_assert_str_eq(infin_add("5000000000000000", "3000000000000000"),

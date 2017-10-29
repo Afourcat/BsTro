@@ -12,7 +12,7 @@ Test(create_stack, basic)
 {
 	stack_t *stack = create_stack();
 
-	cr_assert_eq(stack->data, '(', "Should be '('.\n");
+	cr_assert_eq(stack->data, 0, "Should be '('.\n");
 	cr_assert_eq(stack->ptr, NULL, "Should be NULL.\n");
 }
 
@@ -33,7 +33,7 @@ Test(out_stack, basic)
 	
 	add_stack(&stack, 'o');
 	data = out_stack(&stack);
-	cr_assert_eq(stack->data, '(', "Should be '('.\n");
+	cr_assert_eq(stack->data, 0, "Should be '('.\n");
 	cr_assert_eq(data, 'o', "Should be o.\n");
 }
 

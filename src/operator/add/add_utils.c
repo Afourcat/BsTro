@@ -7,6 +7,8 @@
 
 #include <utils.h>
 
+static int test_signe(char *str);
+
 static void modul_div(int *curr, int *retain)
 {
 	*retain = *curr / 10;
@@ -75,7 +77,7 @@ int sub_it(char *bigger, char *lower, char *result_string, int signe)
 	return (bool_s);
 }
 
-int test_signe(char *str)
+static int test_signe(char *str)
 {
 	int i = 0;
 

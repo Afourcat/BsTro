@@ -9,11 +9,47 @@
 #include <utils.h>
 #include <infin_add.h>
 
+static char *my_dup_without_free(char *str, int bool);
+static char *get_opposed_number_wo_free(char *nb);
+
+
 char *infin_sub(char *nb1, char *nb2)
 {
 	char *result;
-	char *new_nb2 = get_opposed_number(nb2);
-
+	char *new_nb2 = get_opposed_number_wo_free(nb2);
+	
 	result = infin_add(nb1, new_nb2);
 	return (result);
+}
+
+static char *get_opposed_number_wo_free(char *nb)
+{
+	if (nb[0] == '-')
+		nb = my_dup_without_free(nb, 0);
+	else
+		nb = my_dup_without_free(nb, 1);
+	return (nb);
+}
+
+static char *my_dup_without_free(char *str, int bool)
+{
+	char *new_str = my_allocate(str, bool);
+	int i = 0;
+	int j = 0;
+
+	if (bool == 1) {
+		new_str[0] = '-';
+		i = 1;
+	}
+	else
+		j = 1;
+	while (str[j] == '0' && str[j + 1] != '\0') {
+		j++;
+	}
+	while (str[j]) {
+		new_str[i] = str[j];
+		i++;
+		j++;
+	}
+	return (new_str);
 }
