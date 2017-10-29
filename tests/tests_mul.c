@@ -63,6 +63,12 @@ Test(infin_mul, bigger_right)
 			"Should return 246.\n");
 }
 
+Test(infin_mul, two_one)
+{
+	cr_assert_str_eq(infin_mul("2", "-1"), "-2",
+			"Should return -2.\n");
+}
+
 Test(infin_mul, really_big)
 {
 	cr_assert_str_eq(infin_mul("20000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002"

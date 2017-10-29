@@ -5,11 +5,15 @@
 ** Utility functions for manipulatins str
 */
 
+#include <stdlib.h>
+
 int my_strlen(char const *str)
 {
 	int i = 0;
-
-	while (str[i])
+	
+	if (str == NULL || str[0] == '\0')
+		return (0);
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
@@ -63,6 +67,8 @@ char *my_revstr(char *str)
        	char buffer = 0;
 	int size = my_strlen(str) - 1;
 
+	if (str == NULL || str[0] == '\0')
+		return (str);
 	for (int i = 0; i  <= size / 2; i++){
 		buffer = str[i];
 		str[i] = str[size - i];

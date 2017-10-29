@@ -25,12 +25,12 @@ Test(infin_add, double_zero)
 	cr_assert_str_eq(infin_add("0" , "0"), "0", "It must return 0.\n");
 }
 
-Test(infin_add, minus_zero)
+Test(infin_add, minus_z)
 {
 	cr_assert_str_eq(infin_add("-0" , "-0"), "0", "It must return 0.\n");
 }
 
-Test(infin_add, bigger_double_minus)
+Test(infin_add, bigger_doubus)
 {
 	cr_assert_str_eq(infin_add("1000000000000000000000000000000000000000000000",
 				   "1000000000000000000000000000000000000000000000"),

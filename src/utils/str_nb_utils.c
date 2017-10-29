@@ -29,9 +29,7 @@ char *my_allocate(char *str, int bool)
 		j++;
 		size++;
 	}
-	if (bool == 1)
-		size++;
-	new_str = malloc(sizeof(char) * size);
+	new_str = my_calloc(sizeof(char) * (size + bool));
 	return (new_str);
 }
 
@@ -59,10 +57,14 @@ char *my_dup_without_zero(char *str, int bool)
 
 char *remove_minus(char *str)
 {
-	char *new_str = malloc(sizeof(char) * my_strlen(str));
+	char *new_str;
 	int j = 0;
 	int i = 0;
-
+	
+	if (str[0] == '-')
+		new_str = my_calloc(my_strlen(str));
+	else
+		new_str = my_calloc(my_strlen(str) + 1);
 	while (str[i] != '\0') {
 		if (str[i] != '-') {
 			new_str[j] = str[i];
@@ -70,7 +72,7 @@ char *remove_minus(char *str)
 		}
 		i++;
 	}
-	new_str[j + 1] = '\0';
+	new_str[j] = '\0';
 	return (new_str);
 }
 

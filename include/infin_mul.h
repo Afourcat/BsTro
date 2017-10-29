@@ -11,7 +11,7 @@
 char *infin_mul(char *str1, char *str2);
 char *add_signe(char *positive);
 void add_zeros(char *buffer, int nb_zeros, int *iter);
-char *add_all(char *res, char **buffer, int size_l, int size_g);
+char *add_all(char **res, char **buffer, int size_l, int size_g);
 int get_greatest(char *s1, char *s2);
 char **allocate_buffer(char *s1, char *s2, int size);
 void free_all(char **buffer, char *s1, char *s2);

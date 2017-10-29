@@ -14,6 +14,8 @@ void my_putchar(char c)
 
 void my_putstr(char *str)
 {
-	while (*str)
-		my_putchar(*str++);
+	if (str != NULL && str[0] != '\0') {
+		while (*str)
+			my_putchar(*str++);
+	}
 }

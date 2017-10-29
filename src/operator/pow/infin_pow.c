@@ -13,7 +13,8 @@
 
 char *infin_pow(char *str1, char *str2)
 {
-	if (str2 == "0")
+	if (str2[0] == '1' && str2[1] == '\0')
 		return (str1);
-	return(infin_mul(infin_pow(str1, str2), infin_sub(str2, "1")));
+	else
+		return(infin_mul(infin_pow(str1, infin_sub(str2, "1")), str1));
 }

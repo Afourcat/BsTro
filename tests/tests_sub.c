@@ -63,7 +63,7 @@ Test(infin_add, zero_2)
 	cr_assert_str_eq(infin_add("-0" , "-0"), "0", "It must return 0.\n");
 }
 
-Test(infin_add, bigger_double_minus)
+Test(infin_add, bigger_double_mi)
 {
 	cr_assert_str_eq(infin_add("5000000000000000", "3000000000000000"),
 			"8000000000000000",
