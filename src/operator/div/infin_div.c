@@ -17,6 +17,7 @@ static char *infin_div_wrapped(char *str1, char *str2)
 {
 	char *quot = "0";
 	char *n = "0";
+	char *two = "2";
 	char *to_sub = infin_add("0", str2);
 
 	while (compare(to_sub, str1) != 1) {
@@ -24,9 +25,9 @@ static char *infin_div_wrapped(char *str1, char *str2)
 		n = infin_add(n, "1");
 	}
 	while (n[0] != '-') {
-		to_sub = infin_mul(infin_pow("2", n), str2);
+		to_sub = infin_mul(infin_pow(two, n), str2);
 		if (compare(to_sub, str1) != 1) {
-			quot = infin_add(quot, infin_pow("2", n));
+			quot = infin_add(quot, infin_pow(two, n));
 			str1 = infin_sub(str1, to_sub);
 		}
 		n = infin_sub(n, "1");

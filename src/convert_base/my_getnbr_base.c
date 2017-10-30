@@ -19,7 +19,7 @@ char *get_dig(char symbol, char const *base)
 	while (base[counter] != symbol)
 		counter++;
 	if (base[counter])
-		return (my_atoi(counter));
+		return (my_itoa(counter));
 	else
 		return ("-1");
 }
@@ -30,7 +30,7 @@ char *get_base(char const *base)
 
 	while (base[counter])
 		counter++;
-	return (my_atoi(counter));
+	return (my_itoa(counter));
 }
 
 int get_first_apearance(char const *str, char const *base)
@@ -59,17 +59,17 @@ char *get_sign_or_null(char const *str, int first_digit, char *number)
 
 char *getnbr_base(char const *str, char const *base)
 {
-	char *max_power;
-	char *digit;
-	char *number = 0;
+	char *max_power = "0";
+	char *digit = "0";
+	char *number = "0";
 	int rev_counter = 0;
 	int first_digit = get_first_apearance(str, base);
 
-	while (compare(get_dig(str[first_digit + max_power], base), "0") <= 1)
+	while (get_dig(str[first_digit + my_atoi(max_power)], base)[0] != '-')
 		max_power = infin_add(max_power, "1");
-	while (compare(max_power, "0") <= 1) {
+	while (max_power[0] != '-') {
 		digit = get_dig(str[first_digit + rev_counter], base);
-		if (compare(digit, "0") <= 1)
+		if (digit[0] != '-')
 			number = infin_add(number, digit);
 		else
 			return (get_sign_or_null(str, first_digit, number));
