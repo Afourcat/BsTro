@@ -14,8 +14,9 @@ void my_putchar_error(char c)
 
 int my_putstr_error(char *str)
 {
-	while (*str) {
-		my_putchar_error((*str)++);
+	if (str != NULL && str[0] != '\0') {
+		while (*str) 
+			my_putchar_error(*str++);
 	}
 	return (0);
 }
