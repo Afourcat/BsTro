@@ -9,27 +9,6 @@
 #include <utils.h>
 #include <infin_add.h>
 
-static char *my_dup_without_free(char *str, int bool);
-static char *get_opposed_number_wo_free(char *nb);
-
-
-char *infin_sub(char *nb1, char *nb2)
-{
-	char *result;
-	char *new_nb2 = get_opposed_number_wo_free(nb2);
-
-	result = infin_add(nb1, new_nb2);
-	return (result);
-}
-
-static char *get_opposed_number_wo_free(char *nb)
-{
-	if (nb[0] == '-')
-		nb = my_dup_without_free(nb, 0);
-	else
-		nb = my_dup_without_free(nb, 1);
-	return (nb);
-}
 
 static char *my_dup_without_free(char *str, int bool)
 {
@@ -52,4 +31,22 @@ static char *my_dup_without_free(char *str, int bool)
 		j++;
 	}
 	return (new_str);
+}
+
+static char *get_opposed_number_wo_free(char *nb)
+{
+	if (nb[0] == '-')
+		nb = my_dup_without_free(nb, 0);
+	else
+		nb = my_dup_without_free(nb, 1);
+	return (nb);
+}
+
+char *infin_sub(char *nb1, char *nb2)
+{
+	char *result;
+	char *new_nb2 = get_opposed_number_wo_free(nb2);
+
+	result = infin_add(nb1, new_nb2);
+	return (result);
 }
