@@ -11,7 +11,7 @@ NAME		=	calc
 
 FLAGS		=	-L../lib
 
-LIBS		=	-lutils -lparser -ladd -lsub -lmul
+LIBS		=	-lutils -lparser -ladd -lsub -lmul -lpow
 
 all:		buildlib
 		gcc -o $(ROOT)/$(NAME) $(FLAGS) $(LIBS)

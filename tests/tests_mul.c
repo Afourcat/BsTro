@@ -39,12 +39,6 @@ Test(infin_mul, double_zero)
 			 "Should return 0.\n");
 }
 
-Test(infin_mul, double_zero_neg)
-{
-	cr_assert_str_eq(infin_mul("0", "-0"), "0",
-			 "Should return 0.\n");
-}
-
 Test(infin_mul, zero)
 {
 	cr_assert_str_eq(infin_mul("0", "400"), "0",
@@ -67,6 +61,12 @@ Test(infin_mul, two_one)
 {
 	cr_assert_str_eq(infin_mul("2", "-1"), "-2",
 			"Should return -2.\n");
+}
+
+Test(infin_mul, 14_pow_5)
+{
+	cr_assert_str_eq(infin_mul("38416", "14"), "537824",
+			"Should return 537824.\n");
 }
 
 Test(infin_mul, really_big)
