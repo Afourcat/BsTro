@@ -7,7 +7,7 @@
 
 ROOT		=	$(realpath ..)
 
-LIB		=	-lpow -lsub -lmul -ladd -lparser -lutils
+LIB		=	-ldiv -lpow -lsub -lmul -ladd -lparser -lerror -lutils
 
 CFLAGS		=	-I$(ROOT)/include -Wall -Wextra --coverage -g
 
@@ -17,7 +17,7 @@ NAME		=	units
 
 
 all:		
-		gcc -o $(NAME) tests_pf_tree.c tests_stack.c tests_stack_void.c tests_postfix.c tests_mul.c tests_sub.c tests_add.c tests_pow.c $(CFLAGS) $(LDFLAGS) $(LIB)
+		gcc -o $(NAME) tests_pf_tree.c tests_stack.c tests_stack_void.c tests_postfix.c tests_mul.c tests_div.c tests_sub.c tests_add.c tests_pow.c $(CFLAGS) $(LDFLAGS) $(LIB)
 
 buildlib:
 		make -C ../ buildlib
@@ -30,6 +30,9 @@ sub:
 
 mul:
 		gcc -o $(NAME) tests_mul.c $(CFLAGS) $(LDFLAGS) -lmul -ladd -lutils
+
+div:
+		gcc -o $(NAME) tests_div.c $(CFLAGS) $(LDFLAGS) -ldiv -lpow -lmul -lsub -ladd -lutils -lerror
 
 pow:
 		gcc -o $(NAME) tests_pow.c $(CFLAGS) $(LDFLAGS) -lpow -lmul -ladd -lsub -lutils
