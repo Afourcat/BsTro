@@ -10,8 +10,8 @@
 
 Test(infin_div, basic)
 {
-	cr_assert_str_eq(infin_div("100", "10"), "100",
-			 "Should return 1000.\n");
+	cr_assert_str_eq(infin_div("100", "10"), "10",
+			 "Should return 10.\n");
 }
 
 Test(infin_div, bigger_than_int)
