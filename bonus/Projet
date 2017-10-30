@@ -8,26 +8,30 @@
 //----------------------------------TODO-------------------------------------//
 
 //-----VINZ-----/
-calc engine
+debug calc_engine
 
 //-----THOMAS---/
-cleanning 
+nbr_base
 
 //-----ALEX-----/
 uni-test
+nbr_base
 
 1- Prioritée de calculs                                             100%
 
-2- Gestion des calculs en chaine de caractère                       70%
+2- Gestion des calculs en chaine de caractère                       100%
 
-3- Gerer les bases                                                  0%
-
-4- Interface graphique ?                                            0%
+3- Gerer les bases                                                  15%
 
 //----------------------------------DONE-------------------------------------//
 
 -Binary tree
 -postix function parser
--add and sub
+-add
+-sub
 -Makefile system
 -mul
+-div
+-mod
+-Makefile ++
+-uni-test system

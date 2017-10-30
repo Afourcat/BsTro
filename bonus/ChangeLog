@@ -10,12 +10,39 @@
 //    thomas.nicollet@epitech.eu
 //    alexandre.fourcat@epitech.eu
 
+
 //___________________________________________________________________________//
 
 Name         :
 Date         :
 Changelog by :
 Description  :
+
+//___________________________________________________________________________//
+
+Name         : fixing memory, modulo, division and base gestion
+Date         : October 30 2017
+Changelog by : alexandre thomas vinchenzo
+Description  :
+	we lose lot's of time because of the colle of saturday, but we work
+	a lot today, I finished the pox function and thomas debug his division
+	algo it's working really fast, but We found a memory leak in
+	multiplication. vinchenzo work again on the bistro he is adding his
+	eval_expr andmodifiing it for our infinite operator. Thomas his
+	writing the number_base system, we are looking for the best way to
+	to do it(Where to place it, how to make it quickly, how to make it
+	memory cheap etc...).
+
+//___________________________________________________________________________//
+
+Name         : fixing memory
+Date         : October 29 2017
+Changelog by : alexandre
+Description  :
+	I work on memory leak and I resolve a hidden bug on multiplication.
+	I work on in solo today vinchenzo is working on the eval expr and
+	thomas have some things to do. I fix all memory leak of substract and
+	addition. I also work on the pow, trying to debug it.
 
 //___________________________________________________________________________//
 
