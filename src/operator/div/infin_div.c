@@ -16,7 +16,7 @@ static char *infin_div_wrapped(char *str1, char *str2)
 {
 	char *quot = "0";
 	char *n = "0";
-	char *to_sub = infin_mul("2", str2);
+	char *to_sub = "1";
 
 	while (compare(to_sub, str1) != 1) {
 		to_sub = infin_mul(to_sub, "2");
