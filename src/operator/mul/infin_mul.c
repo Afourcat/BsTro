@@ -36,11 +36,10 @@ static int multiply(int a, int b, int *current, int *retain)
 	*current = (a * b) + *retain;
 	if (*current > 9) {
 		*retain = *current / 10;		
-		*current = ((*current) % 10);// + temp_retain;
+		*current = ((*current) % 10);
 		bool = 1;
 	}
 	else {
-		//*current; += *retain;
 		*retain = 0;
 	}
 	return (bool);
@@ -55,12 +54,10 @@ static char *mul(char *greatest, char *lowest, char **buffer, char **res)
 	int buffer_nbr = 0;
 	int b_l = 0;
 	
-	for (int l = size_l - 1; l >= 0 ; l-- , iter = 0, buffer_nbr++) {
+	for (int l = size_l - 1; l >= 0 ; l-- , iter = 0, buffer_nbr++, retain = 0) {
 	       	add_zeros(buffer[buffer_nbr], buffer_nbr, &iter);
-		retain = 0;
 		for (int g = size_g - 1; g >= 0; g--) {
-			b_l = multiply(char_to_int(lowest[l])
-				       ,char_to_int(greatest[g]), &current_nbr, &retain);
+			b_l = multiply(char_to_int(lowest[l]), char_to_int(greatest[g]), &current_nbr, &retain);
 			buffer[buffer_nbr][iter++] = int_to_char(current_nbr);
 			if (g == 0 && b_l == 1)
 				buffer[buffer_nbr][iter++] = int_to_char(retain);
