@@ -6,9 +6,9 @@
 */
 
 //  Autor
-//    vinchenzo.guibert@epitech.eu
-//    thomas.nicollet@epitech.eu
-//    alexandre.fourcat@epitech.eu
+//    vinchenzo.guibert@epitech.eu 	as vguibert
+//    thomas.nicollet@epitech.eu 	as tnicollet
+//    alexandre.fourcat@epitech.eu	as afourcat
 
 
 //___________________________________________________________________________//
@@ -25,10 +25,10 @@ Date         : October 30 2017
 Changelog by : alexandre thomas vinchenzo
 Description  :
 	we lose lot's of time because of the colle of saturday, but we work
-	a lot today, I finished the pox function and thomas debug his division
+	a lot today, I finished the pow function and thomas debug his division
 	algo it's working really fast, but We found a memory leak in
 	multiplication. vinchenzo work again on the bistro he is adding his
-	eval_expr andmodifiing it for our infinite operator. Thomas his
+	eval_expr and modifying it for our infinite operator. Thomas his
 	writing the number_base system, we are looking for the best way to
 	to do it(Where to place it, how to make it quickly, how to make it
 	memory cheap etc...).
@@ -61,44 +61,51 @@ Description  :
 
 Name         : postfix calc & eval expr
 Date         : October 26 2017
-Changelog by : alexandre
+Changelog by : afourcat
 Description  :
 	we are going on the postfix function and the parsing system of eval
 	expr most of time the function is working but sometimes there is a
-	unexptected problem that put a lot of time to resolve, we made 80%
-	of the postfix but the eval_expr take lot's of time, time that we
-	are losing for the bistro.
+	unexptected problem that put a lot of time to resolve,
+	We judge that 80% of the postfix is done, but in fact, the eval_expr
+	take a lot of time, that we can't use to work on the bistro.
+	As such, less work is done than normally.
 
 //___________________________________________________________________________//
 
-Name         : Makefile struct and evalexpr
+Name         : Makefile structure and evalexpr continuation
 Date         : October 25 2017
-Changelog by : alexandre vinchenzo thomas
+Changelog by : afourcat vguibert tnicollet
 Description  :
-	we end the postfix, some bug stay but there will be fix soon, make
-	unit test for it, do wrapper of add for sub function. We also made
-	makefile, link them together, we end pftree system and we are making
-	unit test of that. And we made stack_void system for btree, unit
-	test for them , add system and mul system is pretty close to be done.
+	Thomas finished the postfix system, there still room for improvement,
+	we hope they'll be done soon.
+	We done some units tests for the postfix subsystem.
+	Thomas has made wrapper around the infin_add function in order to do the
+	infin_sub one, sadly we haven't been able to test it right after.
+	Vinchenzo made severals makefiles, done linking them and finished the
+	binary tree subsystem. As time of writing, we are making units tests
+	for it.
+	Alexandre made a stack_void system for the binary tree, as well as
+	units tests for them.
+	He also finalized the infin_add subsystem and started the infin_mul
+	subsystem, judging it pretty close to be done.
 
 //___________________________________________________________________________//
 
-Name         : Unit tests and structuratio of the project
+Name         : Unit tests and structuration of the project
 Date         : October 24 2017
-Changelog by : alexandre vinchenzo
+Changelog by : afourcat vguibert
 Description  :
-	we made stack system and think how to make a evalexpr, thomas
-	made the begining of the function that put string into postfix.
-	vinchenzo made the binarie tree system that put the postfix
-	expression.
+	We made a simple stack system in order to make our evalexpr.
+	Thomas started to work on the postfix converter for better solving.
+	Vinchenzo made the binary tree system that parse postfix expression.
 
 //___________________________________________________________________________//
 
-Name         : first error gestion
+Name         : First error management
 Date         : October 23 2017
 Changelog by : afourcat
 Description  :
-	I make two first error functions that display errors.
+	I made the two first error functions that display errors on STDERR.
 
 //___________________________________________________________________________//
 
@@ -106,5 +113,6 @@ Name         : Beginning
 Date         : October 18 2017
 Changelog by : afourcat
 Description  :
-	I Create the repository and I write 2 files ChangeLog and Project that
-	will be used by us during the bistro project.
+	I created the repository and writed 2 files.
+	Theses are ChangeLog and Project that we will be using during the
+	bistro-matic project.
