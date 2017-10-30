@@ -21,8 +21,6 @@ char *infin_pow(char *str1, char *str2)
 		return (str1);
 	else {
 		temp = infin_mul(infin_pow(str1, infin_sub(str2, "1")), str1);
-		free(str1);
-		free(str2);
 		return (temp);
 	}
 }

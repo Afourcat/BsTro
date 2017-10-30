@@ -7,6 +7,8 @@
 
 #include "utils.h"
 
+static int get_int_size(int nb);
+
 int get_sign(char *str1, char *str2)
 {
 	if (str1[0] == '-' && str2[0] == '-')
@@ -28,7 +30,7 @@ char *my_itoa(int nb)
 	return (str);
 }
 
-int get_int_size(int nb)
+static int get_int_size(int nb)
 {
 	int i = 0;
 	

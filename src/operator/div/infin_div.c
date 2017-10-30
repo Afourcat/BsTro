@@ -23,7 +23,6 @@ static char *infin_div_wrapped(char *str1, char *str2)
 		to_sub = infin_mul(to_sub, "2");
 		n = infin_add(n, "1");
 	}
-	//n = infin_sub(n, "1");
 	while (n[0] != '-') {
 		to_sub = infin_mul(infin_pow("2", n), str2);
 		if (compare(to_sub, str1) != 1) {

@@ -6,7 +6,7 @@
 */
 
 #include <criterion/criterion.h>
-#include <infin_div.h>
+#include "infin_div.h"
 
 Test(infin_div, basic)
 {

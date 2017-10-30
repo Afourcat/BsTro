@@ -6,6 +6,7 @@
 */
 
 #include <criterion/criterion.h>
+#include "infin_mod.h"
 
 Test(infin_mod, basic)
 {
