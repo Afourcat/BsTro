@@ -14,6 +14,7 @@ void my_putstr(char *str);
 int my_strlen(char const *str);
 char *my_strcat(char *dest, char *src);
 int my_atoi(char const *str);
+char *my_itoa(int nb);
 int is_in(char c, char *str);
 int remove_whitespace(char *str);
 void *my_calloc(int size);
