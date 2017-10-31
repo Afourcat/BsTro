@@ -36,10 +36,10 @@ lib:
 		ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 
 clean:
-		rm -f $(OBJ)
+		@rm -f $(OBJ)
 
 fclean:		clean
-		rm -f $(LINKLIB)$(NAMELIB)
+		@rm -f $(LINKLIB)$(NAMELIB)
 
 re:		fclean	all
 

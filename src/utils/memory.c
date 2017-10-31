@@ -19,7 +19,7 @@ void *my_calloc(int size)
 	int counter = 0;
 
 	while (counter < size) {
-		((char*)temp)[counter] = NULL;
+		((char*)temp)[counter] = 0;
 		counter++;
 	}
 	return (temp);
