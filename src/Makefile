@@ -31,7 +31,7 @@ clean:
 fclean:
 		make -C operator/ fclean
 		make -C utils/ fclean
-		make -C error/ clean
+		make -C error/ fclean
 		make -C parser/ fclean
 
 re:

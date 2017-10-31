@@ -6,11 +6,8 @@
 */
 
 #include <stdlib.h>
-#include <utils.h>
-
-void add_it(char *number1, char *number2, char *result_string);
-int sub_it(char *bigger, char *lower, char *result_string, int signe);
-int test_signe(char *str);
+#include "utils.h"
+#include "infin_add.h"
 
 int infin_add_wrapped(char **nb1, char **nb2, int size, char *result_string)
 {

@@ -32,26 +32,35 @@ void size_post(int *size1, int *size2)
 	(*size2)--;
 }
 
-void subsub(char **strs, int bigger_size, int lower_size, int current_nbr)
+static int ctoi(char a)
+{
+	char_to_int(a);
+}
+
+static char itoc(int i)
+{
+	int_to_char(i);
+}
+
+void subsub(char **s, int bi_s, int low_s, int cr_nb)
 {
 	int tab[2] = {0, 0};
 	
-	while (bigger_size >= 0 || lower_size >= 0) {
-	       	if (lower_size < 0)
-			current_nbr = char_to_int(strs[0][bigger_size]) - tab[0];
+	while (bi_s >= 0 || low_s >= 0) {
+	       	if (low_s < 0)
+			cr_nb = ctoi(s[0][bi_s]) - tab[0];
 		else {
-			current_nbr = char_to_int(strs[0][bigger_size]) -
-				char_to_int(strs[1][lower_size]) - tab[0];
+			cr_nb = ctoi(s[0][bi_s]) - ctoi(s[1][low_s]) - tab[0];
 		}
-		if (current_nbr < 0) {
-			current_nbr = char_to_int(strs[0][bigger_size]) + 10;
-			current_nbr -= (lower_size < 0 ? 1 : char_to_int(strs[1][lower_size]) + tab[0]);
+		if (cr_nb < 0) {
+			cr_nb = ctoi(s[0][bi_s]) + 10;
+			cr_nb -= (low_s < 0 ? 1 : ctoi(s[1][low_s]) + tab[0]);
 			tab[0] = 1;
 		}
 		else
 			tab[0] = 0;
-		strs[2][tab[1]] = int_to_char(current_nbr);
+		s[2][tab[1]] = itoc(cr_nb);
 		tab[1]++;
-		size_post(&bigger_size, &lower_size);
+		size_post(&bi_s, &low_s);
 	}
 }

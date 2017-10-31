@@ -7,9 +7,8 @@
 
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
-#include <bristo_matic.h>
-#include <utils.h>
+#include "bristo_matic.h"
+#include "utils.h"
 
 static void check_base(char *av);
 static void check_ops(char *ops);
@@ -28,8 +27,8 @@ int main(int ac, char const *av[])
 	}
 	check_base(av[1]);
 	check_ops(av[2]);
-	size * my_atoi(av[3]);
-	expr * get_expr(size);
+	size = my_atoi(av[3]);
+	expr = get_expr(size);
 	my_putstr(eval_expr(av[1], av[2], expr, size));
 	return (EXIT_SUCCESS);
 }

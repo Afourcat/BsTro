@@ -5,12 +5,12 @@
 ** Return the number in a string
 */
 
-int static getnbr_isnum(char c)
+static int getnbr_isnum(char c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-int static get_signe(char const *str, int *pos)
+static int get_signe(char const *str, int *pos)
 {
 	int signe = 1;
 
@@ -22,7 +22,7 @@ int static get_signe(char const *str, int *pos)
 	return (signe);
 }
 
-int static check_valid_str(char const *str)
+static int check_valid_str(char const *str)
 {
 	int i = 0;
 

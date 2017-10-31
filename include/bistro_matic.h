@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** bistro-matic
 ** File description:
-** bistro-matic.h for bistro-matic
+** bistro-matic.h for bistro-matic project
 */
 
 #ifndef BISTRO_MATIC_H_

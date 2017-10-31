@@ -6,10 +6,10 @@
 */
 
 #include <stdlib.h>
-#include <utils.h>
-#include <infin_sub.h>
-#include <infin_mul.h>
-#include <infin_div.h>
+#include "utils.h"
+#include "infin_sub.h"
+#include "infin_mul.h"
+#include "infin_div.h"
 
 char *infin_mod(char *str1, char *str2)
 {
