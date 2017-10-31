@@ -6,7 +6,7 @@
 */
 
 #include <criterion/criterion.h>
-#include <infin_pow.h>
+#include "infin_pow.h"
 
 Test(infin_pow, basic)
 {
