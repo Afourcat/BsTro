@@ -34,6 +34,12 @@ static int check_valid_str(char const *str)
 	return (0);
 }
 
+/**
+ * \fn my_atoi (char const *str)
+ * \brief Function that converts an string into an integer.
+ * \param str The string to be converted.
+ * \return The integer converted from the string.
+ */
 int my_atoi(char const *str)
 {
 	int i = 0;

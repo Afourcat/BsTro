@@ -44,6 +44,14 @@ static char *get_first_digit(char *nb, char *base, int max_power)
 	return (temp_number);
 }
 
+/**
+ * \fn char* get_dec_to_base (char *str, char *base)
+ * \brief Function that converts a string from a decimal base to the specified
+ * base.
+ * \param str The string to be converted in the specified base.
+ * \param base The base to which the string has to be converted.
+ * \return The converted string in the specified base.
+ */
 char *get_dec_to_base(char *nbr, char *base)
 {
 	char *nb = "0";

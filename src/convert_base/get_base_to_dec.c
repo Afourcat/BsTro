@@ -49,6 +49,13 @@ static int get_first_apearance(char const *str, char const *base)
 	return (0);
 }
 
+/**
+ * \fn char* get_base_to_dec (char *str, char *base)
+ * \brief Function that converts a string from a base to the decimal base
+ * \param str The string to be converted in decimal base
+ * \param base The base from which the string has to be converted.
+ * \return The converted string in the decimal base.
+ */
 char *get_base_to_dec(char *str, char *base)
 {
 	char *max_power = "0";

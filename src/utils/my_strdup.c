@@ -7,6 +7,12 @@
 
 #include "utils.h"
 
+/**
+ * \fn char *my_strdup (char *src)
+ * \brief Function that duplicate a string.
+ * \param src The string to be duplicated.
+ * \return The pointer on the frist char of the duplicated string.
+ */
 char *my_strdup(char *src)
 {
 	char *dest;
