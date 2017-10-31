@@ -5,8 +5,8 @@
 ** check if the character is not in the base or in the operand
 */
 
-#include <utils.h>
-#include <my.h>
+#include "utils.h"
+#include "my.h"
 
 int find_neg(char *neg, char *operands, char *base)
 {

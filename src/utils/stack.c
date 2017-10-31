@@ -5,8 +5,8 @@
 ** stack first in first out
 */
 
-#include <stack.h>
 #include <stdlib.h>
+#include "stack.h"
 
 stack_t *create_stack(void)
 {
