@@ -46,7 +46,7 @@ int my_atoi(char const *str)
 	int nbr = 1;
 
 	if (check_valid_str(str))
-		return 0;
+		return (0);
 	nbr *= get_signe(str, &i);
 	nbr *= str[i] - '0';
 	i++;

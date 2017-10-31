@@ -63,7 +63,7 @@ char *my_dup_without_zero(char *str, int bools)
 	int i = 0;
 	int j = 0;
 
-	if (bool == 1) {
+	if (bools == 1) {
 		new_str[0] = '-';
 		i = 1;
 	}
@@ -115,7 +115,8 @@ char *remove_minus(char *str)
  * \return An integer specifying if they're equals (0), greater than (1)
  * or less than (2).
  */
-int compare(char *str1, char *str2) {
+int compare(char *str1, char *str2)
+{
 	int i = 0;
 
 	if (my_strlen(str2) == my_strlen(str1)) {
