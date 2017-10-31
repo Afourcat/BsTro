@@ -12,7 +12,7 @@
 #include "infin_mul.h"
 #include "infin_div.h"
 
-char *get_dig(char symbol, char const *base)
+static char *get_dig(char symbol, char const *base)
 {
 	int counter = 0;
 
@@ -24,7 +24,7 @@ char *get_dig(char symbol, char const *base)
 		return ("-1");
 }
 
-char *get_base(char const *base)
+static char *get_base(char const *base)
 {
 	int counter = 0;
 
@@ -33,7 +33,7 @@ char *get_base(char const *base)
 	return (my_itoa(counter));
 }
 
-int get_first_apearance(char const *str, char const *base)
+static int get_first_apearance(char const *str, char const *base)
 {
 	int str_counter = 0;
 	int base_ctr = 0;
@@ -49,15 +49,7 @@ int get_first_apearance(char const *str, char const *base)
 	return (0);
 }
 
-char *get_sign_or_null(char const *str, int first_digit, char *number)
-{
-	if (str[first_digit - 1] == '-')
-		return (my_dup_without_zero(number, 1));
-	else
-		return (number);
-}
-
-char *getnbr_base(char const *str, char const *base)
+char *get_base_to_dec(char *str, char *base)
 {
 	char *max_power = "0";
 	char *digit = "0";
@@ -72,7 +64,7 @@ char *getnbr_base(char const *str, char const *base)
 		if (digit[0] != '-')
 			number = infin_add(number, digit);
 		else
-			return (get_sign_or_null(str, first_digit, number));
+			return (number);
 		if (compare(max_power, "1") == 1)
 			number = infin_mul(number, get_base(base));
 		rev_counter++;

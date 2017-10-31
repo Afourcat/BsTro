@@ -44,20 +44,15 @@ static char *get_first_digit(char *nb, char *base, int max_power)
 	return (temp_number);
 }
 
-char *my_putnbr_base(char *nbr, char *base, char neg_base)
+char *get_dec_to_base(char *nbr, char *base)
 {
 	char *nb = "0";
 	char *to_return;
 	char *nbr_base = "0";
 	char *digit;
-	char sign = 0;
 	int max_power;
 
-	if (nbr[0] == '-') {
-		nb = remove_minus(nbr);
-		sign = 1;
-	} else
-		nb = nbr;
+	nb = remove_minus(nbr);
 	while (base[my_atoi(nbr_base)])
 		nbr_base = infin_add(nbr_base, "1");
 	max_power = get_max_power_of(nb, nbr_base);
@@ -68,5 +63,5 @@ char *my_putnbr_base(char *nbr, char *base, char neg_base)
 		nb = infin_sub(nb, infin_mul(digit, infin_pow(nbr_base, my_itoa(max_power))));
 		max_power--;
 	}
-	return (sign == 0 ? to_return : infin_mul(to_return, "-1"));
+	return (to_return);
 }
