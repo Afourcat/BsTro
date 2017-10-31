@@ -14,7 +14,7 @@ FLAGS		=	-L../lib
 LIBS		=	-lutils -lparser -ladd -lsub -lmul -lpow -lerror
 
 all:		buildlib
-		gcc -o $(ROOT)/$(NAME) $(FLAGS) $(LIBS)
+		@gcc -o $(ROOT)/$(NAME) $(FLAGS) $(LIBS)
 
 buildlib:
 		@make -C operator/

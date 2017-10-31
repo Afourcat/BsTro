@@ -6,12 +6,14 @@
 ##
 
 all:
+	@echo -e "┣━━━━━━The \033[32mcompilation\033[0m of the \033[34moperators\033[0m has \033[32mstarted\033[0m"
 	@make -C add/
 	@make -C sub/
 	@make -C mul/
 	@make -C div/
 	@make -C mod/
 	@make -C pow/
+	@echo -e "┣━━━━━━The \033[32mcompilation\033[0m of the \033[34moperators\033[0m has \033[32mfinished\033[0m"
 
 clean:
 	@make -C add/ clean
@@ -38,9 +40,11 @@ re:
 	@make -C pow/ re
 
 debug:
+	@echo -e "┣━━━━━━The \033[32mcompilation\033[0m of the \033[34moperators\033[0m \033[31min debug mode\033[0m has \033[32mstarted\033[0m"
 	@make -C add/ debug
 	@make -C sub/ debug
 	@make -C mul/ debug
 	@make -C div/ debug
 	@make -C mod/ debug
 	@make -C pow/ debug
+	@echo -e "┣━━━━━━The \033[32mcompilation\033[0m of the \033[34moperators\033[0m \033[31min debug mode\033[0m has \033[32mfinished\033[0m"

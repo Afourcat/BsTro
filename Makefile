@@ -6,27 +6,33 @@
 ##
 
 all:
-	@make -C src/
+	@echo -e "The \033[32mcompilation\033[0m of the \033[34mbistro-matic\033[0m \033[31min debug mode\033[0m has \033[32mstarted\033[0m"
+	@make --no-print-directory -C src/
+	@echo -e "The \033[32mcompilation\033[0m of the \033[34mbistro-matic\033[0m \033[31min debug mode\033[0m has \033[32mfinished\033[0m"
 
 buildlib:
-	@make -C src/ buildlib
+	@echo -e "The \033[32mcompilation\033[0m of the \033[34mlibs\033[0m \033[31min debug mode\033[0m has \033[32mstarted\033[0m"
+	@make --no-print-directory -C src/ buildlib
+	@echo -e "The \033[32mcompilation\033[0m of the \033[34mlibs\033[0m \033[31min debug mode\033[0m has \033[32mstarted\033[0m"
 
 clean:
-	rm -f -R bonus/doc
-	@make -C src/ clean
-	@make -C tests/ clean
+	@rm -f -R bonus/doc
+	@make --no-print-directory -C src/ clean
+	@make --no-print-directory -C tests/ clean
 
 fclean: clean
-	@make -C src/ fclean
-	@make -C tests/ fclean
+	@make -Cs src/ fclean
+	@make -Cs tests/ fclean
 re:
 	@make -C src/ re
 
 debug:
-	@make -C src/ debug
+	@echo -e "The \033[32mcompilation\033[0m of the \033[34mbistro-matic\033[0m \033[31min debug mode\033[0m has \033[32mstarted\033[0m"
+	@make --no-print-directory -C src/ debug
+	@echo -e "The \033[32mcompilation\033[0m of the \033[34mbistro-matic\033[0m \033[31min debug mode\033[0m has \033[32mfinished\033[0m"
 
 push:	fclean
 	git push origin master
 
 doc:
-	doxygen bonus/doc_config
+	@doxygen bonus/doc_config
