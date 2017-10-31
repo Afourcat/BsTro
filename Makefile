@@ -35,4 +35,5 @@ push:	fclean
 	git push origin master
 
 doc:
-	@doxygen bonus/doc_config
+	@doxygen -s bonus/doc_config
+	@echo -e "The \033[34mdocumentation\033[0m has been \033[32msuccessfully generated\033[0m"
