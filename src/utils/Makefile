@@ -16,6 +16,7 @@ SRC		=	display.c	 \
 			char_int_conv.c	 \
 			str_nb_utils.c   \
 			str_nb_utils_2.c \
+			my_strdup.c
 
 OBJ		=	$(SRC:.c=.o)
 

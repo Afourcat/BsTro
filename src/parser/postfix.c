@@ -20,6 +20,15 @@ static int has_priority(char c1, char c2, char *ope)
 	return (0);
 }
 
+static int put_in_str(char c, char *str)
+{
+	int size = my_strlen(str);
+
+	str[size] = c;
+	str[size + 1] = ' ';
+	return (0);
+}
+
 static char *my_alo(char *str, char *operands)
 {
 	char *to_return;
@@ -34,15 +43,6 @@ static char *my_alo(char *str, char *operands)
 	}
 	to_return = my_calloc(size_counter * 2);
 	return (to_return);
-}
-
-int put_in_str(char c, char *str)
-{
-	int size = my_strlen(str);
-
-	str[size] = c;
-	str[size + 1] = ' ';
-	return (0);
 }
 
 int priority(char c, char *str, stack_t **stack, char *operands)

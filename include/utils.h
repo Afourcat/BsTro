@@ -26,5 +26,6 @@ int char_to_int(char c);
 char int_to_char(int i);
 char *get_opposed_number(char *nb);
 int get_sign(char *nb1, char *nb2);
+char *my_strdup(char *str);
 
 #endif /* UTILS_H_ */
