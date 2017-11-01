@@ -1,0 +1,7 @@
+pipeline:
+  build:
+    image: brejoc/trusty
+    commands:
+      - make buildlib
+      - make -C tests all
+      - ./tests/units
