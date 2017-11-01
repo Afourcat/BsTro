@@ -9,12 +9,12 @@ ROOT		=	$(realpath ..)
 
 NAME		=	calc
 
-FLAGS		=	-L../lib
+FLAGS		=	-L../lib -I../include
 
-LIBS		=	-lutils -lparser -ladd -lsub -lmul -lpow -lerror
+LIBS		=	-lparser -lutils -ladd -lsub -lmul -lpow -lerror
 
 all:		buildlib
-		@gcc -o $(ROOT)/$(NAME) $(FLAGS) $(LIBS)
+		@gcc -o $(ROOT)/$(NAME) main.c $(FLAGS) $(LIBS) 
 
 buildlib:
 		@make -C operator/
