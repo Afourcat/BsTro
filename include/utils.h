@@ -29,5 +29,7 @@ int get_sign(char *nb1, char *nb2);
 int put_in_str(char c, char *str);
 char *my_alo(char *str, char *operands);
 int get_str_nb(char *str, char *to_return, int *i);
+char *my_strdup(char *str);
+
 
 #endif /* UTILS_H_ */

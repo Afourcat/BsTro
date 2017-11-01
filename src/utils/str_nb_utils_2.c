@@ -7,8 +7,25 @@
 
 #include "utils.h"
 
-static int get_int_size(int nb);
+static int get_int_size(int nb)
+{
+	int i = 0;
 
+	while (nb / 10 > 0) {
+		nb /= 10;
+		i++;
+	}
+	i++;
+	return (i);
+}
+
+/**
+ * \fn int get_sign (char *str1, char *str2)
+ * \brief Function that compute the final sign of the two factors.
+ * \param The first factor as a string.
+ * \param The second factor as a string
+ * \return The boolean telling if it's positive (0) or negative (1).
+ */
 int get_sign(char *str1, char *str2)
 {
 	if (str1[0] == '-' && str2[0] == '-')
@@ -19,34 +36,17 @@ int get_sign(char *str1, char *str2)
 		return (1);
 }
 
+/**
+ * \fn char *my_itoa (int nb)
+ * \brief Function that converts an int into a string.
+ * \param nb The int which has to be converted.
+ * \return The string which has been converted from the int.
+ */
 char *my_itoa(int nb)
 {
  	int size = get_int_size(nb);
 	char *str = my_calloc(sizeof(char) * (get_int_size(nb) + 1));
-	
-	for (int i = 0; i < size; i++, nb/=10)
-		str[i] = int_to_char(nb % 10);
-	my_revstr(str);
-	return (str);
-}
 
-int get_int_size(int nb)
-{
-	int i = 0;
-	
-	while (nb / 10 > 0) {
-		nb /= 10;
-		i++;
-	}
-	i++;
-	return (i);
-}
-
-char *my_itoa(int nb)
-{
- 	int size = get_int_size(nb);
-	char *str = my_calloc(sizeof(char) * (get_int_size(nb) + 1));
-	
 	for (int i = 0; i < size; i++, nb/=10)
 		str[i] = int_to_char(nb % 10);
 	my_revstr(str);

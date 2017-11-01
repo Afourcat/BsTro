@@ -13,16 +13,13 @@ static int has_priority(char c1, char c2, char *ope)
 {
 	if (c2 == ope[0] || c2 == 0)
 		return (0);
-	if (c1 == ope[2] || c1 == ope[3]) {
+	if (c1 == ope[2] || c1 == ope[3])
 		return (1);
-	}
-	else {
-		if (c2 == ope[4] || c2 == ope[5] || c2 == ope[6])
-			return (1);
-	}
+	if (c2 == ope[4] || c2 == ope[5] || c2 == ope[6])
+		return (1);
 	return (0);
 }
-
+	
 int priority(char c, char *str, stack_t **stack, char *operands)
 {
 	if (c == operands[0])

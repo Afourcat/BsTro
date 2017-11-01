@@ -2,30 +2,29 @@
 ## EPITECH PROJECT, 2017
 ## Makefile
 ## File description:
-## Makefile that compile utils functions
+## Makefile that compile parser's functions
 ##
 
-ROOT		=	$(realpath ../..)
-
-SRC		=	error_display.c
+SRC		=	convert_base.c	\
+			get_dec_to_base.c \
+			get_base_to_dec.c
 
 OBJ		=	$(SRC:.c=.o)
 
-LINKLIB		=	$(ROOT)/lib/
+FLAGS		=	-L ../../lib -I../../include
 
-NAMELIB		=	liberror.a
+LINKLIB		=	../../lib/
 
-FLAGS		=	-I$(ROOT)/include
+NAMELIB		=	libconvert_base.a
 
-
-all:		compile	lib
+all:		compile lib
 		@echo -e "┣━━━━━━The \033[34m$(NAMELIB)\033[0m has been \033[32mcompiled\033[0m and \033[32mlinked\033[0m"
-
-compile:
-		@gcc -c $(SRC) $(FLAGS)
 
 lib:
 		@ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
+
+compile:
+		@gcc -c $(SRC) $(FLAGS)
 
 clean:
 		@rm -f $(OBJ)

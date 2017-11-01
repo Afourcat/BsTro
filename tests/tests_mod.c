@@ -35,12 +35,12 @@ Test(infin_mod, big_nine)
 
 Test(infin_mod, negative)
 {
-	cr_assert_str_eq(infin_mod("9999", "-5"), "-1", "Should return -1.\n");
+	cr_assert_str_eq(infin_mod("9999", "-5"), "4", "Should return 4.\n");
 }
 
 Test(infin_mod, negative_2)
 {
-	cr_assert_str_eq(infin_mod("-3256", "25"), "19", "Should return 19.\n");
+	cr_assert_str_eq(infin_mod("-3256", "25"), "-6", "Should return -6.\n");
 }
 
 Test(infin_mod, negative_3)

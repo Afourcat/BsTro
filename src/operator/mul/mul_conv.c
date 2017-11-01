@@ -6,12 +6,9 @@
 */
 
 #include <stdlib.h>
-#include <utils.h>
-#include <infin_add.h>
-#include <infin_mul.h>
-
-void add_zeros(char *buffer, int nb_zeros, int *iter);
-char *add_all(char **res, char **buffer, int size_l, int size_g);
+#include "utils.h"
+#include "infin_add.h"
+#include "infin_mul.h"
 
 void add_zeros(char *buffer, int nb_zeros, int *iter)
 {

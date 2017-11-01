@@ -7,7 +7,7 @@
 
 ROOT		=	$(realpath ..)
 
-LIB		=	-lmod -ldiv -lpow -lsub -lmul -ladd -lparser -lerror -lutils
+LIB		=	-lconvert_base -lmod -ldiv -lpow -lsub -lmul -ladd -lparser -lerror -lutils
 
 CFLAGS		=	-I$(ROOT)/include -Wall -Wextra --coverage -g
 
@@ -17,8 +17,8 @@ NAME		=	units
 
 
 all:		
-		gcc -o $(NAME) tests_pf_tree.c tests_stack.c tests_stack_void.c tests_postfix.c				\
-		tests_mul.c tests_div.c tests_sub.c tests_add.c tests_pow.c tests_mod.c $(CFLAGS) $(LDFLAGS) $(LIB)
+		@gcc -o $(NAME) tests_pf_tree.c tests_stack.c tests_stack_void.c tests_postfix.c				\
+		tests_mul.c tests_div.c tests_sub.c tests_add.c tests_pow.c tests_mod.c tests_convert_base.c $(CFLAGS) $(LDFLAGS) $(LIB)
 
 buildlib:
 		make -C ../ buildlib

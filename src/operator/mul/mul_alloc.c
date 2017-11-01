@@ -6,8 +6,8 @@
 */
 
 #include <stdlib.h>
-#include <utils.h>
-#include <infin_mul.h>
+#include "utils.h"
+#include "infin_mul.h"
 
 int get_greatest(char *s1, char *s2)
 {

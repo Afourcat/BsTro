@@ -7,10 +7,16 @@
 
 #include <stdlib.h>
 
+/**
+ * \fn int my_strlen(char const *str)
+ * \brief Function that compute the length of the str passed as parameter.
+ * \param str The string which length as to be computed.
+ * \return The length of the string passed as parameter.
+ */
 int my_strlen(char const *str)
 {
 	int i = 0;
-	
+
 	if (str == NULL || str[0] == '\0')
 		return (0);
 	while (str[i] != '\0')
@@ -18,6 +24,13 @@ int my_strlen(char const *str)
 	return (i);
 }
 
+/**
+ * \fn char *my_strcat(char *dest, char const *src)
+ * \brief Function that concatenate two strings and returns the result.
+ * \param dest The destination string, it will be returned after concatenation.
+ * \param src The string which has to be concatenate into dest.
+ * \return The concatenated string , passed as parameter as dest.
+ */
 char *my_strcat(char *dest, char const *src)
 {
 	int counter = 0;
@@ -32,6 +45,14 @@ char *my_strcat(char *dest, char const *src)
 	return (dest);
 }
 
+/**
+ * \fn int is_in(char c, char *str)
+ * \brief Function that search if a character is contained into a string
+ * and returns it's position (0 if not found).
+ * \param c The character which is searched for.
+ * \param str The string in which we are searching.
+ * \return The position of the character in string (0 if not found).
+ */
 int is_in(char c, char *str)
 {
 	int counter = 0;
@@ -44,6 +65,12 @@ int is_in(char c, char *str)
 	return (0);
 }
 
+/**
+ * \fn int remove_whitespace(char *str)
+ * \brief Function that removes whitespace in a string.
+ * \param str The string in which we have to remove whitespace.
+ * \return EXIT_SUCCESS.
+ */
 int remove_whitespace(char *str)
 {
 	int counter = 0;
@@ -62,6 +89,12 @@ int remove_whitespace(char *str)
 	return (0);
 }
 
+/**
+ * \fn char *my_revstr(char *str)
+ * \brief Function that reverse a string and returns it.
+ * \param str The string to be reversed.
+ * \return The string which has been reversed.
+ */
 char *my_revstr(char *str)
 {
        	char buffer = 0;

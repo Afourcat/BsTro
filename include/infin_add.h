@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** infinadd.h
 ** File description:
-** header for infinadd function
+** header for infinadd functions
 */
 
 #ifndef INFIN_ADD_H_
