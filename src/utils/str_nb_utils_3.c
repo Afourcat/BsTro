@@ -5,6 +5,8 @@
 ** 3th utils file
 */
 
+#include "utils.h"
+
 int get_str_nb(char *str, char *to_return, int *i)
 {
 	int size = my_strlen(to_return);

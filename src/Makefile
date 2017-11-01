@@ -9,12 +9,12 @@ ROOT		=	$(realpath ..)
 
 NAME		=	calc
 
-FLAGS		=	-L../lib
+FLAGS		=	-L../lib -I../include
 
-LIBS		=	-lutils -lparser -ladd -lsub -lmul -lpow -lerror
+LIBS		=	-lparser -lutils -lcalc -ladd -lsub -lmul -lpow -lerror
 
 all:		buildlib
-		@gcc -o $(ROOT)/$(NAME) $(FLAGS) $(LIBS)
+		@gcc -o $(ROOT)/$(NAME) main.c $(FLAGS) $(LIBS) 
 
 buildlib:
 		@make -C operator/
@@ -22,6 +22,7 @@ buildlib:
 		@make -C error/
 		@make -C parser/
 		@make -C convert_base/
+		@make -C calc_engine/
 
 clean:
 		@make -C operator/ clean
@@ -29,13 +30,15 @@ clean:
 		@make -C error/ clean
 		@make -C parser/ clean
 		@make -C convert_base/ clean
+		@make -C calc_engine/ clean
 
 fclean:
 		@make -C operator/ fclean
 		@make -C utils/ fclean
 		@make -C error/ fclean
 		@make -C parser/ fclean
-		@make -C convert_base/ clean
+		@make -C convert_base/ fclean
+		@make -C calc_engine/ fclean
 
 re:
 		@make -C operator/ re
@@ -43,6 +46,7 @@ re:
 		@make -C error/ re
 		@make -C parser/ re
 		@make -C convert_base/ re
+		@make -C calc_engine/ re
 
 debug:
 		@make -C operator/ debug
@@ -50,4 +54,5 @@ debug:
 		@make -C parser/ debug
 		@make -C error/ debug
 		@make -C convert_base/ debug
+		@make -C calc_engine/ debug
 #		gcc -o $(NAME) $(FLAGS) $(LIBS) -g

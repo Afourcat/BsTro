@@ -6,9 +6,9 @@
 */
 
 #include <stdlib.h>
-#include <pf_tree.h>
-#include <stack_void.h>
-#include <utils.h>
+#include "pf_tree.h"
+#include "stack_void.h"
+#include "utils.h"
 
 int get_tree_operator(char *str, char *base)
 {

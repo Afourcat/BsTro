@@ -7,12 +7,12 @@
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "bristo_matic.h"
+#include "bistro_matic.h"
 #include "utils.h"
 
 static void check_base(char *av);
 static void check_ops(char *ops);
-static char *get_expr(unsigned size);
+static char *get_expr(unsigned const size);
 
 int main(int ac, char const *av[])
 {
@@ -46,16 +46,16 @@ static char *get_expr(unsigned int size)
 	char *expr;
 
 	if (size <= 0) {
-		my_pustr(SYNTAX_ERROR_MSG);
+		my_putstr(SYNTAX_ERROR_MSG);
 		exit(EXIT_SIZE_NEG);
 	}
 	expr = malloc(size + 1);
 	if (expr == 0) {
-		my_pustr(ERROR_MSG);
+		my_putstr(ERROR_MSG);
 		exit (EXIT_MALLOC);
 	}
 	if (read(0, expr, size) != size) {
-		my_pustr(ERROR_MSG);
+		my_putstr(ERROR_MSG);
 		exit (EXIT_READ);
 	}
 	expr[size] = 0;

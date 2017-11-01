@@ -5,6 +5,7 @@
 ** Functions that execute the calcul
 */
 
+#include <stdlib.h>
 #include "pf_tree.h"
 #include "calc.h"
 

@@ -2,40 +2,28 @@
 ## EPITECH PROJECT, 2017
 ## Makefile
 ## File description:
-## Makefile that compile utils functions
+## Makefile of the calc_engine
 ##
 
-ROOT		=	$(realpath ../..)
-
-SRC		=	display.c	 \
-			my_atoi.c	 \
-			stack.c		 \
-			stack_void.c	 \
-			memory.c 	 \
-			str_utils.c	 \
-			char_int_conv.c	 \
-			str_nb_utils.c   \
-			str_nb_utils_2.c \
-			str_nb_utils_3.c \
-			my_strdup.c	
+SRC		=	calc_engine.c		\
+			operators_wrapper.c	
 
 OBJ		=	$(SRC:.c=.o)
 
-LINKLIB		=	$(ROOT)/lib/
+FLAGS		=	-L ../../lib -I../../include
 
-NAMELIB		=	libutils.a
+LINKLIB		=	../../lib/
 
-FLAGS		=	-I$(ROOT)/include
+NAMELIB		=	libcalc.a
 
-
-all:		compile	lib
+all:		compile lib
 		@echo -e "┣━━━━━━The \033[34m$(NAMELIB)\033[0m has been \033[32mcompiled\033[0m and \033[32mlinked\033[0m"
-
-compile:
-		@gcc -c $(SRC) $(FLAGS)
 
 lib:
 		@ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
+
+compile:
+		@gcc -c $(SRC) $(FLAGS)
 
 clean:
 		@rm -f $(OBJ)

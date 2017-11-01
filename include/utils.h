@@ -9,8 +9,8 @@
 #define UTILS_H_
 
 char *my_revstr(char *str);
-void my_putchar(char c);
-void my_putstr(char *str);
+void my_putchar(char const c);
+void my_putstr(char const *str);
 int my_strlen(char const *str);
 char *my_strcat(char *dest, char *src);
 int my_atoi(char const *str);
