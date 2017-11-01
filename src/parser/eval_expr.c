@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include "pf_tree.h"
 #include "utils.h"
+#include "error.h"
 #include "postfix.h"
 #include "calc_engine.h"
 
@@ -48,6 +49,7 @@ char *eval_expr(char *nb_base, char *op_base, char *expr, int size)
 	pf_tree_t *pf_tree;
 	char* spaces = my_calloc(3);
 
+	check_syntax(expr, op_base, nb_base);
 	find_space(spaces, op_base, nb_base);
 	replace_char_to(expr, spaces[0], spaces[1]);
 	expr = parser(expr, op_base);
