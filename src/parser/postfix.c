@@ -66,7 +66,7 @@ char *postfix(char *str, char *operands, char *base)
 		    str[counter] != operands[1])
 			priority(str[counter], to_return, &stack, operands);
 		else if (is_in(str[counter], base))
-			get_str_nb(str, to_return, &counter);
+			get_str_nb(str, to_return, &counter, base);
 		else
 			unstack(to_return, &stack, operands);
 		counter++;

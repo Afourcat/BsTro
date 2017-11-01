@@ -21,6 +21,8 @@
  */
 char *infin_mod(char *str1, char *str2)
 {
+	if (compare(remove_minus(str1), remove_minus(str2)) == 1)
+		return (str1);
 	char *div = infin_div(str1, str2);
 	char *mul = infin_mul(str2, div);
 	char *mod = infin_sub(str1, mul);
