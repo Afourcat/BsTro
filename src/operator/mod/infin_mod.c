@@ -25,7 +25,5 @@ char *infin_mod(char *str1, char *str2)
 	char *mul = infin_mul(str2, div);
 	char *mod = infin_sub(str1, mul);
 
-	free(div);
-	free(mul);
-	return(mod);
+ 	return(mod);
 }
