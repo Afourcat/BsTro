@@ -13,8 +13,10 @@
  * \fn int infin_add_wrapped(char **nb1, char **nb2, int size, char *result_string)
  * \brief Function wrapped by infin_add function remove minus and launch an add
  * if there is zero or two negative number and the sub otherwise.
- * \param nb1 The first number nb2 The second number size The size 
- * of the result string result_string the result string pointer. 
+ * \param nb1 The first number 
+ * \param nb2 The second number 
+ * \param size The size of the result string 
+ * \param result_string the result string pointer. 
  * \return return a boolean about the result -1 if negative 1 if positive.
  */
 int infin_add_wrapped(char **nb1, char **nb2, int size, char *result_string)
@@ -44,7 +46,8 @@ int infin_add_wrapped(char **nb1, char **nb2, int size, char *result_string)
  * \fn char *infin_add(char *nb1, char *nb2)
  * \brief Function that wrap infin_add_wrapped, compute the size of the result
  * string and allocate it, then free his params.
- * \param nb1 First nbr nb2 Seconde number
+ * \param nb1 First number 
+ * \param nb2 Second number
  * \return return the result string of the addition of nb1 and nb2
  */
 char *infin_add(char *nb1, char *nb2)

@@ -17,8 +17,9 @@ static void modul_div(int *curr, int *retain)
 /**
  * \fn void add_it(char *number1, char *number2, char *result_string)
  * \brief Function key of the add system take a char and add it to the second.
- * \param number1 The first number number2 the Second number.
- * \return return void.
+ * \param number1 The first number.
+ * \param number2 the Second number.
+ * \param result_string The result string passed as argument
  */
 void add_it(char *number1, char *number2, char *result_string)
 {
@@ -46,10 +47,12 @@ void add_it(char *number1, char *number2, char *result_string)
 
 /**
  * \fn int sub_it(char *bigger, char *lower, char *result_string, int signe)
- * \brief Function that wrap the key function of sub system, compute the size 
+ * \brief Function that wrap the key function of sub system, compute the size
  * of the two params and launch the subsub function.
- * \param bigger The biggest number lower The lowest number result_string
- * The result pointer signe The signe of the result.
+ * \param bigger The biggest number
+ * \param lower The lowest number
+ * \param result_string The result pointer
+ * \param signe The signe of the result.
  * \return return a boolean -1 negative 1 positive
  */
 int sub_it(char *bigger, char *lower, char *result_string, int signe)
@@ -59,7 +62,7 @@ int sub_it(char *bigger, char *lower, char *result_string, int signe)
 	int current_nbr = 0;
 	int bool_s = 0;
 	char *strs[] = {bigger, lower, result_string};
-	
+
 	if (signe < 0 && compare(bigger, lower) != 0)
 		bool_s = 1;
 	subsub(strs, bigger_size, lower_size, current_nbr);
