@@ -36,6 +36,14 @@ static char *get_first_digit(char *nb, char *base, int max_power)
 	return (temp_number);
 }
 
+static int put_in_str_base(char c, char *str)
+{
+	int size = my_strlen(str);
+
+	str[size] = c;
+	return (0);
+}
+
 /**
  * \fn char* get_dec_to_base (char *str, char *base)
  * \brief Function that converts a string from a decimal base to the specified
@@ -59,7 +67,7 @@ char *get_dec_to_base(char *nbr, char *base)
 	to_return = my_calloc(sizeof(char) * (max_power + 3));
 	while (max_power >= 0) {
 		digit = get_first_digit(nb, nbr_base, max_power);
-		put_in_str(base[my_atoi(digit)], to_return);
+		put_in_str_base(base[my_atoi(digit)], to_return);
 		nb = infin_sub(nb, infin_mul(digit, infin_pow(nbr_base, my_itoa(max_power))));
 		max_power--;
 	}
