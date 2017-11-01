@@ -47,6 +47,13 @@ static char *infin_div_base_case(char *str1, char *str2)
 		return (infin_div_wrapped(str1, str2));
 }
 
+/**
+ * \fn char *infin_div (char *str1, char *str2)
+ * \brief Function that divides two string numbers and returns the quotient.
+ * \param str1 The dividend of the division
+ * \param str2 The divisor of the division
+ * \return The quotient as a string number.
+ */
 char *infin_div(char *str1, char *str2)
 {
 	char *quot;
