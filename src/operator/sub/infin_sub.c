@@ -47,6 +47,9 @@ char *infin_sub(char *nb1, char *nb2)
 	char *result;
 	char *new_nb2 = get_opposed_number_wo_free(nb2);
 
-	result = infin_add(nb1, new_nb2);
+	if (test_signe(nb1) == -1 || test_signe(nb2) == -1)
+		result = infin_add(nb1, nb2);
+	else
+		result = infin_add(nb1, new_nb2);
 	return (result);
 }
