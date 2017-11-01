@@ -13,14 +13,6 @@
 #include "infin_sub.h"
 #include "infin_pow.h"
 
-static int put_in_str(char c, char *str)
-{
-	int size = my_strlen(str);
-
-	str[size] = c;
-	return (0);
-}
-
 static int get_max_power_of(char *nb, char *base)
 {
 	int temp_power = 0;

@@ -52,3 +52,12 @@ char *my_itoa(int nb)
 	my_revstr(str);
 	return (str);
 }
+
+int put_in_str(char c, char *str)
+{
+	int size = my_strlen(str);
+
+	str[size] = c;
+	str[size + 1] = ' ';
+	return (0);
+}
