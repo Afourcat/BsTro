@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: frolvlad/alpine-gcc
+    image: albinodrought/node-alpine-gcc-make-ssh
     commands:
       - make buildlib
       - make -C tests all
