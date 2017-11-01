@@ -6,7 +6,10 @@
 ##
 
 SRC		=	pf_tree.c	\
-			postfix.c
+			postfix.c	\
+			parser.c	\
+			parse_neg.c	\
+			eval_expr.c
 
 OBJ		=	$(SRC:.c=.o)
 
