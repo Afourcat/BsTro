@@ -7,7 +7,8 @@
 
 ROOT		=	$(realpath ../..)
 
-SRC		=	error_display.c
+SRC		=	error_display.c \
+			check_syntax.c
 
 OBJ		=	$(SRC:.c=.o)
 
