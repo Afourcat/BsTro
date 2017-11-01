@@ -24,43 +24,43 @@ buildlib:
 		make -C ../ buildlib
 
 add:
-		gcc -o $(NAME) tests_add.c $(CFLAGS) $(LDFLAGS) -ladd -lutils
+		@gcc -o $(NAME) tests_add.c $(CFLAGS) $(LDFLAGS) -ladd -lutils
 
 sub:
-		gcc -o $(NAME) tests_sub.c $(CFLAGS) $(LDFLAGS) -lsub -ladd -lutils
+		@gcc -o $(NAME) tests_sub.c $(CFLAGS) $(LDFLAGS) -lsub -ladd -lutils
 
 mul:
-		gcc -o $(NAME) tests_mul.c $(CFLAGS) $(LDFLAGS) -lmul -ladd -lutils
+		@gcc -o $(NAME) tests_mul.c $(CFLAGS) $(LDFLAGS) -lmul -ladd -lutils
 
 div:
-		gcc -o $(NAME) tests_div.c $(CFLAGS) $(LDFLAGS) -ldiv -lpow -lmul -lsub -ladd -lutils -lerror
+		@gcc -o $(NAME) tests_div.c $(CFLAGS) $(LDFLAGS) -ldiv -lpow -lmul -lsub -ladd -lutils -lerror
 
 pow:
-		gcc -o $(NAME) tests_pow.c $(CFLAGS) $(LDFLAGS) -lpow -lmul -ladd -lsub -lutils
+		@gcc -o $(NAME) tests_pow.c $(CFLAGS) $(LDFLAGS) -lpow -lmul -ladd -lsub -lutils
 
 mod:
-		gcc -o $(NAME) tests_mod.c $(CFLAGS) $(LDFLAGS) -lmod -ldiv -lmul -ladd -lsub -lutils
+		@gcc -o $(NAME) tests_mod.c $(CFLAGS) $(LDFLAGS) -lmod -ldiv -lmul -ladd -lsub -lutils
 
 parser:
-		gcc -o $(NAME) tests_parser.c $(CFLAGS) $(LDFLAGS) -lparser -lutils
+		@gcc -o $(NAME) tests_parser.c $(CFLAGS) $(LDFLAGS) -lparser -lutils
 
 postfix:
-		gcc -o $(NAME) tests_postfix.c $(CFLAGS) $(LDFLAGS) -lparser -lutils
+		@gcc -o $(NAME) tests_postfix.c $(CFLAGS) $(LDFLAGS) -lparser -lutils
 
 stack:
-		gcc -o $(NAME) tests_stack.c $(CFLAGS) $(LDFLAGS) -lutils
+		@gcc -o $(NAME) tests_stack.c $(CFLAGS) $(LDFLAGS) -lutils
 
 stack_void:
-		gcc -o $(NAME) tests_stack_void.c $(CFLAGS) $(LDFLAGS) -lutils
+		@gcc -o $(NAME) tests_stack_void.c $(CFLAGS) $(LDFLAGS) -lutils
 
 pf_tree:
-		gcc -o $(NAME) tests_pf_tree.c $(CFLAGS) $(LDFLAGS) -lparser -lutils
+		@gcc -o $(NAME) tests_pf_tree.c $(CFLAGS) $(LDFLAGS) -lparser -lutils
 
 clean:
-		rm -f *.gcno
-		rm -f *.gcda
+		@rm -f *.gcno
+		@rm -f *.gcda
 
 fclean: 	clean
-		rm -f $(NAME)
+		@rm -f $(NAME)
 
 re:		fclean all
