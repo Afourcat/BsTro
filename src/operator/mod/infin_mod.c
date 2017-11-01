@@ -25,5 +25,8 @@ char *infin_mod(char *str1, char *str2)
 	char *mul = infin_mul(str2, div);
 	char *mod = infin_sub(str1, mul);
 
- 	return(str1[0] == '-' && mod[0] != '-' ? my_dup_without_zero(mod, 1) : mod);
+	if (str1[0] == '-' && mod[0] != '-' && mod[0] != '0')
+		return (my_dup_without_zero(mod, 1));
+	else
+		return (mod);
 }
