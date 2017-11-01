@@ -11,7 +11,7 @@ NAME		=	calc
 
 FLAGS		=	-L../lib -I../include
 
-LIBS		=	-lparser -lutils -lcalc -ladd -lsub -lmul -lpow -lerror
+LIBS		=	-lparser -lcalc -lmod -ldiv -lpow -lmul -lsub -ladd -lerror -lutils
 
 all:		buildlib
 		@gcc -o $(ROOT)/$(NAME) main.c $(FLAGS) $(LIBS) 
@@ -39,6 +39,7 @@ fclean:
 		@make -C parser/ fclean
 		@make -C convert_base/ fclean
 		@make -C calc_engine/ fclean
+		@rm -rf $(ROOT)/$(NAME)
 
 re:
 		@make -C operator/ re
@@ -55,4 +56,4 @@ debug:
 		@make -C error/ debug
 		@make -C convert_base/ debug
 		@make -C calc_engine/ debug
-#		gcc -o $(NAME) $(FLAGS) $(LIBS) -g
+		gcc -o $(ROOT)/$(NAME) main.c $(FLAGS) $(LIBS) -g

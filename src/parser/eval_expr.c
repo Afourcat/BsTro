@@ -29,9 +29,13 @@ char *eval_expr(char *nb_base, char *op_base, char *expr, int size)
 	char* res;
 
 //	expr = my_strdup(expr);
+	printf("BEFORE : %s\n", expr);
 	expr = parser(expr, op_base);
+	printf("PARSER : %s\n", expr);
 	expr = parse_neg(expr, nb_base, op_base);
+	printf("PARSE_NEG : %s\n", expr);
 	expr = postfix(expr, op_base, nb_base);
+	printf("POSTFIX : %s\n", expr);
 //	expr = my_strdup("0 12 13 15 5 / 6 12 14 30 5 % 10 25 * + % + 46 - / 16 + * 20 - * 43 / 20 * - 0 12 98 42 * - - 16 63 + 50 3 / - * *");
 	pf_tree = char_to_pf_tree(expr, op_base);
 	res = calc(pf_tree);
