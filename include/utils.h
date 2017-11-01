@@ -28,7 +28,7 @@ char *get_opposed_number(char *nb);
 int get_sign(char *nb1, char *nb2);
 int put_in_str(char c, char *str);
 char *my_alo(char *str, char *operands);
-int get_str_nb(char *str, char *to_return, int *i);
+int get_str_nb(char *str, char *to_return, int *i, char *nb_base);
 char *my_strdup(char *str);
 
 

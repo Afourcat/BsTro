@@ -7,11 +7,11 @@
 
 #include "utils.h"
 
-int get_str_nb(char *str, char *to_return, int *i)
+int get_str_nb(char *str, char *to_return, int *i, char *nb_base)
 {
 	int size = my_strlen(to_return);
 
-	while (str[*i] <= '9' && str[*i] >= '0') {
+	while (is_in(str[*i], nb_base)) {
 		to_return[size] = str[*i];
 		size++;
 		(*i)++;
