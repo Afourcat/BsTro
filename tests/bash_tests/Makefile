@@ -16,7 +16,7 @@ LDFLAGS		=	-L$(ROOT)/lib -L/usr/local/lib -lcriterion -lgcov
 NAME		=	units
 
 
-all:		addO subO mulO 
+all:		addO subO mulO divO modO
 
 buildlib:
 		make -C ../../ buildlib
@@ -30,14 +30,22 @@ subO:
 mulO:
 		gcc -o mul/infin_mul mul/main.c $(CFLAGS) $(LDFLAGS) -lmul -ladd -lutils
 
+divO:
+		gcc -o div/infin_div div/main.c $(CFLAGS) $(LDFLAGS) -ldiv -lpow -lsub -lmul -ladd -lutils -lerror
+
+modO:
+		gcc -o mod/infin_mod mod/main.c $(CFLAGS) $(LDFLAGS) -lmod -ldiv -lpow -lsub -lmul -ladd -lutils -lerror
+
 clean:
 		rm -f *.gcno
 		rm -f *.gcda
 
 fclean: 	clean
 		rm -f add/infin_add
-		rm -f add/infin_sub
-		rm -f add/infin_mul
+		rm -f sub/infin_sub
+		rm -f mul/infin_mul
+		rm -f div/infin_div
+		rm -f mod/infin_mod
 		rm -f comp1
 		rm -f comp2
 

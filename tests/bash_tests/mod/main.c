@@ -1,4 +1,4 @@
-#include "infin_add.h"
+#include "infin_mod.h"
 
 void my_putstr(char *str) {
 	int i = 0;
@@ -9,10 +9,6 @@ void my_putstr(char *str) {
 
 int main(int argc, char *argv[])
 {
-	char *res;
-	
-        res = infin_add(argv[1], argv[2]);
-	my_putstr(res);
-	free(res);
+	my_putstr(infin_mod(argv[1], argv[2]));
 	return (0);
 }
