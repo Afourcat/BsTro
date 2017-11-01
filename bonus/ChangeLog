@@ -10,13 +10,24 @@
 //    thomas.nicollet@epitech.eu 	as tnicollet
 //    alexandre.fourcat@epitech.eu	as afourcat
 
-
 //___________________________________________________________________________//
 
 Name         :
 Date         :
 Changelog by :
 Description  :
+
+//___________________________________________________________________________//
+
+Name         : documentation, importing eval_expr, conv_div !
+Date         : October 31 2017
+Changelog by : alexandre vinchenzo
+Description  :
+	today, thomas made the nbr_base for the the input and the output,
+	vinchenzo work on the eval_expr. Thomas made the documentation with
+	a tool named doxygen that create a doc from our src file (and some
+	comments). The doc is made with a command in our Makefile. a html code
+	is created in the bonus dir.
 
 //___________________________________________________________________________//
 
