@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: albinodrought/node-alpine-gcc-make-ssh
+    image: itiut/gcc-criterion
     commands:
       - make buildlib
       - make -C tests all
