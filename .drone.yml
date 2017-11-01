@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: brejoc/trusty
+    image: frolvlad/alpine-gcc
     commands:
       - make buildlib
       - make -C tests all
