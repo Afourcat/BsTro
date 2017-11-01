@@ -27,4 +27,6 @@ const int EXIT_OPS = 84;
 const char *SYNTAX_ERROR_MSG = "syntax error";
 const char *ERROR_MSG = "error";
 
+char *eval_expr(char *nb_base, char *op_base, char *expr, int size);
+
 #endif /* BISTRO_MATIC_H */

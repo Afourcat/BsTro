@@ -12,7 +12,7 @@
 
 static void check_base(char *av);
 static void check_ops(char *ops);
-static char *get_expr(unsigned size);
+static char *get_expr(unsigned const size);
 
 int main(int ac, char const *av[])
 {
