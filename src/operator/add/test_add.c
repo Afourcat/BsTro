@@ -35,8 +35,8 @@ int test_signe(char *str)
 /**
  * \fn void size_post(int *size1, int *size2)
  * \brief Function that decreament two numbers.
- * \param size1 number 1 size2 number 2.
- * \return return void.
+ * \param size1 number 1
+ * \param size2 number 2.
  */
 void size_post(int *size1, int *size2)
 {
@@ -56,17 +56,18 @@ static char itoc(int i)
 
 /**
  * \fn void subsub(char **s, int bi_s, int low_s, int cr_nb)
- * \brief Function key of the sub system, wrapped by sub_it 
+ * \brief Function key of the sub system, wrapped by sub_it
  * function.
  * \param s tab of string { number 1, number 2, result}
- * bi_s Size of the biggest number, low_s Size of the lowest.
- * number cr_nb The number actually verified.
+ * \param bi_s Size of the biggest number
+ * \param low_s Size of the lowest number
+ * \param cr_nb The number actually verified.
  * \return return void.
  */
 void subsub(char **s, int bi_s, int low_s, int cr_nb)
 {
 	int tab[2] = {0, 0};
-	
+
 	while (bi_s >= 0 || low_s >= 0) {
 	       	if (low_s < 0)
 			cr_nb = ctoi(s[0][bi_s]) - tab[0];
