@@ -1,49 +1,108 @@
 #!/bin/bash
 
-for i in `seq 1 333`; do
-    nbr1=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
-    nbr2=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
-    nbr3=$(echo "$nbr1 - $nbr2" | bc)
-    nbr4=$(./sub/infin_sub $nbr1 $nbr2)
-    echo $nbr3 > comp1
-    echo $nbr4 > comp2
-    diff=$(diff comp1 comp2)
+for i in `seq 1 250`; do
+
+    nombre_1=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
+    nombre_2=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
+    result=$(echo "$nombre_1 - $nombre_2" | bc)
+    attend=$(./sub/infin_sub $nombre_1 $nombre_2)
+
+    echo $result > test1
+    echo $attend > test2
+    
+    diff=$(diff test1 test2)
+
     if [ "$diff" == "" ]
-    then
-	echo -e "\e[32mOK\e[0m: GOT: $nbr4"
-    else
-	echo -e "\e[31mFailed\e[0m: GOT: $nbr4, but exepted: $nbr3 for $nbr1 - $nbr2"
+	then
+		echo -e "\033[32mOK	: Resultat = $result\033[0m"
+	else
+		echo -e "\033[31mKO     : Resultat = $result Attendu = $attend\033[0m"
+		echo -e "RESULT  = $result
+ATTENDU = $attend
+PAR     : $nombre_1 - $nombre_2
+
+" >> log 
     fi
-done
-for z in `seq 1 333`; do
-    nbr1=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
-    nbr2=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
-    nbr3=$(echo "-$nbr1 + $nbr2" | bc)
-    nbr4=$(./sub/infin_sub -$nbr1 $nbr2)
-    echo $nbr3 > comp1
-    echo $nbr4 > comp2
-    diff=$(diff comp1 comp2)
-    if [ "$diff" == "" ]
-    then
-        echo -e "\e[32mOK\e[0m: GOT: $nbr4"
-    else
-        echo -e "\e[31mFailed\e[0m: GOT: $nbr4, but exepted: $nbr3 for -$nbr1 + $nbr2"
-    fi
-done
-for y in `seq 1 333`; do
-    nbr1=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
-    nbr2=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
-    nbr3=$(echo "-$nbr1 + -$nbr2" | bc)
-    nbr4=$(./sub/infin_sub -$nbr1 -$nbr2)
-    echo $nbr3 > comp1
-    echo $nbr4 > comp2
-    diff=$(diff comp1 comp2)
-    if [ "$diff" == "" ]
-    then
-        echo -e "\e[32mOK\e[0m: GOT: $nbr4"
-    else
-        echo -e "\e[31mFailed\e[0m: GOT: $nbr4, but exepted: $nbr3 for -$nbr1 + -$nbr2"
-    fi
+
 done
 
-rm comp1 comp2
+for i in `seq 1 250`; do
+
+    nombre_1=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
+    nombre_2=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
+    result=$(echo "$nombre_1 - -$nombre_2" | bc)
+    attend=$(./sub/infin_sub $nombre_1 -$nombre_2)
+
+    echo $result > test1
+    echo $attend > test2
+    
+    diff=$(diff test1 test2)
+
+    if [ "$diff" == "" ]
+	then
+		echo -e "\033[32mOK	: Resultat = $result\033[0m"
+	else
+		echo -e "\033[31mKO     : Resultat = $result Attendu = $attend\033[0m"
+		echo -e "RESULT  = $result
+ATTENDU = $attend
+PAR     : $nombre_1 - $nombre_2
+
+" >> log 
+    fi
+
+done
+
+for i in `seq 1 250`; do
+
+    nombre_1=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
+    nombre_2=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
+    result=$(echo "-$nombre_1 - $nombre_2" | bc)
+    attend=$(./sub/infin_sub -$nombre_1 $nombre_2)
+
+    echo $result > test1
+    echo $attend > test2
+    
+    diff=$(diff test1 test2)
+
+    if [ "$diff" == "" ]
+	then
+		echo -e "\033[32mOK	: Resultat = $result\033[0m"
+	else
+		echo -e "\033[31mKO     : Resultat = $result Attendu = $attend\033[0m"
+		echo -e "RESULT  = $result
+ATTENDU = $attend
+PAR     : $nombre_1 - $nombre_2
+
+" >> log 
+    fi
+
+done
+
+for i in `seq 1 250`; do
+
+    nombre_1=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
+    nombre_2=$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes $(( ( RANDOM % 30 )  + 1 )))
+    result=$(echo "-$nombre_1 - -$nombre_2" | bc)
+    attend=$(./sub/infin_sub -$nombre_1 -$nombre_2)
+
+    echo $result > test1
+    echo $attend > test2
+    
+    diff=$(diff test1 test2)
+
+    if [ "$diff" == "" ]
+	then
+		echo -e "\033[32mOK	: Resultat = $result\033[0m"
+	else
+		echo -e "\033[31mKO     : Resultat = $result Attendu = $attend\033[0m"
+		echo -e "RESULT  = $result
+ATTENDU = $attend
+PAR     : $nombre_1 - $nombre_2
+
+" >> log 
+    fi
+
+done
+
+rm test1 test2
+

@@ -46,7 +46,7 @@ fclean: 	clean
 		rm -f mul/infin_mul
 		rm -f div/infin_div
 		rm -f mod/infin_mod
-		rm -f comp1
-		rm -f comp2
+		rm -f test1
+		rm -f test2
 
 re:		fclean all
