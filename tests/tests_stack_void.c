@@ -27,7 +27,6 @@ Test(create_stack_v, nothing_to_remove)
 	cr_assert_eq(stack_v->ptr, NULL, "Should be NULL.\n");
 }
 
-
 Test(add_stack_v, basic)
 {
 	stack_v_t *stack_v = create_stack_v();
@@ -66,5 +65,3 @@ Test(size_stack_v, longer)
 	add_stack_v(&stack_v,(void *) 'T');
 	cr_assert_eq(size_stack_v(stack_v), 4, "Should be 4.\n");
 }
-
-

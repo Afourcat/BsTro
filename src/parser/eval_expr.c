@@ -31,10 +31,9 @@ int find_space(char *spaces, char *op_base, char *nb_base)
 		nb_base[i] = c;
 	} else
 		spaces[0] = c;
-	spaces[1] = c;        
+	spaces[1] = c;
 	return (0);
 }
-
 
 void replace_char_to(char *str, char in, char out)
 {

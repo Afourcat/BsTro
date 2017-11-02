@@ -9,7 +9,6 @@
 #include "utils.h"
 #include "infin_add.h"
 
-
 static char *my_dup_without_free(char *str, int bool)
 {
 	char *new_str = my_allocate(str, bool);

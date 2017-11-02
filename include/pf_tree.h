@@ -22,5 +22,3 @@ pf_tree_t *char_to_pf_tree(char *str, char *base);
 void free_pf_tree(pf_tree_t *tree);
 
 #endif /* PF_TREE_H_ */
-
-
