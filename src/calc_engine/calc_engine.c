@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include "pf_tree.h"
+#include "convert_base.h"
 #include "calc.h"
 
 /**

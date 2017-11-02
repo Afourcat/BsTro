@@ -1,0 +1,7 @@
+pipeline:
+  build:
+    image: itiut/gcc-criterion
+    commands:
+      - make buildlib
+      - make -C tests all
+      - ./tests/units
