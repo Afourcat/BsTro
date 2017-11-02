@@ -8,11 +8,6 @@
 #include <stdlib.h>
 #include "stack.h"
 
-/**
- * \fn stack_t* create_stack (void)
- * \brief Create stack_t.
- * \return Pointer on the newly created stack.
- */
 stack_t *create_stack(void)
 {
 	stack_t *new_stack = malloc(sizeof(stack_t));
@@ -22,13 +17,6 @@ stack_t *create_stack(void)
 	return (new_stack);
 }
 
-/**
- * \fn stack_t add_stack (stack_t **stack, char data)
- * \brief Add an element on the stack specified as parameter.
- * \param stack The address of the pointer on the first element of the stack.
- * \param data The data to add to the stack.
- * \return The pointer on the new element of the stack.
- */
 stack_t *add_stack(stack_t **stack, char data)
 {
 	stack_t *new_stack = malloc(sizeof(stack_t));
@@ -39,12 +27,6 @@ stack_t *add_stack(stack_t **stack, char data)
 	return (*stack);
 }
 
-/**
- * \fn char out_stack (stack_t **stack)
- * \brief Unstack the first element of the stack
- * \param stack The address of the pointer on the first element of the stack.
- * \return The first element of the stack.
- */
 char out_stack(stack_t **stack)
 {
 	stack_t *temp = *stack;
@@ -57,12 +39,6 @@ char out_stack(stack_t **stack)
 	return (data);
 }
 
-/**
- * \fn int size_stack (stack_t *stack)
- * \brief Compute the size of the stack passed as argument.
- * \param stack The first element of the stack.
- * \return The size of the stack.
- */
 int size_stack(stack_t *stack)
 {
 	stack_t *temp = stack;

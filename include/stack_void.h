@@ -8,12 +8,6 @@
 #ifndef STACK_VOID_H_
 #define STACK_VOID_H_
 
-/**
- * \fn
- * \brief
- * \param
- * \return
- */
 typedef struct stack_v
 {
 	void *data;
