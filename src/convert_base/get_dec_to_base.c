@@ -16,10 +16,12 @@
 static int get_max_power_of(char *nb, char *base)
 {
 	int temp_power = 0;
-
-	while (compare(infin_pow(base, my_itoa(temp_power)), nb) == 2 ||
-	       compare(infin_pow(base, my_itoa(temp_power)), nb) == 0) {
+	char *pow = infin_pow(base, my_itoa(temp_power));
+	
+	while (compare(pow, nb) == 2 ||
+	       compare(pow), nb) == 0) {
 		temp_power++;
+		pow = infin_pow(base, my_itoa(temp_power));
 	}
 	return (temp_power - 1);
 }
