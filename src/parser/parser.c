@@ -15,7 +15,7 @@ static int set_sign(char *str, int i, int *shift, char *op_base)
 
 	while (str[i + *shift] == op_base[3] ||
 	       str[i + *shift] == op_base[2]) {
-		sign = (str[i + *shift] == op_base[3]) ? - sign : 1;
+		sign = (str[i + *shift] == op_base[3]) ? - sign : sign;
 		(*shift)++;
 	}
 	if (is_in(str[i - 1], op_base + 2))
@@ -45,7 +45,7 @@ char *parser(char *str, char *op_base)
 
 	if (str[i] == op_base[2] || str[i] == op_base[3]) {
 		shift++;
-		sign = (str[i] == op_base[3]) ? - sign : 1;
+		sign = (str[i] == op_base[3]) ? - sign : sign;
 		while (str[i + shift] == op_base[3] ||
 		       str[i + shift] == op_base[2])
 			sign = (str[i + shift++] == op_base[3]) ? - sign : sign;
