@@ -11,6 +11,7 @@
 #include "error.h"
 #include "postfix.h"
 #include "calc_engine.h"
+#include "convert_base.h"
 
 int find_space(char *spaces, char *op_base, char *nb_base)
 {

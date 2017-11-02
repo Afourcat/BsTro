@@ -6,6 +6,7 @@
 */
 
 #include <stdlib.h>
+#include "utils.h"
 #include "error.h"
 
 static int check_parenthesis(char *str, char *operands)
