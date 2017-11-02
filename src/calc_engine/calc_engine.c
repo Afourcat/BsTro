@@ -13,7 +13,7 @@
 char *calc(pf_tree_t *tree, char *nb_base, char *op_base)
 {
 	if (tree->left == NULL && tree->right == NULL) {
-		return (convert_base(tree->number, nb_base, op_base[3], 0));
+		return (convert_base(tree->number, nb_base, op_base, 0));
 	}
 	return (OPERATORS[tree->operator - 2](
 			calc(tree->left, nb_base, op_base),

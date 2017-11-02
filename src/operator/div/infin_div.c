@@ -14,7 +14,7 @@
 #include <infin_pow.h>
 #include "convert_base.h"
 
-static char *pow_2_n(unsigned int p)
+static char *pow_2_n(unsigned int p, char *op_base)
 {
 	char *res = malloc(sizeof(char) * (p + 2));
 	char *result;
@@ -25,7 +25,7 @@ static char *pow_2_n(unsigned int p)
 		res[i] = '0';
 	}
 	res[i] = '\0';
-	result = convert_base(res, "01", '-', 0);
+	result = convert_base(res, "01", op_base, 0);
 	free(res);
 	return (result);
 }
@@ -43,7 +43,7 @@ static char *infin_div_wrapped(char *str1, char *str2, char *op_base)
 		n++;
 	}
 	while (n != -1) {
-		res_pow = pow_2_n(n);
+		res_pow = pow_2_n(n, op_base);
 		to_sub = infin_mul(res_pow, str2, op_base);
 		if (compare(to_sub, str1) != 1) {
 			quot = infin_add(quot, res_pow, op_base);
