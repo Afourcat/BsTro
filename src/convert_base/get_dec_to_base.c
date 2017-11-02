@@ -17,7 +17,7 @@ static int get_max_power_of(char *nb, char *base)
 {
 	int temp_power = 0;
 	char *pow = infin_pow(base, my_itoa(temp_power));
-	
+
 	while (compare(pow, nb) == 2 ||
 	       compare(pow, nb) == 0) {
 		temp_power++;
@@ -46,14 +46,6 @@ static int put_in_str_base(char c, char *str)
 	return (0);
 }
 
-/**
- * \fn char* get_dec_to_base (char *str, char *base)
- * \brief Function that converts a string from a decimal base to the specified
- * base.
- * \param str The string to be converted in the specified base.
- * \param base The base to which the string has to be converted.
- * \return The converted string in the specified base.
- */
 char *get_dec_to_base(char *nbr, char *base)
 {
 	char *nb = "0";

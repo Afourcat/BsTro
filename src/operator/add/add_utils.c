@@ -14,13 +14,6 @@ static void modul_div(int *curr, int *retain)
 	*curr %= 10;
 }
 
-/**
- * \fn void add_it(char *number1, char *number2, char *result_string)
- * \brief Function key of the add system take a char and add it to the second.
- * \param number1 The first number.
- * \param number2 the Second number.
- * \param result_string The result string passed as argument
- */
 void add_it(char *number1, char *number2, char *result_string)
 {
 	int number1_size = my_strlen(number1) - 1;
@@ -45,16 +38,6 @@ void add_it(char *number1, char *number2, char *result_string)
 	}
 }
 
-/**
- * \fn int sub_it(char *bigger, char *lower, char *result_string, int signe)
- * \brief Function that wrap the key function of sub system, compute the size
- * of the two params and launch the subsub function.
- * \param bigger The biggest number
- * \param lower The lowest number
- * \param result_string The result pointer
- * \param signe The signe of the result.
- * \return return a boolean -1 negative 1 positive
- */
 int sub_it(char *bigger, char *lower, char *result_string, int signe)
 {
 	int bigger_size = my_strlen(bigger) - 1;
