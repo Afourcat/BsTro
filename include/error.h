@@ -10,5 +10,6 @@
 
 int my_putchar_error(char c);
 int my_putstr_error(char *s);
+int check_syntax(char *str, char *operands, char *base);
 
 #endif /* ERROR_UTILS_H_ */

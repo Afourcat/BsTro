@@ -14,10 +14,11 @@ static void check_base(char *av);
 static void check_ops(char *ops);
 static char *get_expr(unsigned const size);
 
-int main(int ac, char const *av[])
+int main(int ac, char *av[])
 {
 	char *expr;
 	unsigned int size;
+	char *res;
 
 	if (ac != 4) {
 		my_putstr("Usage: ");
@@ -29,7 +30,9 @@ int main(int ac, char const *av[])
 	check_ops(av[2]);
 	size = my_atoi(av[3]);
 	expr = get_expr(size);
-	my_putstr(eval_expr(av[1], av[2], expr, size));
+	res = eval_expr(av[1], av[2], expr, size);
+	my_putstr(res);
+	free(res);
 	return (EXIT_SUCCESS);
 }
 
