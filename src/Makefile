@@ -11,7 +11,7 @@ NAME		=	calc
 
 FLAGS		=	-L../lib -I../include
 
-LIBS		=	-lparser -lconvert_base -lcalc -lmod -ldiv -lpow -lmul -lsub -ladd -lerror -lutils
+LIBS		=	-lparser -lcalc -lmod -ldiv -lconvert_base -lpow -lmul -lsub -ladd -lerror -lutils
 
 all:		buildlib
 		@gcc -o $(ROOT)/$(NAME) main.c $(FLAGS) $(LIBS) 
