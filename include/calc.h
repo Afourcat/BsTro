@@ -14,7 +14,7 @@ char *my_mul(char *nb1, char *nb2, char *op_base);
 char *my_div(char *nb1, char *nb2, char *op_base);
 char *my_mod(char *nb1, char *nb2, char *op_base);
 
-char * const (*OPERATORS[])(char *, char *) = {&my_add,
+char * const (*OPERATORS[])(char *, char *, char *) = {&my_add,
 						&my_sub,
 						&my_mul,
 						&my_div,
