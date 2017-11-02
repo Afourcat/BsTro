@@ -48,7 +48,7 @@ static int get_first_apearance(char const *str, char const *base)
 	return (0);
 }
 
-char *get_base_to_dec(char *str, char *base)
+char *get_base_to_dec(char *str, char *base, char *op_base)
 {
 	char *max_power = "0";
 	char *digit = "0";
@@ -56,18 +56,18 @@ char *get_base_to_dec(char *str, char *base)
 	int rev_counter = 0;
 	int first_digit = get_first_apearance(str, base);
 
-	while (get_dig(str[first_digit + my_atoi(max_power)], base)[0] != '-')
-		max_power = infin_add(max_power, "1");
-	while (max_power[0] != '-') {
+	while (get_dig(str[first_digit + my_atoi(max_power)], base)[0] != op_base[3])
+		max_power = infin_add(max_power, "1", op_base);
+	while (max_power[0] != op_base[3]) {
 		digit = get_dig(str[first_digit + rev_counter], base);
-		if (digit[0] != '-')
-			number = infin_add(number, digit);
+		if (digit[0] != op_base[3])
+			number = infin_add(number, digit, op_base);
 		else
 			return (number);
 		if (compare(max_power, "1") == 1)
-			number = infin_mul(number, get_base(base));
+			number = infin_mul(number, get_base(base), op_base);
 		rev_counter++;
-		max_power = infin_sub(max_power, "1");;
+		max_power = infin_sub(max_power, "1", op_base);
 	}
 	return ("0");
 }

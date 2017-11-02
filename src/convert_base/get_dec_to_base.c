@@ -45,7 +45,7 @@ static int put_in_str_base(char c, char *str)
 	return (0);
 }
 
-char *get_dec_to_base(char *nbr, char *base)
+char *get_dec_to_base(char *nbr, char *base, char *op_base)
 {
 	char *nb = "0";
 	char *to_return;
@@ -55,7 +55,7 @@ char *get_dec_to_base(char *nbr, char *base)
 
 	nb = remove_minus(nbr);
 	while (base[my_atoi(nbr_base)])
-		nbr_base = infin_add(nbr_base, "1");
+		nbr_base = infin_add(nbr_base, "1", op_base);
 	max_power = get_max_power_of(nb, nbr_base);
 	to_return = my_calloc(sizeof(char) * (max_power + 3));
 	while (max_power >= 0) {
@@ -63,7 +63,8 @@ char *get_dec_to_base(char *nbr, char *base)
 		put_in_str_base(base[my_atoi(digit)], to_return);
 		nb = infin_sub(nb, infin_mul(digit,
 					     infin_pow(nbr_base,
-						       my_itoa(max_power))));
+						       my_itoa(max_power)),
+					     op_base));
 		max_power--;
 	}
 	return (to_return);
