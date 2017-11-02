@@ -19,7 +19,7 @@ static int get_max_power_of(char *nb, char *base)
 	char *pow = infin_pow(base, my_itoa(temp_power));
 	
 	while (compare(pow, nb) == 2 ||
-	       compare(pow), nb) == 0) {
+	       compare(pow, nb) == 0) {
 		temp_power++;
 		pow = infin_pow(base, my_itoa(temp_power));
 	}
