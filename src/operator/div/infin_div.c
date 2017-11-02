@@ -47,6 +47,18 @@ static char *infin_div_base_case(char *str1, char *str2)
 		return (infin_div_wrapped(str1, str2));
 }
 
+static char *get_pow_of_two(char *str)
+{
+	char *result = "1";
+	int counter = 0;
+	
+	while (str[counter]) {
+			result = infin_add(result, result); 
+			counter++;
+	}
+	return (result);
+}
+
 /**
  * \fn char *infin_div (char *str1, char *str2)
  * \brief Function that divides two string numbers and returns the quotient.
