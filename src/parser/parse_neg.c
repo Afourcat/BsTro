@@ -113,6 +113,5 @@ char *parse_neg(char *str, char *nb_base, char *op_base)
 		}
 	res[ctrs[1]] = 0;
 	free(str);
-	free(tmp);
 	return (res);
 }
