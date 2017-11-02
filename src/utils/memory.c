@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-void *my_calloc(int size)
+void *my_calloc(size_t size)
 {
 	void *temp = malloc(size);
 	int counter = 0;
