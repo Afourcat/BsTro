@@ -27,7 +27,7 @@ int main(int ac, char *av[])
 		return (EXIT_USAGE);
 	}
 	check_base(av[1]);
-	check_ops(av[2]);
+	check_ops(av[2], av[1]);
 	size = my_atoi(av[3]);
 	expr = get_expr(size);
 	res = eval_expr(av[1], av[2], expr, size);
@@ -88,7 +88,7 @@ static void check_ops(char *op_base, char *nb_base)
 	}
 	for (int i = 0; i < size_nb; i++)
 	        for (int j = 0; j < size_op; j++)
-			res += (nb_base[i] == op_base[i]) ? 1: 0;
+			res += (nb_base[i] == op_base[j]) ? 1: 0;
 	if (res != 0) {
 		my_putstr(SYNTAX_ERROR_MSG);
 		exit(EXIT_OPS);
