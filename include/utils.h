@@ -19,7 +19,7 @@ int is_in(char c, char *str);
 int remove_whitespace(char *str);
 void *my_calloc(int size);
 char *my_dup_without_zero(char *str, int bools);
-char *my_allocate(char *str, int bools);
+char *my_allocate(char *str, int bools, int *counter);
 char *remove_minus(char *str);
 int compare(char *bigger, char *lower);
 int char_to_int(char c);

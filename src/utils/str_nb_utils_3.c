@@ -28,7 +28,7 @@ char *my_alo(char *str, char *operands)
 	int size_counter = 0;
 
 	while (str[counter]) {
-		if (!(str[counter] == operands ||
+		if (!(str[counter] == operands[0] ||
 		      str[counter] == operands[1]))
 			size_counter++;
 		counter++;
