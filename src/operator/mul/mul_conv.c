@@ -23,7 +23,7 @@ void add_zeros(char *buffer, int nb_zeros, int *iter)
 char *add_all(char **res, char **buffer, int size_l, int size_g)
 {
 	int counter = 0;
-	
+		
 	for (int l = size_l - 1; l >= 0; --l) {
 		buffer[l] = my_revstr(buffer[l]);
 		*res = infin_add(*res, buffer[l]);

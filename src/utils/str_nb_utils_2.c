@@ -19,13 +19,6 @@ static int get_int_size(int nb)
 	return (i);
 }
 
-/**
- * \fn int get_sign (char *str1, char *str2)
- * \brief Function that compute the final sign of the two factors.
- * \param The first factor as a string.
- * \param The second factor as a string
- * \return The boolean telling if it's positive (0) or negative (1).
- */
 int get_sign(char *str1, char *str2)
 {
 	if (str1[0] == '-' && str2[0] == '-')
@@ -36,12 +29,6 @@ int get_sign(char *str1, char *str2)
 		return (1);
 }
 
-/**
- * \fn char *my_itoa (int nb)
- * \brief Function that converts an int into a string.
- * \param nb The int which has to be converted.
- * \return The string which has been converted from the int.
- */
 char *my_itoa(int nb)
 {
  	int size = get_int_size(nb);
