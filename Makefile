@@ -26,6 +26,7 @@ fclean: clean
 	@echo -e "The \033[32mcleaning\033[0m of the \033[34mbinary files\033[0m has \033[32mstarted\033[0m"
 	@make --no-print-directory -C src/ fclean
 	@make --no-print-directory -C tests/ fclean
+	@make --no-print-directory -C tests/bash_tests fclean
 	@echo -e "The \033[32mcleaning\033[0m of the \033[34mbinary files\033[0m has \033[32mfinished\033[0m"
 
 re:	fclean all
