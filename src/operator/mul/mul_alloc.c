@@ -11,7 +11,7 @@
 
 int get_greatest(char *s1, char *s2)
 {
-	return (my_strlen(s1) >= my_strlen(s2) ? 1 : 2);	
+	return (my_strlen(s1) >= my_strlen(s2) ? 1 : 2);
 }
 
 char **allocate_buffer(char *s1, char *s2, int size)
@@ -19,7 +19,7 @@ char **allocate_buffer(char *s1, char *s2, int size)
 	int size_buffer = 0;
 	char **buffer;
 	int i = 0;
-	
+
 	if (my_strlen(s1) >= my_strlen(s2))
 		size_buffer = my_strlen(s2);
 	else
@@ -37,8 +37,7 @@ void free_all(char **buffer, char *s1, char *s2)
 {
 	int size_buffer;
 	int i = 0;
-	
-	
+
 	if (my_strlen(s1) >= my_strlen(s2))
 		size_buffer = my_strlen(s2) + 1;
 	else

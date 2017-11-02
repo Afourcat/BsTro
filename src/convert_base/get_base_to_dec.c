@@ -1,9 +1,8 @@
 /*
 ** EPITECH PROJECT, 2017
-** my_getnbr_base
+** get_base_to_dec
 ** File description:
-** Function that converts and returns a number in a
-** given base into decimal number
+** Function that converts a number into decimal number
 */
 
 #include "utils.h"

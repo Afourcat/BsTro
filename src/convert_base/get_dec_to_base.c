@@ -1,9 +1,8 @@
 /*
 ** EPITECH PROJECT, 2017
-** my_putnbr_base
+** get_dec_to_base
 ** File description:
-** Function that converts and display a decimal number into a number
-** in a given base
+** Function that converts a number in a given base
 */
 
 #include "utils.h"
@@ -62,7 +61,9 @@ char *get_dec_to_base(char *nbr, char *base)
 	while (max_power >= 0) {
 		digit = get_first_digit(nb, nbr_base, max_power);
 		put_in_str_base(base[my_atoi(digit)], to_return);
-		nb = infin_sub(nb, infin_mul(digit, infin_pow(nbr_base, my_itoa(max_power))));
+		nb = infin_sub(nb, infin_mul(digit,
+					     infin_pow(nbr_base,
+						       my_itoa(max_power))));
 		max_power--;
 	}
 	return (to_return);

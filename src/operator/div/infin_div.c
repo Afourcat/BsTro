@@ -19,7 +19,7 @@ static char *pow_2_n(unsigned int p)
 	char *res = malloc(sizeof(char) * (p + 2));
 	char *result;
 	int i = 1;
-	
+
 	res[0] = '1';
 	for (i = 1; i < p + 1; i++) {
 		res[i] = '0';
@@ -52,7 +52,7 @@ static char *infin_div_wrapped(char *str1, char *str2)
 		n--;
 		free(res_pow);
 	}
-	return(quot);
+	return (quot);
 }
 
 static char *infin_div_base_case(char *str1, char *str2)
@@ -73,8 +73,8 @@ static char *get_pow_of_two(char *str)
 	int counter = 0;
 
 	while (str[counter]) {
-			result = infin_add(result, result);
-			counter++;
+		result = infin_add(result, result);
+		counter++;
 	}
 	return (result);
 }

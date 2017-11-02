@@ -13,7 +13,7 @@ static int check_parenthesis(char *str, char *operands)
 {
 	int counter = 0;
 	int depth = 0;
-	
+
 	while (str[counter]) {
 		if (str[counter] == operands[0])
 			depth++;

@@ -28,8 +28,9 @@ void add_it(char *number1, char *number2, char *result_string)
 		else if (number2_size < 0)
 			current_nbr =  char_to_int(number1[number1_size]) + retain;
 		else
-			current_nbr = char_to_int(number1[number1_size]) +
-				char_to_int(number2[number2_size]) + retain;
+			current_nbr = (char_to_int(number1[number1_size]) +
+				       (char_to_int(number2[number2_size]) +
+					retain));
 		modul_div(&current_nbr, &retain);
 		result_string[iter++] = int_to_char(current_nbr);
 		if (number1_size <= 0 && number2_size <= 0 && retain != 0)

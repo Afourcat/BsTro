@@ -14,7 +14,7 @@ int test_signe(char *str)
 
 	if (str[0] == '-')
 		return (-1);
-	while(str[i] != '\0') {
+	while (str[i] != '\0') {
 		if (str[i] >= '0' && str[i] <= '9' && str[i - 1] == '-') {
 			return (-1);
 		}
