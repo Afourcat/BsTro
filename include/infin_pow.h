@@ -8,6 +8,6 @@
 #ifndef INFIN_POW_H_
 #define INFIN_POW_H_
 
-char *infin_pow(char *str1, char *str2);
+char *infin_pow(char *str1, char *str2, char *op_base);
 
 #endif /* INFIN_POW_H_ */
