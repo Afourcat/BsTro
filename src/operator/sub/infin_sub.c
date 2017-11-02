@@ -37,11 +37,11 @@ static char *get_opposed_number_wo_free(char *nb)
 	return (nb);
 }
 
-char *infin_sub(char *nb1, char *nb2)
+char *infin_sub(char *nb1, char *nb2, char *op_base)
 {
 	char *result;
 	char *new_nb2 = get_opposed_number_wo_free(nb2);
 
-	result = infin_add(nb1, new_nb2);
+	result = infin_add(nb1, new_nb2, op_base);
 	return (result);
 }

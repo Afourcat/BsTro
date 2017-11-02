@@ -8,6 +8,6 @@
 #ifndef INFIN_DIV_H_
 #define INFIN_DIV_H_
 
-char *infin_div(char *str1, char *str2);
+char *infin_div(char *str1, char *str2, char *op_base);
 
 #endif /* INFIN_DIV_H_ */
