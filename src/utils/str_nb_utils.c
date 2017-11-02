@@ -17,15 +17,15 @@ char *get_opposed_number(char *nb)
 	return (nb);
 }
 
-char *my_allocate(char *str, int bools)
+char *my_allocate(char *str, int bools, int *counter)
 {
 	int size = 1;
 	int j = 0;
 	char *new_str;
 
-	while (str[j] == '0' && str[j + 1] != '\0')
-		j++;
-	while (str[j]) {
+	while (str[(*counter)] == '0' && str[(*counter) + 1])
+		(*counter)++;
+	while (str[(*counter) + j]) {
 		j++;
 		size++;
 	}
@@ -35,22 +35,18 @@ char *my_allocate(char *str, int bools)
 
 char *my_dup_without_zero(char *str, int bools)
 {
-	char *new_str = my_allocate(str, bools);
 	int i = 0;
 	int j = 0;
-
+	char *new_str = my_allocate(str, bools, &j);
+	
 	if (bools == 1) {
 		new_str[0] = '-';
-		i = 1;
-	}
-	while (str[j] == '0' && str[j + 1] != '\0') {
-		j++;
-	}
-	while (str[j]) {
-		new_str[i] = str[j];
 		i++;
-		j++;
 	}
+	while (str[j] == '0' && str[j + 1])
+		j++;
+	while (str[j])
+		new_str[i++] = str[j++];
 	free(str);
 	return (new_str);
 }
@@ -60,7 +56,7 @@ char *remove_minus(char *str)
 	char *new_str;
 	int j = 0;
 	int i = 0;
-	
+
 	if (str[0] == '-')
 		new_str = my_calloc(my_strlen(str));
 	else

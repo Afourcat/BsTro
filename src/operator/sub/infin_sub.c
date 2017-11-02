@@ -11,9 +11,9 @@
 
 static char *my_dup_without_free(char *str, int bool)
 {
-	char *new_str = my_allocate(str, bool);
-	int i = 0;
 	int j = 0;
+	char *new_str = my_allocate(str, bool, &j);
+	int i = 0;
 
 	if (bool == 1) {
 		new_str[0] = '-';

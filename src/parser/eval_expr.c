@@ -1,5 +1,5 @@
 /*
-1;2802;0c** EPITECH PROJECT, 2017
+** EPITECH PROJECT, 2017
 ** eval_expr.c
 ** File description:
 ** Core of the program

@@ -10,16 +10,16 @@ static int getnbr_isnum(char c)
 	return (c >= '0' && c <= '9');
 }
 
-static int get_signe(char const *str, int *pos)
+static int get_sign(char const *str, int *pos)
 {
-	int signe = 1;
+	int sign = 1;
 
 	while (!getnbr_isnum(str[*pos])) {
 		if (str[*pos] == '-')
-			signe *= -1;
+			sign *= -1;
 		(*pos)++;
 	}
-	return (signe);
+	return (sign);
 }
 
 static int check_valid_str(char const *str)
@@ -41,7 +41,7 @@ int my_atoi(char const *str)
 
 	if (check_valid_str(str))
 		return (0);
-	nbr *= get_signe(str, &i);
+	nbr *= get_sign(str, &i);
 	nbr *= str[i] - '0';
 	i++;
 	while (getnbr_isnum(str[i])) {

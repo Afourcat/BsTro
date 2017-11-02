@@ -60,7 +60,7 @@ int remove_whitespace(char *str)
 
 char *my_revstr(char *str)
 {
-       	char buffer = 0;
+	char buffer = 0;
 	int size = my_strlen(str) - 1;
 
 	if (str == NULL || str[0] == '\0')

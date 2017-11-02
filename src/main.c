@@ -87,7 +87,7 @@ static void check_ops(char *op_base, char *nb_base)
 		exit(EXIT_OPS);
 	}
 	for (int i = 0; i < size_nb; i++)
-	        for (int j = 0; j < size_op; j++)
+		for (int j = 0; j < size_op; j++)
 			res += (nb_base[i] == op_base[j]) ? 1: 0;
 	if (res != 0) {
 		my_putstr(SYNTAX_ERROR_MSG);
