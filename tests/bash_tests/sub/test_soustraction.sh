@@ -17,8 +17,8 @@ for i in `seq 1 250`; do
 		echo -e "\033[32mOK	: Resultat = $result\033[0m"
 	else
 		echo -e "\033[31mKO     : Resultat = $result Attendu = $attend\033[0m"
-		echo -e "RESULT  = $result
-ATTENDU = $attend
+		echo -e "RESULT  = $attend
+ATTENDU = $result
 PAR     : $nombre_1 - $nombre_2
 
 " >> log 
