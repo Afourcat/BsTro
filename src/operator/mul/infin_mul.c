@@ -98,11 +98,29 @@ char *infin_mul(char *str1, char *str2, char *op_base)
 {
 	int bool_s = 0;
 
-	if (test_signe(str1) == -1 && test_signe(str2) == -1)
+	if (test_signe(str1, op_base) == -1 && test_signe(str2, op_base) == -1)
 		bool_s = 0;
-	else if (test_signe(str1) == -1 || test_signe(str2) == -1)
+	else if (test_signe(str1, op_base) == -1 || test_signe(str2, op_base) == -1)
 		bool_s = 1;
 	str1 = remove_minus(str1);
 	str2 = remove_minus(str2);
 	return (post_infin_mul(str1, str2, bool_s, op_base));
+}
+
+int test_signe(char *str, char *op_base)
+{
+	int i = 1;
+
+	if (str[0] == op_base[3])
+		return (-1);
+	while (str[i] != '\0') {
+		if (str[i] >= '0' && str[i] <= '9' && str[i - 1] == op_base[3]) {
+			return (-1);
+		}
+		else if (str[i] >= '0' && str[i] <= '9' && str[i - 1] != op_base[3]) {
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
