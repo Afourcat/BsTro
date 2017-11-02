@@ -54,5 +54,3 @@ Test(size_stack, longer)
 	add_stack(&stack, 'T');
 	cr_assert_eq(size_stack(stack), 4, "Should be 4.\n");
 }
-
-

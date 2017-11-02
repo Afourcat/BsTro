@@ -14,6 +14,10 @@ char *my_mul(char *nb1, char *nb2);
 char *my_div(char *nb1, char *nb2);
 char *my_mod(char *nb1, char *nb2);
 
-char * const (*OPERATORS[])(char *, char *) = {&my_add, &my_sub, &my_mul, &my_div, &my_mod};
+char * const (*OPERATORS[])(char *, char *) = {&my_add,
+						&my_sub,
+						&my_mul,
+						&my_div,
+						&my_mod};
 
 #endif /* CALC_H_ */
