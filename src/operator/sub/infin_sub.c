@@ -21,14 +21,10 @@ static char *my_dup_without_free(char *str, int bool)
 	}
 	else
 		j = 1;
-	while (str[j] == '0' && str[j + 1] != '\0') {
+	while (str[j] == '0' && str[j + 1] != '\0')
 		j++;
-	}
-	while (str[j]) {
-		new_str[i] = str[j];
-		i++;
-		j++;
-	}
+	while (str[j])
+		new_str[i++] = str[j++];
 	return (new_str);
 }
 
