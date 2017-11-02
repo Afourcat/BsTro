@@ -45,10 +45,14 @@ void add_it(char *nb1, char *nb2, char *res)
 
 static void free_add(char *nb1, char *nb2, int sign_nb1, int sign_nb2)
 {
-//	if (sign_nb1 < 0)
-//		free(nb1);
-//	if (sign_nb2 < 0)
-//		free(nb2);
+	if (sign_nb1 < 0)
+		free(nb1 - 1);
+	else
+		free(nb1);
+	if (sign_nb2 < 0)
+		free(nb2 - 1);
+	else
+		free(nb2);
 }
 
 int infin_add_wrapped(char **nb1, char **nb2, char *res, char *op_base)
