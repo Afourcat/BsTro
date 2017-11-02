@@ -16,16 +16,6 @@ static char *add_minus(char *str, char neg)
 	return (str);
 }
 
-/**
- * \fn char* convert_base (char *str, char *base, char neg, int bools)
- * \brief Function that converts a string from a base to another base.
- * \param str The string to be converted.
- * \param base The base in which or from the string has to be converted
- * \param neg The character that acts as a negative character
- * \param bools A boolean that tells the function if it should convert from
- * base to dec (0), or from dec to base (1).
- * \return The converted string.
- */
 char *convert_base(char *str, char *base, char neg, int bools)
 {
 	int sign = 0;

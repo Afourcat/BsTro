@@ -71,21 +71,14 @@ static char *get_pow_of_two(char *str)
 {
 	char *result = "1";
 	int counter = 0;
-	
+
 	while (str[counter]) {
-			result = infin_add(result, result); 
+			result = infin_add(result, result);
 			counter++;
 	}
 	return (result);
 }
 
-/**
- * \fn char *infin_div (char *str1, char *str2)
- * \brief Function that divides two string numbers and returns the quotient.
- * \param str1 The dividend of the division
- * \param str2 The divisor of the division
- * \return The quotient as a string number.
- */
 char *infin_div(char *str1, char *str2)
 {
 	char *quot;
