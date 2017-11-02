@@ -450,3 +450,25 @@
  * \param str The string to be reversed.
  * \return The string which has been reversed.
  */
+
+/** \file infin_mul.h
+ * \brief A Documented file.
+ *
+ * Details.
+ */
+
+/**
+ * \fn char *infin_mul(char *str1, char *str2)
+ * \brief the entering functon of the multiplication system.
+ * \param str1 Is the first number.
+ * \param str2 Is the second number.
+ * \return return a string of the result.
+ */
+
+/**
+ * \fn char *infin_mul(char *str1, char *str2)
+ * \brief the entering functon of the multiplication system.
+ * \param str1 Is the first number.
+ * \param str2 Is the second number.
+ * \return return a string of the result.
+ */
