@@ -61,8 +61,8 @@ char *remove_minus(char *str)
 	int j = 0;
 	int i = 0;
 	
-	if (str[0] != '-')
-		return = my_calloc(my_strlen(str));
+	if (str[0] == '-')
+		new_str = my_calloc(my_strlen(str));
 	else
 		new_str = my_calloc(my_strlen(str) + 1);
 	while (str[i] != '\0') {
