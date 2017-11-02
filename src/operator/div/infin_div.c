@@ -12,25 +12,45 @@
 #include <infin_sub.h>
 #include <infin_mul.h>
 #include <infin_pow.h>
+#include "convert_base.h"
+
+static char *pow_2_n(unsigned int p)
+{
+	char *res = malloc(sizeof(char) * (p + 2));
+	char *result;
+	int i = 1;
+	
+	res[0] = '1';
+	for (i = 1; i < p + 1; i++) {
+		res[i] = '0';
+	}
+	res[i] = '\0';
+	result = convert_base(res, "01", '-', 0);
+	free(res);
+	return (result);
+}
 
 static char *infin_div_wrapped(char *str1, char *str2)
 {
 	char *quot = "0";
-	char *n = "0";
+	unsigned int n = 0;
 	char *two = "2";
 	char *to_sub = infin_add("0", str2);
+	char *res_pow;
 
 	while (compare(to_sub, str1) != 1) {
 		to_sub = infin_mul(to_sub, "2");
-		n = infin_add(n, "1");
+		n++;
 	}
-	while (n[0] != '-') {
-		to_sub = infin_mul(infin_pow(two, n), str2);
+	while (n != -1) {
+		res_pow = pow_2_n(n);
+		to_sub = infin_mul(res_pow, str2);
 		if (compare(to_sub, str1) != 1) {
-			quot = infin_add(quot, infin_pow(two, n));
+			quot = infin_add(quot, res_pow);
 			str1 = infin_sub(str1, to_sub);
 		}
-		n = infin_sub(n, "1");
+		n--;
+		free(res_pow);
 	}
 	return(quot);
 }
