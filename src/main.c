@@ -19,19 +19,28 @@ int main(int ac, char *av[])
 	char *expr;
 	unsigned int size;
 	char *res;
-
+	my_putstr("C");
+	my_putchar('A');
+	printf("daflakdf\n");
 	if (ac != 4) {
 		my_putstr("Usage: ");
 		my_putstr(av[0]);
 		my_putstr(" base ops \"()+-*/%\" exp_len\n");
 		return (EXIT_USAGE);
 	}
+	my_putchar('A');
 	check_base(av[1]);
+	my_putchar('A');
 	check_ops(av[2], av[1]);
+	my_putchar('A');
 	size = my_atoi(av[3]);
+	my_putchar('A');
 	expr = get_expr(size);
+	my_putchar('A');
 	res = eval_expr(av[1], av[2], expr, size);
+	my_putchar('A');
 	my_putstr(res);
+	my_putchar('A');
 	free(expr);
 	free(res);
 	return (EXIT_SUCCESS);

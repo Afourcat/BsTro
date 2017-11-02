@@ -49,18 +49,29 @@ char *eval_expr(char *nb_base, char *op_base, char *expr, int size)
 {
 	pf_tree_t *pf_tree;
 	char* spaces = my_calloc(3);
-
+	my_putchar('B');
 	check_syntax(expr, op_base, nb_base);
+		my_putchar('B');
 	find_space(spaces, op_base, nb_base);
+		my_putchar('B');
 	replace_char_to(expr, spaces[0], spaces[1]);
+		my_putchar('B');
 	expr = parser(expr, op_base);
+		my_putchar('B');
 	expr = parse_neg(expr, nb_base, op_base);
+		my_putchar('B');
 	expr = postfix(expr, op_base, nb_base);
+		my_putchar('B');
 	pf_tree = char_to_pf_tree(expr, op_base);
+		my_putchar('B');
 	expr = calc(pf_tree, nb_base, op_base[3]);
+		my_putchar('B');
 	expr = convert_base(expr, nb_base, op_base[3], 1);
+		my_putchar('B');
 	free_pf_tree(pf_tree);
+		my_putchar('B');
 	replace_char_to(expr, spaces[1], spaces[0]);
+		my_putchar('B');
 	free(spaces);
 	return (expr);
 }
