@@ -16,7 +16,7 @@ char *add_signe(char *positive)
 	char *new_re = my_calloc(sizeof(char) * (size + 2));
 	int i = 1;
 	int j = 0;
-	
+
 	new_re[0] = '-';
 	while (positive[j] != '\0') {
 		new_re[i] = positive[j];
@@ -32,10 +32,10 @@ static int multiply(int a, int b, int *current, int *retain)
 {
 	int temp_retain = *retain;
 	int bool = 0;
-	
-	*current = (a * b) + *retain;
+
+	(*current) = (a * b) + (*retain);
 	if (*current > 9) {
-		*retain = *current / 10;		
+		*retain = *current / 10;
 		*current = ((*current) % 10);
 		bool = 1;
 	}
@@ -44,27 +44,28 @@ static int multiply(int a, int b, int *current, int *retain)
 	}
 	return (bool);
 }
-static char *mul(char *greatest, char *lowest, char **buffer, char **res)
+
+static char *mul(char *great, char *low, char **buffer, char **res)
 {
-	int size_g = my_strlen(greatest);
-	int size_l = my_strlen(lowest);
-	int retain = 0;
-	int current_nbr = 0;
+	int size_g = my_strlen(great);
+	int size_l = my_strlen(low);
+	int ret = 0;
+	int curr = 0;
 	int iter = 0;
-	int buffer_nbr = 0;
+	int buff_nbr = 0;
 	int b_l = 0;
-	
-	for (int l = size_l - 1; l >= 0 ; l-- , iter = 0, buffer_nbr++, retain = 0) {
-	       	add_zeros(buffer[buffer_nbr], buffer_nbr, &iter);
+
+	for (int l = size_l - 1; l >= 0 ; l-- , iter = 0, buff_nbr++, ret = 0) {
+		add_zeros(buffer[buff_nbr], buff_nbr, &iter);
 		for (int g = size_g - 1; g >= 0; g--) {
-			b_l = multiply(char_to_int(lowest[l]), char_to_int(greatest[g]), &current_nbr, &retain);
-			buffer[buffer_nbr][iter++] = int_to_char(current_nbr);
+			b_l = multiply(char_to_int(low[l]), char_to_int(great[g]), &curr, &ret);
+			buffer[buff_nbr][iter++] = int_to_char(curr);
 			if (g == 0 && b_l == 1)
-				buffer[buffer_nbr][iter++] = int_to_char(retain);
+				buffer[buff_nbr][iter++] = int_to_char(ret);
 		}
 	}
 	*res = add_all(res, buffer, size_l, size_g);
-	free_all(buffer, greatest, lowest);
+	free_all(buffer, great, low);
 	return (*res);
 }
 
@@ -74,7 +75,7 @@ static char *post_infin_mul(char *str1, char *str2, int bool_s)
 	char *res = "0";
 	char **buffer = allocate_buffer(str1, str2, size);
 	int greatest = get_greatest(str1, str2);
-	
+
 	if (greatest == 1)
 		res = mul(str1, str2, buffer, &res);
 	else
@@ -89,7 +90,7 @@ static char *post_infin_mul(char *str1, char *str2, int bool_s)
 char *infin_mul(char *str1, char *str2)
 {
 	int bool_s = 0;
-	
+
 	if (test_signe(str1) == -1 && test_signe(str2) == -1)
 		bool_s = 0;
 	else if (test_signe(str1) == -1 || test_signe(str2) == -1)

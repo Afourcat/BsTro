@@ -18,8 +18,8 @@ int infin_add_wrapped(char **nb1, char **nb2, int size, char *result_string)
 	*nb1 = remove_minus(*nb1);
 	*nb2 = remove_minus(*nb2);
 	if (signe_1 == -1 && signe_2 != -1 ||
-		 signe_2 == -1 && signe_1 != -1) {
-      		if (compare(*nb1, *nb2) == 1)
+	    signe_2 == -1 && signe_1 != -1) {
+		if (compare(*nb1, *nb2) == 1)
 			bool_s = sub_it(*nb1, *nb2, result_string, signe_1);
 		else
 			bool_s = sub_it(*nb2, *nb1, result_string, signe_2);

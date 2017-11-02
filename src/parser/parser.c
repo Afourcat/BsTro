@@ -28,13 +28,14 @@ static void parse_sign(char *str, char *op_base, int *i, int shift)
 {
 	int size = my_strlen(str);
 
-	while (++(*i) + shift <= size)
+	while (++(*i) + shift <= size) {
 		if (str[(*i) + shift] == op_base[2] ||
 		    str[(*i) + shift] == op_base[3]) {
 			set_sign(str, (*i), &shift, op_base);
 			shift--;
 		} else
 			str[(*i)] = str[(*i) + shift];
+	}
 }
 
 char *parser(char *str, char *op_base)
