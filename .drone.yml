@@ -3,7 +3,7 @@ pipeline:
     image: itiut/gcc-criterion
     commands:
       - make buildlib
-      - make -C tests all
+      - make -C tests working
       - ./tests/units
       - make -C tests crash
       - time ./tests/units
