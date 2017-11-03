@@ -12,6 +12,7 @@ pipeline:
       - make coverage
       - git config remote.origin.url http://$GIT_USERNAME:$GIT_PASSWORD@projects.nwmqpa.com/nwmqpa/bistro-matics-tests.git
       - git config --global user.email "$GIT_EMAIL"
+      - git add coverage_report.tar
       - git commit -a -m "Made coverage for $(git -C .. log | head -n 1)"
       - git push origin
     secrets: [ git_email, git_username, git_password ]
