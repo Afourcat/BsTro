@@ -14,6 +14,21 @@
 #include <infin_pow.h>
 #include "convert_base.h"
 
+static char *get_pow_of_two(char *str)
+{
+	char *result = my_strdup("1");
+	int counter = 0;
+	char *res = my_strdup(result);
+	
+	while (str[counter]) {
+		result = infin_add(res, result);
+		res = my_strdup(result);
+		counter++;
+	}
+	free(res);
+	return (result);
+}
+
 static char *pow_2_n(unsigned int p)
 {
 	char *res = malloc(sizeof(char) * (p + 2));
@@ -25,33 +40,37 @@ static char *pow_2_n(unsigned int p)
 		res[i] = '0';
 	}
 	res[i] = '\0';
-	result = convert_base(res, "01", '-', 0);
+	result = get_pow_of_two(res);
 	free(res);
 	return (result);
 }
 
 static char *infin_div_wrapped(char *str1, char *str2)
 {
-	char *quot = "0";
+	char *quot = my_strdup("0");
 	unsigned int n = 0;
-	char *two = "2";
-	char *to_sub = infin_add("0", str2);
+	char *to_sub = my_strdup(str2);
 	char *res_pow;
 
 	while (compare(to_sub, str1) != 1) {
-		to_sub = infin_mul(to_sub, "2");
+		to_sub = infin_mul(to_sub, my_strdup("2"));
 		n++;
 	}
+	free(to_sub);
+	n--;
 	while (n != -1) {
 		res_pow = pow_2_n(n);
-		to_sub = infin_mul(res_pow, str2);
+		to_sub = infin_mul(my_strdup(res_pow), my_strdup(str2));
 		if (compare(to_sub, str1) != 1) {
-			quot = infin_add(quot, res_pow);
+			quot = infin_add(quot, my_strdup(res_pow));
 			str1 = infin_sub(str1, to_sub);
 		}
 		n--;
 		free(res_pow);
+		free(to_sub);
 	}
+	free(str1);
+	free(str2);
 	return (quot);
 }
 
@@ -67,18 +86,6 @@ static char *infin_div_base_case(char *str1, char *str2)
 		return (infin_div_wrapped(str1, str2));
 }
 
-static char *get_pow_of_two(char *str)
-{
-	char *result = "1";
-	int counter = 0;
-
-	while (str[counter]) {
-		result = infin_add(result, result);
-		counter++;
-	}
-	return (result);
-}
-
 char *infin_div(char *str1, char *str2)
 {
 	char *quot;
@@ -92,4 +99,14 @@ char *infin_div(char *str1, char *str2)
 	if (sign == 1 && compare(quot, "0") != 0)
 		quot = my_dup_without_zero(quot, 1);
 	return (quot);
+}
+
+int main(int argc, char *argv[])
+{
+	char *nb1 = my_strdup(argv[1]);
+	char *nb2 = my_strdup(argv[2]);
+	char *res = infin_div(nb1, nb2);
+	my_putstr(res);
+	free(res);
+	return 0;
 }

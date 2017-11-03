@@ -40,8 +40,8 @@ static void manage_number(char *expr, char *res, int *iters, char **bases)
 	char *tmp = my_calloc(sizeof(char) * 2);
 
 	tmp[0] = bases[1][2];
-	if (iters[0] && (!is_in(iters[0 - 1], bases[1]) ||
-			 expr[iters[0] - 1] == bases[1][1]))
+	if (iters[0] && (!is_in(iters[0 - 1], bases[1]) &&
+			 expr[iters[0] - 1] != bases[1][0]))
 		my_strcat(res + iters[1]++, tmp);
 	add_neg(bases[1], bases[0], res);
 	while (is_in(expr[++iters[0]], bases[0])) {
@@ -59,8 +59,8 @@ static void manage_bracket(char *expr, char *res, int *iters, char **bases)
 	char *tmp = my_calloc(sizeof(char) * 2);
 	
 	tmp[0] = bases[1][2];
-	if (iters[0] && (!is_in(iters[0 - 1], bases[1]) ||
-			 expr[iters[0] - 1] == bases[1][1]))
+	if (iters[0] && (expr[iters[0] - 1] != bases[1][0] &&
+			 !is_in(iters[0 - 1], bases[1])))
 		my_strcat(res + iters[1]++, tmp);
 	add_neg(bases[1], bases[0], res);
 	tmp[0] = bases[1][0];
@@ -97,7 +97,11 @@ static void check_neg_number(char *expr, char *res, int *iters, char **bases)
 char *parse_neg(char *expr, char *nb_base, char *op_base)
 {
 	int iters[2] = {-1 , 0};
-	int size = my_strlen(expr) + ( 3 * get_nb_neg(expr, op_base[3]));
+	int nb_neg = get_nb_neg(expr, op_base[3]);
+	int size = my_strlen(expr) + ( 4 * get_nb_neg(expr, op_base[3]));
+	printf("nb neg : |%d| x3 |%d|\n", nb_neg, nb_neg * 3);
+	printf("strlen expr : |%d|\n", my_strlen(expr));
+	printf("size : %d\n", size);
 	char *res = my_calloc(sizeof(char) * (size + 1));
 	char *tmp = my_calloc(sizeof(char) * 2);
 	char *bases[] = {nb_base, op_base};
