@@ -7,7 +7,7 @@
 
 static char *mul_wrapper(char *nb1, char *nb2, int bool_s)
 {
-	
+
 }
 
 char *infin_mul(char *nb1, char *nb2)

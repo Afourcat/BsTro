@@ -57,8 +57,8 @@ static void free_add(char *nb1, char *nb2, int sign_nb1, int sign_nb2)
 
 int infin_add_wrapped(char **nb1, char **nb2, char *res)
 {
-	int sign_nb1 = get_sign_add(nb1, neg);
-	int sign_nb2 = get_sign_add(nb2, neg);
+	int sign_nb1 = get_sign_add(nb1);
+	int sign_nb2 = get_sign_add(nb2);
 	int bool_s = 0;
 
 	if (sign_nb1 == -1 && sign_nb2 == -1) {

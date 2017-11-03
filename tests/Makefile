@@ -57,6 +57,8 @@ pf_tree:
 		@gcc -o $(NAME) tests_pf_tree.c $(CFLAGS) $(LDFLAGS) -lparser -lutils
 
 crash:
+		@echo "Stress test"
+		@./bash.sh
 		@gcc -o $(NAME) test_test.c $(CFLAGS) $(LDFLAGS) -lmul -ladd -lutils
 
 clean:
