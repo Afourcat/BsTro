@@ -56,7 +56,7 @@ char *eval_expr(char *nb_base, char *op_base, char *expr, int size)
 	expr = parse_neg(expr, nb_base, op_base);
 	expr = postfix(expr, op_base, nb_base);
 	pf_tree = char_to_pf_tree(expr, op_base);
-	expr = calc(pf_tree, nb_base, op_base);
+	expr = calc(pf_tree, nb_base, op_base[3]);
 	expr = convert_base(expr, nb_base, op_base, 1);
 	free_pf_tree(pf_tree);
 	replace_char_to(expr, spaces[1], spaces[0]);
