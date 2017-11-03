@@ -9,11 +9,9 @@
 #define INFINE_MUL_H
 
 char *infin_mul(char *str1, char *str2);
-char *add_signe(char *positive);
+char *add_sign(char *positive, int size);
 void add_zeros(char *buffer, int nb_zeros, int *iter);
-char *add_all(char **res, char **buffer, int size_l);
-int get_greatest(char *s1, char *s2);
-char **allocate_buffer(char *s1, char *s2, int size);
-void free_all(char **buffer, char *s1, char *s2);
+char **allocate_buffer(int *sizes_nb);
+void free_all(char **buffer, int size_buffer);
 
 #endif /* INFIN_MUL_H */
