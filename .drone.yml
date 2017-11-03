@@ -10,7 +10,7 @@ pipeline:
       - make working
       - ./units
       - make coverage
-      - git commit -a -m "Made coverage for build #{{build.number}}"
+      - git commit -a -m "Made coverage for $(git -C .. log | head -n 1)"
       - git push origin
 pipeline:
   telegram:
