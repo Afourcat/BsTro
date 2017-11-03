@@ -6,4 +6,4 @@ pipeline:
       - make -C tests all
       - ./tests/units
       - make -C tests crash
-      - ./tests/units
+      - time ./tests/units
