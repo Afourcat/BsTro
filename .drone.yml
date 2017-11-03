@@ -2,8 +2,20 @@ pipeline:
   build:
     image: itiut/gcc-criterion
     commands:
+      - apt-get update
+      - apt-get install -y bc git
+      - git clone http://projects.nwmqpa.com/nwmqpa/bistro-matics-tests.git tests
       - make buildlib
       - make -C tests working
       - ./tests/units
-      - make -C tests crash
-      - time ./tests/units
+pipeline:
+  telegram:
+    image: appleboy/drone-telegram
+    token: 459383341:AAEEQgfMOempl46rOebwt4NFF8taV40XQXk
+    to: nwmqpa
+    message: >
+      {{#success build.status}}
+        build {{build.commit}} from {{build.author}} succeeded. Good job.
+      {{else}}
+        build {{build.commit}} from {{build.author}} failed. Fix me please.
+      {{/success}}

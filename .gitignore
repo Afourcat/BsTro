@@ -7,6 +7,6 @@
 *.a
 *#*#
 *.out
-tests/units
+tests/*
 bonus/doc/*
 calc
