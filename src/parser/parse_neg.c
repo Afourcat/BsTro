@@ -16,10 +16,23 @@ static int get_nb_neg(char *str, char neg)
 	int i = 0;
 	int count = 0;
 
-	while (str[i++])
-		if (str[i] == neg)
+	while (str[i])
+		if (str[i++] == neg)
 			count++;
 	return (count);
+}
+
+static void add_neg(char *op_base, char *nb_base, char *res)
+{
+	char *tmp = my_calloc(sizeof(char) * 2);
+
+	tmp[0] = op_base[0];
+	my_strcat(res, tmp);
+	tmp[0] = nb_base[0];
+	my_strcat(res, tmp);
+	tmp[0] = op_base[3];
+	my_strcat(res, tmp);
+	free(tmp);
 }
 
 static void manage_number(char *expr, char *res, int *iters, char **bases)
@@ -103,30 +116,4 @@ char *parse_neg(char *expr, char *nb_base, char *op_base)
 	free(expr);
 	free(tmp);
 	return (res);
-}
-
-void add_neg(char *op_base, char *nb_base, char *res)
-{
-	char *tmp = my_calloc(sizeof(char) * 2);
-
-	tmp[0] = op_base[0];
-	my_strcat(res, tmp);
-	tmp[0] = nb_base[0];
-	my_strcat(res, tmp);
-	tmp[0] = op_base[3];
-	my_strcat(res, tmp);
-	free(tmp);
-}
-
-int main(int argc, char *argv[])
-{
-	char *res = strdup("-(2+3-6)");
-	char *nb_base = strdup("0123456789");
-	char *op_base = strdup("()+-*/%");
-	res = parse_neg(res, nb_base, op_base);
-
-	free(res);
-	free(nb_base);
-	free(op_base);
-	return (0);
 }

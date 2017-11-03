@@ -58,6 +58,7 @@ char *get_dec_to_base(char *nbr, char *base)
 		nbr_base = infin_add(nbr_base, my_strdup("1"));
 	max_power = get_max_power_of(nb, nbr_base);
 	to_return = my_calloc(sizeof(char) * (max_power + 3));
+	to_return[0] = (nbr[0] == '0') ? '0': 0;
 	while (max_power >= 0) {
 		digit = get_first_digit(nb, nbr_base, max_power);
 		put_in_str_base(base[my_atoi(digit)], to_return);
