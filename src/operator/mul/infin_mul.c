@@ -10,17 +10,17 @@
 #include "infin_add.h"
 #include "infin_mul.h"
 
-int test_signe(char *str, char *op_base)
+int test_signe(char *str)
 {
 	int i = 1;
 
-	if (str[0] == op_base[3])
+	if (str[0] == '-')
 		return (-1);
 	while (str[i] != '\0') {
-		if (str[i] >= '0' && str[i] <= '9' && str[i - 1] == op_base[3]) {
+		if (str[i] >= '0' && str[i] <= '9' && str[i - 1] == '-') {
 			return (-1);
 		}
-		else if (str[i] >= '0' && str[i] <= '9' && str[i - 1] != op_base[3]) {
+		else if (str[i] >= '0' && str[i] <= '9' && str[i - 1] != '-') {
 			return (1);
 		}
 		i++;
@@ -63,7 +63,7 @@ static int multiply(int a, int b, int *current, int *retain)
 	return (bool);
 }
 
-static char *mul(char **strs, char **buffer, char **res, char *op_base)
+static char *mul(char **strs, char **buffer, char **res)
 {
 	int size_g = my_strlen(strs[1]);
 	int size_l = my_strlen(strs[0]);
@@ -83,12 +83,12 @@ static char *mul(char **strs, char **buffer, char **res, char *op_base)
 				buffer[buff_nbr][iter++] = int_to_char(ret);
 		}
 	}
-	*res = add_all(res, buffer, size_l, op_base);
+	*res = add_all(res, buffer, size_l);
 	free_all(buffer, strs[1], strs[0]);
 	return (*res);
 }
 
-static char *post_infin_mul(char *str1, char *str2, int bool_s, char *op_base)
+static char *post_infin_mul(char *str1, char *str2, int bool_s)
 {
 	int size = my_strlen(str1) + my_strlen(str2);
 	char *res = "0";
@@ -99,11 +99,11 @@ static char *post_infin_mul(char *str1, char *str2, int bool_s, char *op_base)
 	if (greatest == 1) {
 		strs[0] = str1;
 		strs[1] = str2;
-		res = mul(strs, buffer, &res, op_base);
+		res = mul(strs, buffer, &res);
 	} else {
 		strs[0] = str2;
 		strs[1] = str1;
-		res = mul(strs, buffer, &res, op_base);
+		res = mul(strs, buffer, &res);
 	}
 	if (bool_s == 1)
 		res = add_signe(res);
@@ -112,16 +112,16 @@ static char *post_infin_mul(char *str1, char *str2, int bool_s, char *op_base)
 	return (res);
 }
 
-char *infin_mul(char *str1, char *str2, char *op_base)
+char *infin_mul(char *str1, char *str2)
 {
 	int bool_s = 0;
 
-	if (test_signe(str1, op_base) == -1 && test_signe(str2, op_base) == -1)
+	if (test_signe(str1) == -1 && test_signe(str2) == -1)
 		bool_s = 0;
-	else if (test_signe(str1, op_base) == -1 || test_signe(str2, op_base) == -1)
+	else if (test_signe(str1) == -1 || test_signe(str2) == -1)
 		bool_s = 1;
 	str1 = remove_minus(str1);
 	str2 = remove_minus(str2);
-	return (post_infin_mul(str1, str2, bool_s, op_base));
+	return (post_infin_mul(str1, str2, bool_s));
 }
 
