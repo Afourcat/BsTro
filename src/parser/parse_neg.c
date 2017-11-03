@@ -2,116 +2,131 @@
 ** EPITECH PROJECT, 2017
 ** parse_neg.c
 ** File description:
-** Parse the minus for the negation of an expression
+** parse a neg expression
 */
 
-#include <stdlib.h>
 #include "utils.h"
 
-static void manage_neg_brackets(char *str, char *res, int *ctrs, char **bases);
-static void manage_neg_number(char *str, char *res, int *ctrs, char **bases);
-static void check_neg_numbers(char *str, char *res, int *ctrs, char **bases);
+static void check_neg_number(char *expr, char *res, int *iters, char **bases);
+static void manage_bracket(char *expr, char *res, int *iters, char **bases);
+static void manage_number(char *expr, char *res, int *iters, char **bases);
 
 static int get_nb_neg(char *str, char neg)
 {
-	int i = -1;
+	int i = 0;
 	int count = 0;
 
-	while (str[++i])
+	while (str[i++])
 		if (str[i] == neg)
 			count++;
 	return (count);
 }
 
-static void manage_neg_number(char *str, char *res, int *ctrs, char **bases)
+static void manage_number(char *expr, char *res, int *iters, char **bases)
 {
-	char *tmp = my_calloc(2);
-	char operands[] = "(+-*/%";
+	char *tmp = my_calloc(sizeof(char) * 2);
 
 	tmp[0] = bases[1][2];
-	if (ctrs[0] && !is_in(str[ctrs[0] - 1], operands))
-		my_strcat(res + ctrs[1]++, tmp);
-	tmp[0] = bases[1][0];
-	my_strcat(res + ctrs[1]++, tmp);
-	tmp[0] = bases[0][0];
-	my_strcat(res + ctrs[1]++, tmp);
-	tmp[0] = bases[1][3];
-	my_strcat(res + ctrs[1]++, tmp);
-	while (is_in(str[++ctrs[0]], bases[0])) {
-		tmp[0] = str[ctrs[0]];
-		my_strcat(res + ctrs[1]++, tmp);
+	if (iters[0] && (!is_in(iters[0 - 1], bases[1]) ||
+			 expr[iters[0] - 1] == bases[1][1]))
+		my_strcat(res + iters[1]++, tmp);
+	add_neg(bases[1], bases[0], res);
+	while (is_in(expr[++iters[0]], bases[0])) {
+		tmp[0] = expr[iters[0]];
+		my_strcat(res + iters[1]++, tmp);
 	}
-	ctrs[0]--;
+	iters[0]--;
 	tmp[0] = bases[1][1];
-	my_strcat(res + ctrs[1]++, tmp);
+	my_strcat(res + iters[1]++ ,tmp);
 	free(tmp);
 }
 
-static void manage_neg_brackets(char *str, char *res, int *ctrs, char **bases)
+static void manage_bracket(char *expr, char *res, int *iters, char **bases)
 {
-	char operands[] = "(+-*/%";
-	char *tmp = my_calloc(2);
-
+	char *tmp = my_calloc(sizeof(char) * 2);
+	
 	tmp[0] = bases[1][2];
-	if (ctrs[0] && !is_in(str[ctrs[0] - 1], operands))
-		my_strcat(res + ctrs[1]++, tmp);
+	if (iters[0] && (!is_in(iters[0 - 1], bases[1]) ||
+			 expr[iters[0] - 1] == bases[1][1]))
+		my_strcat(res + iters[1]++, tmp);
+	add_neg(bases[1], bases[0], res);
 	tmp[0] = bases[1][0];
-	my_strcat(res + ctrs[1]++, tmp);
-	tmp[0] = bases[0][0];
-	my_strcat(res + ctrs[1]++, tmp);
-	tmp[0] = bases[1][3];
-	my_strcat(res + ctrs[1]++, tmp);
-	tmp[0] = bases[1][0];
-	if (str[ctrs[0] + 1] == bases[1][0])
-		my_strcat(res + ctrs[1]++, tmp);
-	ctrs[0] += (str[ctrs[0] + 1] == bases[1][0]) ? 2 : 1;
-	check_neg_numbers(str, res, ctrs, bases);
-	ctrs[0]--;
+	my_strcat(res + iters[1]++, tmp);
+	iters[0] += 2;
+	check_neg_number(expr, res, iters, bases);
+	iters[0]--;
 	tmp[0] = bases[1][1];
-	my_strcat(res + ctrs[1]++, tmp);
+	my_strcat(res + iters[1]++ ,tmp);
 	free(tmp);
 }
 
-static void check_neg_numbers(char *str, char *res, int *ctrs, char **bases)
+static void check_neg_number(char *expr, char *res, int *iters, char **bases)
 {
 	int depth = 1;
-	char *tmp = my_calloc(2);
+	char *tmp = my_calloc(sizeof(char) * 2);
 
 	do {
-		if (str[ctrs[0]] == bases[1][3] &&
-		    str[ctrs[0] + 1] == bases[1][0])
-			manage_neg_brackets(str, res, ctrs, bases);
-		else if (str[ctrs[0]] == bases[1][3])
-			manage_neg_number(str, res, ctrs, bases);
-		else {
-			tmp[0] = str[ctrs[0]];
-			my_strcat(res + ctrs[1]++, tmp);
+	        if (expr[iters[0]] == bases[1][3] &&
+		    expr[iters[0] + 1] == bases[1][0]) {
+			manage_bracket(expr, res, iters, bases);
+		} else if (expr[iters[0]] == bases[1][3]) {
+			manage_number(expr, res, iters, bases);
+		} else {
+			tmp[0] = expr[iters[0]];
+			my_strcat(res + iters[1]++, tmp);
 		}
-		depth = (str[ctrs[0]] == bases[1][0]) ? depth + 1 : depth;
-		depth = (str[ctrs[0]++] == bases[1][1]) ? depth - 1 : depth;
+		depth = (expr[iters[0]] == bases[1][0]) ? depth + 1 : depth;
+		depth = (expr[iters[0]++] == bases[1][1]) ? depth - 1 : depth;
 	} while (depth != 0);
 	free(tmp);
 }
 
-char *parse_neg(char *str, char *nb_base, char *op_base)
+char *parse_neg(char *expr, char *nb_base, char *op_base)
 {
-	int ctrs[2] = {-1, 0};
-	int size = my_strlen(str) + (3 * get_nb_neg(str, op_base[3]));
-	char *res = my_calloc(size + 1);
-	char *tmp = my_calloc(2);
+	int iters[2] = {-1 , 0};
+	int size = my_strlen(expr) + ( 3 * get_nb_neg(expr, op_base[3]));
+	char *res = my_calloc(sizeof(char) * (size + 1));
+	char *tmp = my_calloc(sizeof(char) * 2);
 	char *bases[] = {nb_base, op_base};
 
-	while (str[++ctrs[0]])
-		if (str[ctrs[0]] == op_base[3] &&
-		    str[ctrs[0] + 1] == op_base[0]) {
-			manage_neg_brackets(str, res, ctrs, bases);
-		} else if (str[ctrs[0]] == op_base[3]){
-			manage_neg_number(str, res, ctrs, bases);
+	while (expr[++iters[0]]) {
+		if (expr[iters[0]] == op_base[3] &&
+		    expr[iters[0] + 1] == op_base[0]) {
+			manage_bracket(expr, res, iters, bases);
+		} else if (expr[iters[0]] == op_base[3]) {
+			manage_number(expr, res, iters, bases);
 		} else {
-			tmp[0] = str[ctrs[0]];
-			my_strcat(res + ctrs[1]++, tmp);
+			tmp[0] = expr[iters[0]];
+			my_strcat(res + iters[1]++, tmp);
 		}
-	res[ctrs[1]] = 0;
-	free(str);
+	}
+	free(expr);
+	free(tmp);
 	return (res);
+}
+
+void add_neg(char *op_base, char *nb_base, char *res)
+{
+	char *tmp = my_calloc(sizeof(char) * 2);
+
+	tmp[0] = op_base[0];
+	my_strcat(res, tmp);
+	tmp[0] = nb_base[0];
+	my_strcat(res, tmp);
+	tmp[0] = op_base[3];
+	my_strcat(res, tmp);
+	free(tmp);
+}
+
+int main(int argc, char *argv[])
+{
+	char *res = strdup("-(2+3-6)");
+	char *nb_base = strdup("0123456789");
+	char *op_base = strdup("()+-*/%");
+	res = parse_neg(res, nb_base, op_base);
+
+	free(res);
+	free(nb_base);
+	free(op_base);
+	return (0);
 }
