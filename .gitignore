@@ -8,5 +8,6 @@
 *#*#
 *.out
 tests/units
+tests/test_test.c
 bonus/doc/*
 calc
