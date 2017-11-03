@@ -8,6 +8,9 @@
 #ifndef UTILS_H_
 #define UTILS_H_
 
+#define CHAR_TO_INT(c) (c - 48)
+#define INT_TO_CHAR(i) (i + 48)
+
 #include <stdlib.h>
 
 char *my_revstr(char *str);
