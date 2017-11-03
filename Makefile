@@ -51,20 +51,11 @@ get_tests:
 	@echo -e "The \033[34mtest repo\033[0m has been \033[32mcloned\033[0m !"
 	@echo -e "Don't forget that the tests directory is a \033[31mseparate\033[0m repository. You must \033[32mcommit\033[0m your changes inside the \033[34m repo folder\033[0m"
 
-coverage:
-ifndef CTC
-	@echo -e "No ctc has been found"
-else
-	@echo -e "The \033[32mgeneration\033[0m of the \033[34mdocumentation\033[0m has \033[32mstarted\033[0m"
-        @doxygen -s bonus/doc_config | grep -v "\.\.\." | grep -v "Searching" | grep -v "\\endcode?"
-        @echo -e "The \033[34mdocumentation\033[0m has been \033[32msuccessfully generated\033[0m"
-endif
-
 doc:
 ifndef DOX
 	@echo -e "No doxygen has been found"
 else
 	@echo -e "The \033[32mgeneration\033[0m of the \033[34mdocumentation\033[0m has \033[32mstarted\033[0m"
-	@doxygen -s bonus/doc_config | grep -v "\.\.\." | grep -v "Searching" | grep -v "\\endcode?"
+	@doxygen -s bonus/doc_config 1>/dev/null
 	@echo -e "The \033[34mdocumentation\033[0m has been \033[32msuccessfully generated\033[0m"
 endif

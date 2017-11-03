@@ -155,11 +155,11 @@
  */
 
 /**
- * \fn void add_it(char *number1, char *number2, char *result_string)
+ * \fn void add_it(char *nb1, char *nb2, char *res)
  * \brief Function key of the add system take a char and add it to the second.
- * \param number1 The first number.
- * \param number2 the Second number.
- * \param result_string The result string passed as argument
+ * \param nb1 The first number.
+ * \param nb2 the Second number.
+ * \param res The result string passed as argument
  */
 
 /**
@@ -246,22 +246,6 @@
  * \brief A Documented file.
  *
  * Details.
- */
-
-/**
- * \fn char int_to_char (int i)
- * \brief Function that converts an int into a char by adding 48 to
- * it's value
- * \param i The integer to be converted.
- * \return The character converted from the integer.
- */
-
-/**
- * \fn char char_to_int (char c)
- * \brief Function that converts an char into a int by retrieving 48 to
- * it's value
- * \param c The char to be converted.
- * \return The int converted from the char.
  */
 
 /**
