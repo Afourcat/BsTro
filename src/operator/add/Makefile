@@ -40,4 +40,6 @@ debug:		fclean
 		@ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
 		@echo -e "┃      ┣━━━━━━The \033[34m$(NAMELIB)\033[0m has been \033[32mcompiled\033[0m and \033[32mlinked\033[0m \033[31min debug mode\033[0m"
 
-
+coverage:
+	@gcc -c $(SRC) $(FLAGS) -ftest-coverage -g
+	@ar rc $(LINKLIB)$(NAMELIB) $(OBJ)
