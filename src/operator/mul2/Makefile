@@ -7,7 +7,9 @@
 
 ROOT		=	$(realpath ../../..)
 
-SRC		=	infin_mul.c
+SRC		=	infin_mul.c	\
+			mul_conv.c	\
+			mul_alloc.c
 
 OBJ		=	$(SRC:.c=.o)
 
