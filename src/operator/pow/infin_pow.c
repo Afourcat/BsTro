@@ -16,7 +16,7 @@ char *infin_pow(char *str1, char *str2)
 	char *temp;
 
 	if (str2[0] == '0' && str2[1] == '\0')
-		return ("1");
+		return (my_strdup("1"));
 	if (str2[0] == '1' && str2[1] == '\0')
 		return (str1);
 	else {

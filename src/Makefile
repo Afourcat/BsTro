@@ -56,4 +56,4 @@ debug:
 		@make -C error/ debug
 		@make -C convert_base/ debug
 		@make -C calc_engine/ debug
-		gcc -o $(ROOT)/$(NAME) main.c $(FLAGS) $(LIBS) -g
+		@gcc -o $(ROOT)/$(NAME) main.c $(FLAGS) $(LIBS) -g

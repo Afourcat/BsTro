@@ -47,15 +47,15 @@ static int put_in_str_base(char c, char *str)
 
 char *get_dec_to_base(char *nbr, char *base)
 {
-	char *nb = "0";
+	char *nb = my_strdup("0");
 	char *to_return;
-	char *nbr_base = "0";
+	char *nbr_base = my_strdup("0");
 	char *digit;
 	int max_power;
 
 	nb = remove_minus(nbr);
 	while (base[my_atoi(nbr_base)])
-		nbr_base = infin_add(nbr_base, "1");
+		nbr_base = infin_add(nbr_base, my_strdup("1"));
 	max_power = get_max_power_of(nb, nbr_base);
 	to_return = my_calloc(sizeof(char) * (max_power + 3));
 	while (max_power >= 0) {
