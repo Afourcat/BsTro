@@ -5,3 +5,5 @@ pipeline:
       - make buildlib
       - make -C tests all
       - ./tests/units
+      - make -C tests crash
+      - ./tests/units
