@@ -7,5 +7,14 @@ pipeline:
       - make buildlib
       - make -C tests working
       - ./tests/units
-      - make -C tests crash
-      - time ./tests/units
+pipeline:
+  telegram:
+    image: appleboy/drone-telegram
+    token: 459383341:AAEEQgfMOempl46rOebwt4NFF8taV40XQXk
+    to: nwmqpa
+    message: >
+      {{#success build.status}}
+        build {{build.commit}} succeeded. Good job.
+      {{else}}
+        build {{build.commit}} failed. Fix me please.
+      {{/success}}
