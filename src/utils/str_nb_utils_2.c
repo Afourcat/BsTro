@@ -35,7 +35,7 @@ char *my_itoa(int nb)
 	char *str = my_calloc(sizeof(char) * (get_int_size(nb) + 1));
 
 	for (int i = 0; i < size; i++, nb /= 10)
-		str[i] = int_to_char(nb % 10);
+		str[i] = INT_TO_CHAR(nb % 10);
 	my_revstr(str);
 	return (str);
 }
