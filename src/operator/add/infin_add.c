@@ -9,9 +9,9 @@
 #include "utils.h"
 #include "infin_add.h"
 
-int get_sign_add(char **str, char *op_base)
+int get_sign_add(char **str)
 {
-	if (str[0][0] == op_base[3]) {
+	if (str[0][0] == '-') {
 		*str = str[0] + 1;
 		return (-1);
 	}
@@ -55,10 +55,10 @@ static void free_add(char *nb1, char *nb2, int sign_nb1, int sign_nb2)
 		free(nb2);
 }
 
-int infin_add_wrapped(char **nb1, char **nb2, char *res, char *op_base)
+int infin_add_wrapped(char **nb1, char **nb2, char *res)
 {
-	int sign_nb1 = get_sign_add(nb1, op_base);
-	int sign_nb2 = get_sign_add(nb2, op_base);
+	int sign_nb1 = get_sign_add(nb1, neg);
+	int sign_nb2 = get_sign_add(nb2, neg);
 	int bool_s = 0;
 
 	if (sign_nb1 == -1 && sign_nb2 == -1) {
@@ -75,13 +75,13 @@ int infin_add_wrapped(char **nb1, char **nb2, char *res, char *op_base)
 	return (bool_s);
 }
 
-char *infin_add(char *nb1, char *nb2, char *op_base)
+char *infin_add(char *nb1, char *nb2)
 {
 	int size_nb1 = my_strlen(nb1);
 	int size_nb2 = my_strlen(nb2);
 	int size_res = (size_nb1 > size_nb2) ? size_nb1 : size_nb2;
 	char *res = my_calloc(sizeof(char) * (size_res + 2));
-	int bool_s = infin_add_wrapped(&nb1, &nb2, res, op_base);
+	int bool_s = infin_add_wrapped(&nb1, &nb2, res);
 
 	my_revstr(res);
 	return (my_dup_without_zero(res, bool_s));

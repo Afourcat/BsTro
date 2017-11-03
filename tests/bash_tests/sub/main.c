@@ -9,6 +9,6 @@ void my_putstr(char *str) {
 
 int main(int argc, char *argv[])
 {
-	my_putstr(infin_sub(argv[1], argv[2]));
+	my_putstr(infin_sub(strdup(argv[1]), strdup(argv[2]), strdup("()+-*/%")));
 	return (0);
 }

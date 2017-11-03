@@ -8,10 +8,10 @@
 #ifndef INFIN_ADD_H_
 #define INFIN_ADD_H_
 
-int get_sign_add(char **str, char *op_base);
+int get_sign_add(char **str);
 void add_it(char *nb1, char *nb2, char *res);
-int infin_add_wrapped(char **nb1, char **nb2, char *res, char *op_base);
-char *infin_add(char *nb1, char *nb2, char *op_base);
+int infin_add_wrapped(char **nb1, char **nb2, char *res);
+char *infin_add(char *nb1, char *nb2);
 void sub_it(char *nb1, char *nb2, char *res, int *sizes);
 int sub(char *nb1, char *nb2, char *res, int sign);
 

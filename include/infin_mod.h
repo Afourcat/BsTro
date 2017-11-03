@@ -8,6 +8,6 @@
 #ifndef INFIN_MOD_H_
 #define INFIN_MOD_H_
 
-char *infin_mod(char *str1, char *str2, char *op_base);
+char *infin_mod(char *str1, char *str2);
 
 #endif /* INFIN_MOD_H_ */

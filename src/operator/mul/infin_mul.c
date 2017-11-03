@@ -10,6 +10,24 @@
 #include "infin_add.h"
 #include "infin_mul.h"
 
+int test_signe(char *str, char *op_base)
+{
+	int i = 1;
+
+	if (str[0] == op_base[3])
+		return (-1);
+	while (str[i] != '\0') {
+		if (str[i] >= '0' && str[i] <= '9' && str[i - 1] == op_base[3]) {
+			return (-1);
+		}
+		else if (str[i] >= '0' && str[i] <= '9' && str[i - 1] != op_base[3]) {
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
 char *add_signe(char *positive)
 {
 	int size = my_strlen(positive);
@@ -107,20 +125,3 @@ char *infin_mul(char *str1, char *str2, char *op_base)
 	return (post_infin_mul(str1, str2, bool_s, op_base));
 }
 
-int test_signe(char *str, char *op_base)
-{
-	int i = 1;
-
-	if (str[0] == op_base[3])
-		return (-1);
-	while (str[i] != '\0') {
-		if (str[i] >= '0' && str[i] <= '9' && str[i - 1] == op_base[3]) {
-			return (-1);
-		}
-		else if (str[i] >= '0' && str[i] <= '9' && str[i - 1] != op_base[3]) {
-			return (1);
-		}
-		i++;
-	}
-	return (0);
-}

@@ -8,6 +8,6 @@
 #ifndef INFIN_SUB_H_
 #define INFIN_SUB_H_
 
-char *infin_sub(char *nb1, char *nb2, char *op_base);
+char *infin_sub(char *nb1, char *nb2);
 
 #endif /* INFIN_SUB_H_ */

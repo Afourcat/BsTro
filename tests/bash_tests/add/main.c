@@ -10,8 +10,8 @@ void my_putstr(char *str) {
 int main(int argc, char *argv[])
 {
 	char *res;
-	
-        res = infin_add(argv[1], argv[2]);
+	char *op_base = strdup("()+-*/%");
+        res = infin_add(strdup(argv[1]), strdup(argv[2]), op_base);
 	my_putstr(res);
 	free(res);
 	return (0);

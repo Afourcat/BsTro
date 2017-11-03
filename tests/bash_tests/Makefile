@@ -16,7 +16,7 @@ LDFLAGS		=	-L$(ROOT)/lib -L/usr/local/lib -lcriterion -lgcov
 NAME		=	units
 
 
-all:		addO subO mulO divO modO
+all:		addO subO mulO
 
 buildlib:
 		make -C ../../ buildlib

@@ -1,4 +1,4 @@
-#include "infin_mul.h"
+#include "infin_sub.h"
 
 void my_putstr(char *str) {
 	int i = 0;
@@ -9,6 +9,6 @@ void my_putstr(char *str) {
 
 int main(int argc, char *argv[])
 {
-	my_putstr(infin_mul(argv[1], argv[2]));
+	my_putstr(infin_mul(strdup(argv[1]), strdup(argv[2]), strdup("()+-*/%")));
 	return (0);
 }
