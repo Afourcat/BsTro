@@ -2,6 +2,7 @@ pipeline:
   build:
     image: itiut/gcc-criterion
     commands:
+      - apt-get update
       - apt-get install -y bc
       - make buildlib
       - make -C tests working
