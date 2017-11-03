@@ -28,19 +28,19 @@ void add_it(char *nb1, char *nb2, char *res)
 
 	while (size_nb1 >= 0 || size_nb2 >= 0) {
 		if (size_nb1 < 0) {
-			current_nbr = char_to_int(nb2[size_nb2--]) + retain;
+			current_nbr = CHAR_TO_INT(nb2[size_nb2--]) + retain;
 		} else if (size_nb2 < 0) {
-			current_nbr = char_to_int(nb1[size_nb1--]) + retain;
+			current_nbr = CHAR_TO_INT(nb1[size_nb1--]) + retain;
 		} else {
-			current_nbr = char_to_int(nb1[size_nb1--]) +
-				char_to_int(nb2[size_nb2--]) + retain;
+			current_nbr = CHAR_TO_INT(nb1[size_nb1--]) +
+				CHAR_TO_INT(nb2[size_nb2--]) + retain;
 		}
 		retain = current_nbr / 10;
 		current_nbr %= 10;
-		res[i++] = int_to_char(current_nbr);
+		res[i++] = INT_TO_CHAR(current_nbr);
 	}
 	if (retain != 0)
-		res[i] = int_to_char(retain);
+		res[i] = INT_TO_CHAR(retain);
 }
 
 void free_sign_ope(char *nb1, char *nb2, int sign_nb1, int sign_nb2)

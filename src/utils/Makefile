@@ -13,7 +13,6 @@ SRC		=	display.c	 \
 			stack_void.c	 \
 			memory.c 	 \
 			str_utils.c	 \
-			char_int_conv.c	 \
 			str_nb_utils.c   \
 			str_nb_utils_2.c \
 			str_nb_utils_3.c \

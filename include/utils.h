@@ -8,6 +8,9 @@
 #ifndef UTILS_H_
 #define UTILS_H_
 
+#define CHAR_TO_INT(c) (c - 48)
+#define INT_TO_CHAR(i) (i + 48)
+
 #include <stdlib.h>
 
 char *my_revstr(char *str);
@@ -24,8 +27,6 @@ char *my_dup_without_zero(char *str, int bools);
 char *my_allocate(char *str, int bools, int *counter);
 char *remove_minus(char *str);
 int compare(char *bigger, char *lower);
-int char_to_int(char c);
-char int_to_char(int i);
 char *get_opposed_number(char *nb);
 int get_sign(char *nb1, char *nb2);
 int put_in_str(char c, char *str);

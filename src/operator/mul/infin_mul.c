@@ -42,12 +42,12 @@ static char *mul_it(char *nb1, char *nb2, char **buffer, char **res)
 	for (int l = size_nb2 - 1; l >= 0; l--, buff_nb++, ret = 0, i = 0) {
 		add_zeros(buffer[buff_nb], buff_nb, &i);
 		for (int g = size_nb1 - 1; g >= 0; g--) {
-			current_nb = multiply(char_to_int(nb1[g]),
-					      char_to_int(nb2[l]), &ret);
-			buffer[buff_nb][i++] = int_to_char(current_nb);
+			current_nb = multiply(CHAR_TO_INT(nb1[g]),
+					      CHAR_TO_INT(nb2[l]), &ret);
+			buffer[buff_nb][i++] = INT_TO_CHAR(current_nb);
 		}
 		if (ret != 0)
-			buffer[buff_nb][i] = int_to_char(ret);
+			buffer[buff_nb][i] = INT_TO_CHAR(ret);
 	}
 	add_all(res, buffer, size_nb2);
 	free(buffer);

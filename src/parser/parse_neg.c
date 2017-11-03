@@ -99,9 +99,6 @@ char *parse_neg(char *expr, char *nb_base, char *op_base)
 	int iters[2] = {-1 , 0};
 	int nb_neg = get_nb_neg(expr, op_base[3]);
 	int size = my_strlen(expr) + ( 4 * get_nb_neg(expr, op_base[3]));
-	printf("nb neg : |%d| x3 |%d|\n", nb_neg, nb_neg * 3);
-	printf("strlen expr : |%d|\n", my_strlen(expr));
-	printf("size : %d\n", size);
 	char *res = my_calloc(sizeof(char) * (size + 1));
 	char *tmp = my_calloc(sizeof(char) * 2);
 	char *bases[] = {nb_base, op_base};

@@ -29,13 +29,9 @@ static char *get_first_digit(char *nb, char *base, int max_power)
 {
 	int counter = 0;
 	char *temp_number = my_strdup(nb);
-	printf("nb = %s\n", nb);
-	printf("base = %s\n", base);
-	printf("max_power = %d\n", max_power);
+
 	while (counter < max_power) {
-		printf("before base : %s\n", base);
 		temp_number = infin_div(temp_number, my_strdup(base));
-		printf("after : %s\n", temp_number);
 		counter++;
 	}
 	return (temp_number);
@@ -44,7 +40,7 @@ static char *get_first_digit(char *nb, char *base, int max_power)
 static int put_in_str_base(char c, char *str)
 {
 	int size = my_strlen(str);
-	printf("IN %c\n", c);
+
 	str[size] = c;
 	return (0);
 }
@@ -65,10 +61,7 @@ char *get_dec_to_base(char *nbr, char *base)
 	to_return[0] = (nbr[0] == '0') ? '0': 0;
 	while (max_power >= 0) {
 		digit = get_first_digit(nb, nbr_base, max_power);
-		printf("digit %s\n", digit);
 		put_in_str_base(base[my_atoi(digit)], to_return);
-		my_putstr(to_return);
-		my_putchar('\n');
 		nb = infin_sub(nb, infin_mul(digit,
 					     infin_pow(my_strdup(nbr_base),
 						       my_itoa(max_power))));

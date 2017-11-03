@@ -15,18 +15,18 @@ void sub_it(char *nb1, char *nb2, char *res, int *sizes)
 
 	while (sizes[0] >= 0 || sizes[1] >= 0) {
 		if (sizes[1] < 0)
-			current_nbr = char_to_int(nb1[sizes[0]]) - retain;
+			current_nbr = CHAR_TO_INT(nb1[sizes[0]]) - retain;
 		else
-			current_nbr = char_to_int(nb1[sizes[0]]) -
-				char_to_int(nb2[sizes[1]]) - retain;
+			current_nbr = CHAR_TO_INT(nb1[sizes[0]]) -
+				CHAR_TO_INT(nb2[sizes[1]]) - retain;
 		if (current_nbr < 0) {
-			current_nbr = char_to_int(nb1[sizes[0]]) + 10;
+			current_nbr = CHAR_TO_INT(nb1[sizes[0]]) + 10;
 			current_nbr -= (sizes[1] < 0) ? 1 :
-				char_to_int(nb2[sizes[1]]) + retain;
+				CHAR_TO_INT(nb2[sizes[1]]) + retain;
 			retain = 1;
 		} else
 			retain = 0;
-		res[i++] = int_to_char(current_nbr);
+		res[i++] = INT_TO_CHAR(current_nbr);
 		sizes[0]--;
 		sizes[1]--;
 	}
