@@ -43,6 +43,15 @@ debug:
 push:	fclean
 	git push origin master
 
+get_test:
+	@rm -f tests
+	@echo -e "Preparing to \033[32mclone\033[0m the \033[34mtest repo\033[0m ..."
+	@echo -e "Use your \033[32musername\033[0m and \033[34mpassword\033[0m from the gogs server"
+	@git clone http://projects.nwmqpa.com/nwmqpa/bistro-matics-tests.git ../bistro-matic-tests
+	@ln -s ../bistro-matic-tests tests
+	@echo -e "The \033[34mtest repo\033[0m has been \033[32mcloned\033[0m !"
+	@echo -e "Don't forget that the tests directory is a \033[31mseparate\033[0m repository. You must \033[32mcommit\033[0m your changes inside the \033[34m repo folder\033[0m"
+
 coverage:
 ifndef CTC
 	@echo -e "No ctc has been found"
