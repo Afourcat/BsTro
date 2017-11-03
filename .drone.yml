@@ -7,9 +7,9 @@ pipeline:
       - git clone http://projects.nwmqpa.com/nwmqpa/bistro-matics-tests.git tests
       - make buildlib
       - cd tests
-      - make -C working
+      - make working
       - ./units
-      - make -C coverage
+      - make coverage
       - git commit -a -m "Made coverage for build #{{build.number}}"
       - git push origin
 pipeline:
