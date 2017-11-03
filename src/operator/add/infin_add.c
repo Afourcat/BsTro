@@ -9,7 +9,7 @@
 #include "utils.h"
 #include "infin_add.h"
 
-int get_sign_add(char **str)
+int get_sign_ope(char **str)
 {
 	if (str[0][0] == '-') {
 		*str = str[0] + 1;
@@ -43,7 +43,7 @@ void add_it(char *nb1, char *nb2, char *res)
 		res[i] = int_to_char(retain);
 }
 
-static void free_add(char *nb1, char *nb2, int sign_nb1, int sign_nb2)
+void free_sign_ope(char *nb1, char *nb2, int sign_nb1, int sign_nb2)
 {
 	if (sign_nb1 < 0)
 		free(nb1 - 1);
@@ -57,8 +57,8 @@ static void free_add(char *nb1, char *nb2, int sign_nb1, int sign_nb2)
 
 int infin_add_wrapped(char **nb1, char **nb2, char *res)
 {
-	int sign_nb1 = get_sign_add(nb1);
-	int sign_nb2 = get_sign_add(nb2);
+	int sign_nb1 = get_sign_ope(nb1);
+	int sign_nb2 = get_sign_ope(nb2);
 	int bool_s = 0;
 
 	if (sign_nb1 == -1 && sign_nb2 == -1) {
@@ -71,7 +71,7 @@ int infin_add_wrapped(char **nb1, char **nb2, char *res)
 			bool_s = sub(*nb2, *nb1, res, sign_nb2);
 	} else
 		add_it(*nb1, *nb2, res);
-	free_add(*nb1, *nb2, sign_nb1, sign_nb2);
+	free_sign_ope(*nb1, *nb2, sign_nb1, sign_nb2);
 	return (bool_s);
 }
 
