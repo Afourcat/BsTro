@@ -8,5 +8,6 @@
 *#*#
 *.out
 tests/*
+tests
 bonus/doc/*
 calc
