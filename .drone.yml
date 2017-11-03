@@ -3,11 +3,15 @@ pipeline:
     image: itiut/gcc-criterion
     commands:
       - apt-get update
-      - apt-get install -y bc git
+      - apt-get install -y bc git tar
       - git clone http://projects.nwmqpa.com/nwmqpa/bistro-matics-tests.git tests
       - make buildlib
-      - make -C tests working
-      - ./tests/units
+      - cd tests
+      - make -C working
+      - ./units
+      - make -C coverage
+      - git commit -a -m "Made coverage for build #{{build.number}}"
+      - git push origin
 pipeline:
   telegram:
     image: appleboy/drone-telegram
