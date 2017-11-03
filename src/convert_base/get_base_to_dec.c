@@ -67,7 +67,7 @@ char *get_base_to_dec(char *str, char *base, char neg)
 		if (compare(max_power, "1") == 1)
 			number = infin_mul(number, get_base(base));
 		rev_counter++;
-		max_power = infin_sub(max_power, "1", op_base);
+		max_power = infin_sub(max_power, "1");
 	}
 	return ("0");
 }

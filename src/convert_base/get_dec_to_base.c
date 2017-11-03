@@ -63,7 +63,7 @@ char *get_dec_to_base(char *nbr, char *base)
 		put_in_str_base(base[my_atoi(digit)], to_return);
 		nb = infin_sub(nb, infin_mul(digit,
 					     infin_pow(nbr_base,
-						       my_itoa(max_power));
+						       my_itoa(max_power))));
 		max_power--;
 	}
 	return (to_return);
