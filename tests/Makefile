@@ -7,6 +7,14 @@
 
 ROOT		=	$(realpath ..)
 
+WORKINGS	=	tests_pf_tree.c 	\
+			tests_stack.c		\
+			tests_stack_void.c 	\
+			tests_postfix.c		\
+			tests_add.c		\
+			tests_parser.c		\
+			tests_sub.c
+
 LIB		=	-lconvert_base -lmod -ldiv -lpow -lsub -lmul -ladd -lparser -lerror -lutils
 
 CFLAGS		=	-I$(ROOT)/include -Wall -Wextra --coverage -g
@@ -16,9 +24,12 @@ LDFLAGS		=	-L$(ROOT)/lib -L/usr/local/lib -lcriterion -lgcov
 NAME		=	units
 
 
-all:		
+all:
 		@gcc -o $(NAME) tests_pf_tree.c tests_stack.c tests_stack_void.c tests_postfix.c				\
 		tests_mul.c tests_div.c tests_sub.c tests_add.c tests_pow.c tests_mod.c tests_convert_base.c $(CFLAGS) $(LDFLAGS) $(LIB)
+
+working:
+		@gcc -o $(NAME) $(WORKINGS) $(CFLAGS) $(LDFLAGS) $(LIB)
 
 buildlib:
 		make -C ../ buildlib
@@ -59,7 +70,7 @@ pf_tree:
 crash:
 		@echo "Stress test"
 		@./bash.sh
-		@gcc -o $(NAME) test_test.c $(CFLAGS) $(LDFLAGS) -lmul -ladd -lutils
+		@gcc -o $(NAME) test_test.c $(CFLAGS) $(LDFLAGS) $(LIB)
 
 clean:
 		@rm -f *.gcno
