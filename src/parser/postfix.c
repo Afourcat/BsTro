@@ -73,5 +73,6 @@ char *postfix(char *str, char *operands, char *base)
 	}
 	unstack_all(to_return, &stack);
 	free(stack);
+	free(str);
 	return (to_return);
 }

@@ -41,6 +41,5 @@ char *parser(char *expr, char *op_base)
 	int shift = 0;
 
 	parse_sign(expr, op_base, &i, shift);
-	expr[i] = 0;
 	return (expr);
 }
