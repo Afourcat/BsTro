@@ -20,7 +20,15 @@ int main(int ac, char *av[])
 	unsigned int size;
 	char *res;
 
-	if (ac != 4) {
+	if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h') {
+		my_putstr("USAGE\n	./calc base operator size_read.\n\n");
+		my_putstr("DESCRIPTION\n \
+	base      all the symbole of the base\n \
+	operator  the symbole for the parentheses and the 5 operator\n \
+	size_read number of characters to be read\n");
+		return (EXIT_USAGE);
+	}
+	else if (ac != 4) {
 		my_putstr("Usage: ");
 		my_putstr(av[0]);
 		my_putstr(" base ops \"()+-*/%\" exp_len\n");
