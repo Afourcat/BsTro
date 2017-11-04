@@ -33,6 +33,6 @@ char *my_alo(char *str, char *operands)
 			size_counter++;
 		counter++;
 	}
-	to_return = my_calloc(size_counter * 2);
+	to_return = my_calloc(sizeof(char) * (size_counter * 2));
 	return (to_return);
 }
