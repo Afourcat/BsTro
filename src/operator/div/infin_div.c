@@ -22,7 +22,7 @@ char *get_quot(char **buffer, char *divisor)
 	char *quot = my_strdup("");
 	int cmp = compare(tmp_buffer, divisor);
 
-	if (buffer[0][0] == '0') {
+	if (compare(*buffer, "0") == 0 && cmp == 2) {
 		free(tmp_buffer);
 		free(quot);
 		return (my_strdup("0"));
@@ -90,3 +90,12 @@ char *infin_div(char *dividend, char *divisor)
 	free_sign_ope(dividend, divisor, sign_dividend, sign_divisor);
 	return (res);
 }
+/*
+int main(int argc, char *argv[])
+{
+	char *res = infin_div(my_strdup("4060916513755512335"), my_strdup("8460"));
+	printf("%s\n", res);
+	free(res);
+	return 0;
+}
+*/

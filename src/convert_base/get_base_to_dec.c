@@ -69,5 +69,5 @@ char *get_base_to_dec(char *str, char *base, char neg)
 		rev_counter++;
 		max_power = infin_sub(max_power, my_strdup("1"));
 	}
-	return ("0");
+	return (my_strdup("0"));
 }
