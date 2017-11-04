@@ -69,7 +69,7 @@ pf_tree_t *char_to_pf_tree(char *str, char *base)
 	int operator;
 	pf_tree_t *tmp;
 	int size = my_strlen(str);
-
+		
 	while (str[i] != '\0' && i < size) {
 		tmp = create_pf_tree(str + i, base);
 		if (tmp->operator != -1) {
@@ -80,7 +80,10 @@ pf_tree_t *char_to_pf_tree(char *str, char *base)
 		add_stack_v(&stack, tmp);
 		i += 2;
 	}
-	return (out_stack_v(&stack));
+	free(str);
+	tmp = out_stack_v(&stack);
+	free(stack);
+	return (tmp);
 }
 
 void free_pf_tree(pf_tree_t *tree)

@@ -16,7 +16,13 @@ void set_buffer(char *buffer, char * str, int size)
 		buffer[i] = str[i];
 }
 
-char *get_quot(char **buffer, char *divisor)
+static void buffer_to_zero(char *buffer, int size)
+{
+	for (int i = 0; i < size; i++)
+		buffer[i] = 0;
+}
+
+char *get_quot(char **buffer, char *divisor, int size_buffer)
 {
 	char *tmp_buffer = my_strdup(*buffer);
 	char *quot = my_strdup("");
@@ -31,8 +37,10 @@ char *get_quot(char **buffer, char *divisor)
 		tmp_buffer = infin_sub(tmp_buffer, my_strdup(divisor));
 		if (tmp_buffer[0] != '-') {
 			quot = infin_add(quot, my_strdup("1"));
-			free(*buffer);
-			*buffer = my_strdup(tmp_buffer);
+			buffer_to_zero(*buffer, size_buffer);
+//			free(*buffer);
+//			*buffer = my_strdup(tmp_buffer);
+			my_strcat(*buffer, tmp_buffer);
 		}
 		cmp = compare(tmp_buffer, divisor);
 	}
@@ -43,13 +51,13 @@ char *get_quot(char **buffer, char *divisor)
 char *infin_div_wrapped(char *dividend, char *divisor, int s_dend, int s_sor)
 {
 	char *quotient = my_calloc(sizeof(char) * (s_dend + 1));
-	char *buffer = my_calloc(sizeof(char) * (s_sor + 2));
+	char *buffer = my_calloc(sizeof(char) * (s_dend + 2));
 	char *tmp_quot;
 	char *tmp = my_calloc(sizeof(char) * 2);
 
 	set_buffer(buffer, dividend, s_sor);
 	for (int i = s_sor - 1; i < s_dend; i++) {
-		tmp_quot = get_quot(&buffer, divisor);
+		tmp_quot = get_quot(&buffer, divisor, s_dend + 2);
 		my_strcat(quotient, tmp_quot);
 		if (buffer[0] == '0')
 			buffer[0] = 0;
