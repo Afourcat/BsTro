@@ -5,7 +5,9 @@
 ## Makefile that compile parser's functions
 ##
 
-SRC		=	convert_base.c
+SRC		=	convert_base.c	\
+			get_dec_to_base.c \
+			get_base_to_dec.c
 
 OBJ		=	$(SRC:.c=.o)
 

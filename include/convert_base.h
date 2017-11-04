@@ -8,8 +8,6 @@
 #ifndef CONVERT_BASE_H_
 #define CONVERT_BASE_H_
 
-char *convert_base(char *src, char *base, char neg, int bools);
-char *get_dec_to_base(char *nbr, char *base);
-char *get_base_to_dec(char *str, char *base, char neg);
-
+char *convert_base(char *src, char *base, int bool);
+ 
 #endif /* CONVERT_BASE_H */
