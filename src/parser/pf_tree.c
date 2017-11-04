@@ -40,6 +40,7 @@ char *get_tree_number(char *str)
 		s[j] = str[j];
 	}
 	s[i] = 0;
+	free(str);
 	return (s);
 }
 
