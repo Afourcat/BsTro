@@ -68,7 +68,7 @@ char *eval_expr(char *nb_base, char *op_base, char *expr, int size)
 	expr = calc(pf_tree, nb_base, op_base[3], s_nb_base);
 	my_putchar('A');
 	if (s_nb_base != 10)
-		expr = convert_base(expr, nb_base, op_base[3], 1);
+//		expr = convert_base(expr, nb_base, op_base[3], 1);
 	my_putchar('A');
 	free_pf_tree(pf_tree);
 	my_putchar('A');
