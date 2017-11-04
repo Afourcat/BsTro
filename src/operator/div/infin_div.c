@@ -84,7 +84,7 @@ char *infin_div(char *dividend, char *divisor)
 		return (my_strdup("0"));
 	}
 	res = infin_div_wrapped(dividend, divisor, s_dividend, s_divisor);
-	if (sign_dividend != sign_divisor)
+	if (sign_dividend != sign_divisor && res[0] != '0')
 		res = my_dup_without_zero(res, 1);
 	free_sign_ope(dividend, divisor, sign_dividend, sign_divisor);
 	return (res);
