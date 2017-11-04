@@ -40,8 +40,8 @@ static void manage_number(char *expr, char *res, int *iters, char **bases)
 	char *tmp = my_calloc(sizeof(char) * 2);
 
 	tmp[0] = bases[1][2];
-	if (iters[0] && (expr[iters[0] - 1] == bases[1][1]) ||
-			 !is_in(iters[0 - 1], bases[1]))
+	if (iters[0] && (expr[iters[0] - 1] == bases[1][1] ||
+			 !is_in(iters[0 - 1], bases[1])))
 		my_strcat(res + iters[1]++, tmp);
 	add_neg(bases[1], bases[0], res);
 	while (is_in(expr[++iters[0]], bases[0])) {
@@ -62,7 +62,7 @@ static void manage_bracket(char *expr, char *res, int *iters, char **bases)
 	if (iters[0] && (expr[iters[0] - 1] == bases[1][1] ||
 			 !is_in(iters[0 - 1], bases[1])))
 		my_strcat(res + iters[1]++, tmp);
-	add_neg(bases[1], bases[0], res);
+       	add_neg(bases[1], bases[0], res);
 	tmp[0] = bases[1][0];
 	my_strcat(res + iters[1]++, tmp);
 	iters[0] += 2;
