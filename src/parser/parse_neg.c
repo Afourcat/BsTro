@@ -41,7 +41,7 @@ static void manage_number(char *expr, char *res, int *iters, char **bases)
 
 	tmp[0] = bases[1][2];
 	if (iters[0] && (expr[iters[0] - 1] == bases[1][1] ||
-			 !is_in(iters[0 - 1], bases[1])))
+			 !is_in(expr[iters[0] - 1], bases[1])))
 		my_strcat(res + iters[1]++, tmp);
 	add_neg(bases[1], bases[0], res);
 	while (is_in(expr[++iters[0]], bases[0])) {
@@ -60,7 +60,7 @@ static void manage_bracket(char *expr, char *res, int *iters, char **bases)
 	
 	tmp[0] = bases[1][2];
 	if (iters[0] && (expr[iters[0] - 1] == bases[1][1] ||
-			 !is_in(iters[0 - 1], bases[1])))
+			 !is_in(expr[iters[0] - 1], bases[1])))
 		my_strcat(res + iters[1]++, tmp);
        	add_neg(bases[1], bases[0], res);
 	tmp[0] = bases[1][0];
@@ -118,3 +118,15 @@ char *parse_neg(char *expr, char *nb_base, char *op_base)
 	free(tmp);
 	return (res);
 }
+/*
+int main(int argc, char *argv[])
+{
+	char *expr = my_strdup("-1+-1*-1--1/-1%-1*-1%-1--1");
+	char *op = my_strdup("()+-*\/%");
+	char *nb = my_strdup("0123456789");
+	char *res = parse_neg(expr, nb, op);
+	my_putstr(res);
+	free(res);
+	return 0;
+}
+*/

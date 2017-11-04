@@ -40,7 +40,6 @@ int main(int ac, char *av[])
 	expr = get_expr(size);
 	res = eval_expr(av[1], av[2], expr, size);
 	my_putstr(res);
-	free(expr);
 	free(res);
 	return (EXIT_SUCCESS);
 }
