@@ -43,5 +43,6 @@ char *infin_sub(char *nb1, char *nb2)
 	char *new_nb2 = get_opposed_number_wo_free(nb2);
 
 	result = infin_add(nb1, new_nb2);
+	free(nb2);
 	return (result);
 }

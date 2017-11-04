@@ -61,5 +61,7 @@ char *eval_expr(char *nb_base, char *op_base, char *expr, int size)
 	free_pf_tree(pf_tree);
 	replace_char_to(expr, spaces[1], spaces[0]);
 	free(spaces);
+	free(op_base);
+	free(nb_base);
 	return (expr);
 }

@@ -13,12 +13,19 @@
 
 char *infin_mod(char *str1, char *str2)
 {
-	char *div = infin_div(str1, str2);
-	char *mul = infin_mul(str2, div);
-	char *mod = infin_sub(str1, mul);
+	char *div = infin_div(my_strdup(str1), my_strdup(str2));
+	char *mul = infin_mul(my_strdup(str2), my_strdup(div));
+	char *mod = infin_sub(my_strdup(str1), mul);
 
-	if (str1[0] == '-' && mod[0] != '-' && mod[0] != '0')
+	if (str1[0] == '-' && mod[0] != '-' && mod[0] != '0') {
+		free(str1);
+		free(str2);
+		free(div);
 		return (my_dup_without_zero(mod, 1));
-	else
+	} else {
+		free(str1);
+		free(str2);
+		free(div);
 		return (mod);
+	}
 }

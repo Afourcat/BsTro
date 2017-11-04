@@ -33,5 +33,5 @@ char *my_div(char *nb1, char *nb2)
 
 char *my_mod(char *nb1, char *nb2)
 {
-	return (infin_div(nb1, nb2));
+	return (infin_mod(nb1, nb2));
 }

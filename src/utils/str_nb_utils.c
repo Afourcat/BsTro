@@ -75,14 +75,15 @@ char *remove_minus(char *str)
 int compare(char *str1, char *str2)
 {
 	int i = 0;
-
-	if (my_strlen(str2) == my_strlen(str1)) {
-		while (str1[i] == str2[i] && i < my_strlen(str1)) {
+	int size_str1 = my_strlen(str1);
+	int size_str2 = my_strlen(str2);
+	
+	if (size_str1 == size_str2) {
+		while (str1[i] == str2[i] && i < size_str1)
 			i++;
-		}
-		if (i == my_strlen(str1))
+		if (i == size_str1)
 			return (0);
 		return (str1[i] > str2[i] ? 1 : 2);
 	}
-	return (my_strlen(str1) > my_strlen(str2) ? 1 : 2);
+	return (size_str1 > size_str2 ? 1 : 2);
 }
