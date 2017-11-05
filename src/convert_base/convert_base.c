@@ -31,7 +31,7 @@ char *create_res(stack_v_t *stack, char *nb_base, int size)
 	return (res);
 }
 
-char *deci_to_base(char *str, char *nb_base, char neg)
+char *deci_to_base(char *str, char *nb_base, char neg, int bool_s)
 {
 	int i = 0;
 	int s_base = my_strlen(nb_base);
@@ -43,7 +43,8 @@ char *deci_to_base(char *str, char *nb_base, char neg)
 		if (div != NULL)
 			free(div);
 		div = infin_div(my_strdup(str), my_itoa(s_base));
-		mod = infin_sub(str, infin_mul(my_strdup(div), my_itoa(s_base)));
+		mod = infin_sub(my_strdup(str), infin_mul(my_strdup(div), my_itoa(s_base)));
+		(bool_s && !i) ? free(str - 1) : free(str);
 		str = my_strdup(div);
 		add_stack_v(&stack, my_strdup(mod));
 		free(mod);
@@ -51,8 +52,8 @@ char *deci_to_base(char *str, char *nb_base, char neg)
 	} while (div[0] != '0');
 	if (str[0] == '-')
 		add_stack_v(&stack, my_strdup(&neg));
-       	free(div);
 	free(str);
+       	free(div);
 	return (create_res(stack, nb_base,i));
 }
 
@@ -93,7 +94,15 @@ char *base_to_dec(char *str, char *nb_base, char neg)
 
 char *convert_base(char *str, char *nb_base, char neg, int bool)
 {
+	int bool_s = 0;
+	char *res;
+	
 	if (!bool)
 		return (base_to_dec(str, nb_base, neg));
-	return(deci_to_base(str, nb_base, neg));
+	if (str[0] == neg) {
+		str++;
+		bool_s = 1;
+	}
+	res = deci_to_base(str, nb_base, neg, bool_s);
+	return(my_dup_without_zero(res, bool_s));
 }

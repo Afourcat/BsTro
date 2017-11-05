@@ -9,7 +9,7 @@
 #define CONVERT_BASE_H_
 
 char *convert_base(char *src, char *base, char neg, int bool_s);
-char *deci_to_base(char *str, char *nb_base, char neg);
-char *get_base_to_dec(char *str, char *base, char neg);
+char *deci_to_base(char *str, char *nb_base, char neg, int bool_s);
+char *get_base_to_dec(char *str, char *base, char neg, int bool_s);
 
 #endif /* CONVERT_BASE_H */
