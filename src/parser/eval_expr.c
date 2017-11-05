@@ -35,7 +35,7 @@ int find_space(char *spaces, char *op_base, char *nb_base)
 	return (0);
 }
 
-void replace_char_to(char *str, char in, char out)
+void replace_char_to(char *str, char out, char in)
 {
 	int size = my_strlen(str);
 
@@ -57,7 +57,7 @@ char *eval_expr(char *nb_base, char *op_base, char *expr, int size)
 	expr = parse_neg(expr, nb_base, op_base);
 	expr = postfix(expr, op_base, nb_base);
 	pf_tree = char_to_pf_tree(expr, op_base);
-	expr = calc(pf_tree, nb_base, op_base[3], s_nb_base); // Gerer le - dans le convert
+	expr = calc(pf_tree, nb_base, op_base[3], s_nb_base);
 	if (s_nb_base != 10)
 		expr = convert_base(expr, nb_base, op_base[3], 1);
 	free_pf_tree(pf_tree);
