@@ -49,21 +49,12 @@ char *deci_to_base(char *str, char *nb_base, char neg, int bool_s)
 		add_stack_v(&stack, my_strdup(mod));
 		free(mod);
 		i++;
-	} while (div[0] != '0');
+	} while (div[0] != nb_base[0]);
 	if (str[0] == '-')
 		add_stack_v(&stack, my_strdup(&neg));
 	free(str);
        	free(div);
 	return (create_res(stack, nb_base,i));
-}
-
-static int get_pos(char c, char *str)
-{
-	int i = 0;
-	
-	while (str[i] && c != str[i])
-		i++;
-	return (i);
 }
 
 char *base_to_dec(char *str, char *nb_base, char neg)
@@ -96,7 +87,7 @@ char *convert_base(char *str, char *nb_base, char neg, int bool)
 {
 	int bool_s = 0;
 	char *res;
-	
+
 	if (!bool)
 		return (base_to_dec(str, nb_base, neg));
 	if (str[0] == neg) {

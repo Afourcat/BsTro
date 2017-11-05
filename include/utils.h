@@ -33,5 +33,9 @@ int put_in_str(char c, char *str);
 char *my_alo(char *str, char *operands);
 int get_str_nb(char *str, char *to_return, int *i, char *nb_base);
 char *my_strdup(char *str);
+int compare_base_10(char *nb_base);
+int get_pos(char c, char *str);
+void replace(char *str, char *out, char *in);
+void replace_char_to(char *str, char out, char in);
 
 #endif /* UTILS_H_ */

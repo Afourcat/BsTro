@@ -7,16 +7,17 @@
 
 ROOT		=	$(realpath ../..)
 
-SRC		=	display.c	 \
-			my_atoi.c	 \
-			stack.c		 \
-			stack_void.c	 \
-			memory.c 	 \
-			str_utils.c	 \
-			str_nb_utils.c   \
-			str_nb_utils_2.c \
-			str_nb_utils_3.c \
-			my_strdup.c	
+SRC		=	display.c		\
+			my_atoi.c		\
+			stack.c			\
+			stack_void.c		\
+			memory.c 		\
+			str_utils.c		\
+			str_nb_utils.c		\
+			str_nb_utils_2.c	\
+			str_nb_utils_3.c	\
+			my_strdup.c		\
+			replace.c
 
 OBJ		=	$(SRC:.c=.o)
 
