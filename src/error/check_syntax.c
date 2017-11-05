@@ -9,6 +9,13 @@
 #include "utils.h"
 #include "error.h"
 
+static int check_operands(char *str, char *operands)
+{
+	if (is_in(str[my_strlen(str)], operands))
+	    return (84);
+	return (0);
+}
+
 static int check_parenthesis(char *str, char *operands)
 {
 	int counter = 0;
@@ -48,6 +55,11 @@ int check_syntax(char *str, char *operands, char *base)
 		exit(84);
 	}
 	if (check_base(str, operands, base)) {
+		my_putstr_error("syntax error");
+		free(str);
+		exit(84);
+	}
+	if (check_operands(str, operands)) {
 		my_putstr_error("syntax error");
 		free(str);
 		exit(84);
