@@ -13,13 +13,13 @@
 #include "infin_div.h"
 #include "convert_base.h"
 
-char *create_res(stack_v_t *stack, char *nb_base, int size)
+char *create_res(stack_v_t *stack, char *nb_base, int size, int neg)
 {
 	char *temp;
 	char *res = my_calloc(sizeof(char) * (size + 2));
 	int i = 0;
 
-	if (!is_in(((char *)stack->data)[0], nb_base))
+	if (((char *)stack->data)[0] == neg)
 		res[i++] = *((char *)out_stack_v(&stack));
 	while (i < size) {
 		temp = (char *)out_stack_v(&stack);
@@ -54,7 +54,7 @@ char *deci_to_base(char *str, char *nb_base, char neg, int bool_s)
 		add_stack_v(&stack, my_strdup(&neg));
 	free(str);
        	free(div);
-	return (create_res(stack, nb_base,i));
+	return (create_res(stack, nb_base, i, neg));
 }
 
 char *base_to_dec(char *str, char *nb_base, char neg)

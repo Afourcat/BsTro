@@ -7,8 +7,6 @@
 
 DOX	:=	$(shell doxygen --version 2> /dev/null)
 
-CTC	:=	$(shell ctc --version 2> /dev/null)
-
 all:
 	@echo -e "The \033[32mcompilation\033[0m of the \033[34mbistro-matic\033[0m has \033[32mstarted\033[0m"
 	@make --no-print-directory -C src/
@@ -55,6 +53,10 @@ doc:
 ifndef DOX
 	@echo -e "No doxygen has been found"
 else
+	@echo -e "Downloading the doxygen.dox"
+	@rm -f bonus/doxygen.dox
+	@wget http://projects.nwmqpa.com/nwmqpa/bistro-matics-tests/raw/master/doxygen.dox 2>/dev/null
+	@mv doxygen.dox bonus/doxygen.dox
 	@echo -e "The \033[32mgeneration\033[0m of the \033[34mdocumentation\033[0m has \033[32mstarted\033[0m"
 	@doxygen -s bonus/doc_config 1>/dev/null
 	@echo -e "The \033[34mdocumentation\033[0m has been \033[32msuccessfully generated\033[0m"
