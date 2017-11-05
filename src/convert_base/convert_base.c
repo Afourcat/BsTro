@@ -43,8 +43,7 @@ char *deci_to_base(char *str, char *nb_base, char neg)
 		if (div != NULL)
 			free(div);
 		div = infin_div(my_strdup(str), my_itoa(s_base));
-		mod = infin_sub(str, infin_mul(my_strdup(div), my_itoa(s_base))); 
-		free(str);
+		mod = infin_sub(str, infin_mul(my_strdup(div), my_itoa(s_base)));
 		str = my_strdup(div);
 		add_stack_v(&stack, my_strdup(mod));
 		free(mod);

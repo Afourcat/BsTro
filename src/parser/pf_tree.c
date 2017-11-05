@@ -40,7 +40,6 @@ char *get_tree_number(char *str)
 		s[j] = str[j];
 	}
 	s[i] = 0;
-	free(str);
 	return (s);
 }
 
@@ -71,7 +70,7 @@ pf_tree_t *char_to_pf_tree(char *str, char *base)
 	pf_tree_t *tmp;
 	int size = my_strlen(str);
 		
-	while (str[i] != '\0' && i < size) {
+	while (i < size && str[i] != '\0') {
 		tmp = create_pf_tree(str + i, base);
 		if (tmp->operator != -1) {
 			tmp->right = out_stack_v(&stack);

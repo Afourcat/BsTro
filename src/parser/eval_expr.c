@@ -49,7 +49,7 @@ char *eval_expr(char *nb_base, char *op_base, char *expr, int size)
 	pf_tree_t *pf_tree;
 	char* spaces = my_calloc(sizeof(char) * 3);
 	int s_nb_base = my_strlen(nb_base);
-	
+
 	check_syntax(expr, op_base, nb_base);
 	find_space(spaces, op_base, nb_base);
 	replace_char_to(expr, spaces[0], spaces[1]);
