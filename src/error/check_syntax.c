@@ -44,10 +44,12 @@ int check_syntax(char *str, char *operands, char *base)
 {
 	if (check_parenthesis(str, operands)) {
 		my_putstr_error("syntax error");
+		free(str);
 		exit(84);
 	}
 	if (check_base(str, operands, base)) {
 		my_putstr_error("syntax error");
+		free(str);
 		exit(84);
 	}
 	return (0);
