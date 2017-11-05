@@ -74,7 +74,7 @@ char *base_to_dec(char *str, char *nb_base, char neg)
 	char *res = my_itoa(get_pos(str[0], nb_base));
 	char *tmp;
 	
-	while (i < size - 1 && size > 1) {
+	while (i < size  && size > 1) {
 		tmp = my_itoa(get_pos(str[i], nb_base));
 		res = infin_mul(res, my_strdup(s_nb_base));
 		res = infin_add(res, my_strdup(tmp));
