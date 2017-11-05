@@ -51,7 +51,7 @@ char *eval_expr(char *nb_base, char *op_base, char *expr, int size)
 	int s_nb_base = my_strlen(nb_base);
 	
 	check_syntax(expr, op_base, nb_base);
-	find_space(spaces, op_base, nb_base); // Gerer l espace
+	find_space(spaces, op_base, nb_base);
 	replace_char_to(expr, spaces[0], spaces[1]);
 	expr = parser(expr, op_base);
 	expr = parse_neg(expr, nb_base, op_base);
