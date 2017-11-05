@@ -68,12 +68,16 @@ static int get_pos(char c, char *str)
 
 char *base_to_dec(char *str, char *nb_base, char neg)
 {
-	int i = 1;
+	int i = 0;
 	int size = my_strlen(str);
 	char *s_nb_base = my_itoa(my_strlen(nb_base));
-	char *res = my_itoa(get_pos(str[0], nb_base));
+	char *res;
 	char *tmp;
-	
+	int bool_s = (str[i] == neg) ? 1 : 0;
+
+	if (bool_s)
+		i++;
+	res = my_itoa(get_pos(str[i++], nb_base));
 	while (i < size  && size > 1) {
 		tmp = my_itoa(get_pos(str[i], nb_base));
 		res = infin_mul(res, my_strdup(s_nb_base));
@@ -81,6 +85,8 @@ char *base_to_dec(char *str, char *nb_base, char neg)
 		i++;
 		free(tmp);
 	}
+	if (bool_s)
+		res = my_dup_without_zero(res, 1);
 	free(s_nb_base);
 	free(str);
 	return (res);
